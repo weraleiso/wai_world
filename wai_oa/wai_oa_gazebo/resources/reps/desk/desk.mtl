@@ -1,0 +1,33 @@
+#
+## Alias OBJ Material File
+# Exported from SketchUp, (c) 2000-2012 Trimble Navigation Limited
+
+newmtl _auto_
+Ka 0.000000 0.000000 0.000000
+Kd 0.172549 0.172549 0.168627
+Ks 0.330000 0.330000 0.330000
+map_Kd desk/_auto_.jpg
+
+newmtl FrontColor
+Ka 0.000000 0.000000 0.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.330000 0.330000 0.330000
+
+newmtl Wax_02
+Ka 0.000000 0.000000 0.000000
+Kd 0.678431 0.800000 0.639216
+Ks 0.330000 0.330000 0.330000
+map_Kd desk/Wax_02.jpg
+
+newmtl Formica_Laminate_Dark
+Ka 0.000000 0.000000 0.000000
+Kd 0.196078 0.207843 0.235294
+Ks 0.330000 0.330000 0.330000
+map_Kd desk/Formica_Laminate_Dark.jpg
+
+newmtl Wood_Bamboo
+Ka 0.000000 0.000000 0.000000
+Kd 0.694118 0.411765 0.168627
+Ks 0.330000 0.330000 0.330000
+map_Kd desk/Wood_Bamboo.jpg
+

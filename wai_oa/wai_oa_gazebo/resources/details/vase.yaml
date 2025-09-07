@@ -1,0 +1,6 @@
+link_base:
+    camera_rviz: [1.5,-1.5,1.5]
+    name: "Ming Vase"
+    year: "1368-1644"
+    specs: "Material: Porcelain"
+    description: "A Ming dynasty red/yellow colored porcelain vase."

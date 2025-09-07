@@ -1,0 +1,97 @@
+import groovy.json.JsonSlurper
+
+apply plugin: 'com.android.application'
+
+android {
+    compileSdk defaultTargetSdkVersion
+
+    defaultConfig {
+        applicationId "ai.picovoice.rhinodemo"
+        minSdkVersion 21
+        targetSdkVersion defaultTargetSdkVersion
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    def testDataFile = file('../../../../resources/.test/test_data.json')
+    def parsedJson = new JsonSlurper().parseText(testDataFile.text)
+    def languages = []
+    parsedJson.tests.within_context.each { t ->
+        languages.add([t.language, t.context_name])
+    }
+
+    flavorDimensions "language"
+    productFlavors {
+        en {
+            getIsDefault().set(true)
+        }
+
+        languages.each { languageInfo ->
+            "${languageInfo.get(0)}" {
+                applicationIdSuffix ".${languageInfo.get(0)}"
+                ext.contextName = "${languageInfo.get(1)}"
+            }
+        }
+
+        all { flavor ->
+            delete fileTree("$projectDir/src/main/assets") {
+                exclude '**/.gitkeep'
+            }
+            task("${flavor.name}CopyParams", type: Copy) {
+                from("$projectDir/../../../../lib/common/")
+                if (flavor.name != 'en') {
+                    include("rhino_params_${flavor.name}.pv")
+                } else {
+                    include("rhino_params.pv")
+                }
+                into("$projectDir/src/main/assets/models")
+            }
+            task("${flavor.name}CopyContext", type: Copy) {
+                description = "Copy ${flavor.name} resources"
+                if (flavor.name != 'en') {
+                    from("$projectDir/../../../../resources/contexts_${flavor.name}/android")
+                } else {
+                    from("$projectDir/../../../../resources/contexts/android")
+                }
+                include("${flavor.ext.contextName}_android.rhn")
+                into("$projectDir/src/main/assets/contexts")
+                rename { String fileName ->
+                    fileName.replace("_android", "").replace(" ", "_")
+                }
+            }
+            task("${flavor.name}ContextName") {
+                resValue 'string', 'pvContextName', flavor.ext.contextName
+            }
+        }
+    }
+    lint {
+        abortOnError false
+    }
+    namespace 'ai.picovoice.rhinodemo'
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.google.code.gson:gson:2.10'
+    implementation 'ai.picovoice:rhino-android:3.0.1'
+}
+
+afterEvaluate {
+    android.productFlavors.all {
+        flavor ->
+            tasks."merge${flavor.name.capitalize()}DebugAssets".dependsOn "${flavor.name}CopyParams"
+            tasks."merge${flavor.name.capitalize()}ReleaseAssets".dependsOn "${flavor.name}CopyParams"
+            tasks."merge${flavor.name.capitalize()}DebugAssets".dependsOn "${flavor.name}CopyContext"
+            tasks."merge${flavor.name.capitalize()}ReleaseAssets".dependsOn "${flavor.name}CopyContext"
+            tasks."merge${flavor.name.capitalize()}DebugAssets".dependsOn "${flavor.name}ContextName"
+            tasks."merge${flavor.name.capitalize()}ReleaseAssets".dependsOn "${flavor.name}ContextName"
+    }
+}

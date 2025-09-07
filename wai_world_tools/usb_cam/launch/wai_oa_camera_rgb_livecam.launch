@@ -1,0 +1,8 @@
+<launch>
+	<group ns="camera_rgb_livecam">
+        <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen" >
+            <param name="camera_frame_id" value="projector" />
+            <rosparam command="load" file="$(find usb_cam)/config/wai_oa_camera_rgb_livecam.yaml"/>
+        </node>
+    </group>
+</launch>

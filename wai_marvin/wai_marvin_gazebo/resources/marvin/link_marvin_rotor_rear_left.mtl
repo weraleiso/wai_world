@@ -1,0 +1,10 @@
+#
+## Alias OBJ Material File
+# Exported from SketchUp, (c) 2000-2012 Trimble Navigation Limited
+
+newmtl Formica_Laminate_Dark
+Ka 0.000000 0.000000 0.000000
+Kd 0.188235 0.207843 0.231373
+Ks 0.330000 0.330000 0.330000
+map_Kd link_marvin_rotor_rear_left/Formica_Laminate_Dark.jpg
+

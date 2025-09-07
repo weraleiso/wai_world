@@ -1,0 +1,6 @@
+link_base:
+    name: "MARVIN (MAV)"
+    year: "2019"
+    specs: "m=1.0kg, P=100W"
+    description: "Marvin is a purely virtual, artificially intelligent, display drone companion."
+    camera_rviz: [-3.0,3.0,3.0]

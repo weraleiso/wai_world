@@ -1,0 +1,268 @@
+setup_session_expertise:
+    session_expertise: 'oa_default'
+    session_expertise_level: '3'
+
+setup_session_defaults:
+    workspace_presenter:
+        default: 'default'
+    presenter:
+        default: [0.0,0.0,1.0,0.0]
+    projector:
+        default: 'slide'
+    projection:
+        default: [2.49,3.0,1.0,0.0]
+    camera:
+        break: [-4.7026,-12.244,9.9361, 1.352,-1.1921,-1.8079]
+        default: [-1.8312,1.4215,1.8032, 0.96589,1.4216,0.77907]
+        expand_projection: [0.5,3.0,1.05, 1.0,3.0,1.05]
+        graph_3d: [12.502,-2.0836,9.3688, 11.158,2.5593,3.2247]
+        graph_eval: [2.6221,-5.4203,20.995, 6.2576,8.8025,8.9597]
+        graph_stats: [2.5,-1.0,4.5, 5.0,-1.0,4.5]
+        overview: [-9.3404,-17.831,29.44, 3.0501,1.7788,3.1549]
+        presenter: [0.08393,0.47313,1.1179, 1.0389,0.23996,0.93473]
+        presenter_fpv: [2.3768,-0.040192,1.4326, -0.53616,0.34137,1.1204]
+        startup: [-250.0,-50.0,25.0, 0.0,0.0,0.0]
+        wim: [0.12969,0.5321,1.116, 0.69693,0.88327,0.89466]
+    reps:
+        rep_name: 'marvin'
+        rep_interaction: 'land'
+    reps_state:
+        lectern: [2.45,-2.0,0.0, 0.0]
+        table: [1.75,-2.0,0.0, 0.0]
+        vase: [2.0,4.5,0.5, 0.0]
+        wall_left: [3.0,1.0,0.0, 0.0]
+        wall_right: [3.0,-2.0,0.0, 0.0]
+        whiteboard: [2.5,3.0,0.0, 0.0]
+
+setup_scene_1:
+    teleprompter: Add slide notes here
+    sound: PlenumSettingUpSessionStartup
+
+setup_scene_2:
+    teleprompter: Add slide notes here
+
+setup_scene_3:
+    teleprompter: Add slide notes here
+    camera: expand_projection
+
+setup_scene_4:
+    teleprompter: Add slide notes here
+
+setup_scene_5:
+    teleprompter: Add slide notes here
+
+setup_scene_6:
+    teleprompter: Add slide notes here
+
+setup_scene_7:
+    teleprompter: Add slide notes here
+
+setup_scene_8:
+    teleprompter: Add slide notes here
+
+setup_scene_9:
+    teleprompter: Add slide notes here
+
+setup_scene_10:
+    teleprompter: Add slide notes here
+
+setup_scene_11:
+    teleprompter: Add slide notes here
+
+setup_scene_12:
+    teleprompter: Add slide notes here
+
+setup_scene_13:
+    teleprompter: Add slide notes here
+
+setup_scene_14:
+    teleprompter: Add slide notes here
+
+setup_scene_15:
+    teleprompter: Add slide notes here'
+    camera: expand_projection
+
+setup_scene_16:
+    teleprompter: Add slide notes here
+    camera: presenter
+
+setup_scene_17:
+    teleprompter: Add slide notes here
+
+setup_scene_18:
+    teleprompter: Add slide notes here
+
+setup_scene_19:
+    teleprompter: Add slide notes here
+
+setup_scene_20:
+    teleprompter: Add slide notes here
+    camera: presenter
+
+setup_scene_21:
+    teleprompter: Add slide notes here
+
+setup_scene_22:
+    teleprompter: Add slide notes here
+
+setup_scene_23:
+    teleprompter: Add slide notes here
+
+setup_scene_24:
+    teleprompter: Add slide notes here
+
+setup_scene_25:
+    teleprompter: Add slide notes here
+
+setup_scene_26:
+    teleprompter: Add slide notes here
+
+setup_scene_27:
+    teleprompter: Add slide notes here
+    camera: presenter
+
+setup_scene_28:
+    teleprompter: Add slide notes here
+
+setup_scene_29:
+    teleprompter: Add slide notes here
+
+setup_scene_30:
+    teleprompter: Add slide notes here
+
+setup_scene_31:
+    teleprompter: Add slide notes here
+
+setup_scene_32:
+    teleprompter: Add slide notes here
+
+setup_scene_33:
+    teleprompter: Add slide notes here
+
+setup_scene_34:
+    teleprompter: Add slide notes here
+
+setup_scene_35:
+    teleprompter: Add slide notes here
+
+setup_scene_36:
+    teleprompter: Add slide notes here
+
+setup_scene_37:
+    teleprompter: Add slide notes here
+
+setup_scene_38:
+    teleprompter: Add slide notes here
+
+setup_scene_39:
+    teleprompter: Add slide notes here
+
+setup_scene_40:
+    teleprompter: Add slide notes here
+    camera: presenter
+
+setup_scene_41:
+    teleprompter: Add slide notes here
+
+setup_scene_42:
+    teleprompter: Add slide notes here
+
+setup_scene_43:
+    teleprompter: Add slide notes here
+
+setup_scene_44:
+    teleprompter: Add slide notes here
+
+setup_scene_45:
+    teleprompter: Add slide notes here
+
+setup_scene_46:
+    teleprompter: Add slide notes here
+
+setup_scene_47:
+    teleprompter: Add slide notes here
+
+setup_scene_48:
+    teleprompter: Add slide notes here
+
+setup_scene_49:
+    teleprompter: Add slide notes here
+
+setup_scene_50:
+    teleprompter: Add slide notes here
+
+setup_scene_51:
+    teleprompter: Add slide notes here
+
+setup_scene_52:
+    teleprompter: Add slide notes here
+    camera: presenter
+
+setup_scene_53:
+    teleprompter: Add slide notes here
+
+setup_scene_54:
+    teleprompter: Add slide notes here
+
+setup_scene_55:
+    teleprompter: Add slide notes here
+
+setup_scene_56:
+    teleprompter: Add slide notes here
+
+setup_scene_57:
+    teleprompter: Add slide notes here
+
+setup_scene_58:
+    teleprompter: Add slide notes here
+
+setup_scene_59:
+    teleprompter: Add slide notes here
+
+setup_scene_60:
+    teleprompter: Add slide notes here
+    camera: presenter
+
+setup_scene_61:
+    teleprompter: Add slide notes here
+
+setup_scene_62:
+    teleprompter: Add slide notes here
+
+setup_scene_63:
+    teleprompter: Add slide notes here
+
+setup_scene_64:
+    teleprompter: Add slide notes here
+    camera: presenter
+
+setup_scene_65:
+    teleprompter: Add slide notes here
+
+setup_scene_66:
+    teleprompter: Add slide notes here
+
+setup_scene_67:
+    teleprompter: Add slide notes here
+
+setup_scene_68:
+    teleprompter: Add slide notes here
+
+setup_scene_69:
+    teleprompter: Add slide notes here
+
+setup_scene_70:
+    teleprompter: Add slide notes here'
+
+setup_scene_71:
+    teleprompter: Add slide notes here
+
+setup_scene_72:
+    teleprompter: Add slide notes here
+    camera: expand_projection
+
+setup_scene_73:
+    teleprompter: Add slide notes here
+    camera: overview
+    sound: PlenumSettingUpSessionClose
+

@@ -1,0 +1,1010 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>win_wai_oa</class>
+ <widget class="QMainWindow" name="win_wai_oa">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>960</width>
+    <height>540</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>WAI OPEN AUDITORIUM</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>9</y>
+      <width>941</width>
+      <height>481</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="lay_ver_wai_oa">
+     <item>
+      <widget class="QTabWidget" name="tab_wai_oa">
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <widget class="QWidget" name="tab_wai_oa_settings">
+        <attribute name="title">
+         <string>Settings</string>
+        </attribute>
+        <widget class="QWidget" name="horizontalLayoutWidget_2">
+         <property name="geometry">
+          <rect>
+           <x>9</x>
+           <y>9</y>
+           <width>921</width>
+           <height>391</height>
+          </rect>
+         </property>
+         <layout class="QHBoxLayout" name="lay_hor_wai_oa_settings" stretch="1,1,0,2">
+          <item>
+           <layout class="QVBoxLayout" name="lay_ver_wai_oa_settings_left">
+            <item>
+             <widget class="QLabel" name="lbl_wai_oa_settings_session_length">
+              <property name="text">
+               <string>Session Length [min]:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lne_wai_oa_settings_session_length"/>
+            </item>
+            <item>
+             <widget class="Line" name="lin_wai_oa_session_length_session_break_length">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="lbl_wai_oa_settings_session_break_length">
+              <property name="text">
+               <string>Session Break Length [min]:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lne_wai_oa_settings_session_break_length"/>
+            </item>
+            <item>
+             <widget class="Line" name="lin_wai_oa_session_break_session_start_before">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="lbl_wai_oa_settings_scene_start_before">
+              <property name="text">
+               <string>Scene Start Before:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lne_wai_oa_settings_scene_start_before"/>
+            </item>
+            <item>
+             <widget class="Line" name="lin_wai_oa_scene_start_before_scene_transition_timeout">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="lbl_wai_oa_settings_scene_transition_timout">
+              <property name="text">
+               <string>Scene Transition Timeout [s]:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lne_wai_oa_settings_scene_transition_timout"/>
+            </item>
+            <item>
+             <widget class="Line" name="lin_wai_oa_scene_transition_timeout_scene_trigger_timeout">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="lbl_wai_oa_settings_scene_trigger_timout">
+              <property name="text">
+               <string>Scene Trigger Timeout [s]:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lne_wai_oa_settings_scene_trigger_timout"/>
+            </item>
+            <item>
+             <widget class="Line" name="lin_wai_oa_scene_trigger_timeout_settings">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btn_wai_oa_settings_load">
+              <property name="text">
+               <string>&amp;Restore Settings</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btn_wai_oa_settings_save">
+              <property name="text">
+               <string>&amp;Save Settings</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout">
+            <item>
+             <widget class="QLabel" name="lbl_wai_oa_settings_enable_session_scheduler">
+              <property name="text">
+               <string>Enable Session Scheduler:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_3">
+              <item>
+               <widget class="QCheckBox" name="chk_wai_oa_settings_enable_session_scheduler">
+                <property name="text">
+                 <string>Enabled:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lne_wai_oa_settings_enable_session_scheduler">
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="Line" name="lin_wai_oa_enable_session_scheduler_audience_count_max">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="lbl_wai_oa_settings_audience_count_max">
+              <property name="text">
+               <string>Audience Count Max:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lne_wai_oa_settings_audience_count_max"/>
+            </item>
+            <item>
+             <widget class="Line" name="lin_wai_oa_audience_count_max_audience_per_row">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="lbl_wai_oa_settings_audience_listeners_per_row">
+              <property name="text">
+               <string>Audience/Listeners Per Row:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lne_wai_oa_settings_audience_listeners_per_row"/>
+            </item>
+            <item>
+             <widget class="Line" name="lin_wai_oa_audience_per_row_workspace_presenter_model">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="lbl_wai_oa_settings_workspace_presenter_model">
+              <property name="text">
+               <string>Workspace Presenter Model:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lne_wai_oa_settings_workspace_presenter_model"/>
+            </item>
+            <item>
+             <widget class="Line" name="lin_wai_oa_workspace_presenter_model_presenter_pose">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="lbl_wai_oa_settings_presenter_pose">
+              <property name="text">
+               <string>Presenter Pose [X,Y,Z|YAW] [m|rad]:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout">
+              <item>
+               <widget class="QLineEdit" name="lne_wai_oa_settings_presenter_pose_x"/>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lne_wai_oa_settings_presenter_pose_y"/>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lne_wai_oa_settings_presenter_pose_z"/>
+              </item>
+              <item>
+               <widget class="Line" name="lin_presenter_pose">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lne_wai_oa_settings_presenter_pose_yaw"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="Line" name="lin_wai_oa_presenter_pose_projection_pose">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="lbl_wai_oa_settings_projection_pose">
+              <property name="text">
+               <string>Projection Pose [X,Y,Z|YAW] [m|rad]:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <item>
+               <widget class="QLineEdit" name="lne_wai_oa_settings_projection_pose_x"/>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lne_wai_oa_settings_projection_pose_y"/>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lne_wai_oa_settings_projection_pose_z"/>
+              </item>
+              <item>
+               <widget class="Line" name="lin_wai_oa_projection_pose">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lne_wai_oa_settings_projection_pose_yaw"/>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="Line" name="lin_wai_oa_session_settings_rep_logo">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="lay_ver_wai_oa_settings_right" stretch="1,10">
+            <item>
+             <widget class="QLabel" name="lbl_wai_oa_settings_logo_label">
+              <property name="font">
+               <font>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>REP Logo</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="lbl_wai_oa_settings_logo">
+              <property name="text">
+               <string>Open Auditorium Logo</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="tab_wai_oa_reps">
+        <attribute name="title">
+         <string>Reps</string>
+        </attribute>
+        <widget class="QWidget" name="horizontalLayoutWidget_3">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>10</y>
+           <width>921</width>
+           <height>391</height>
+          </rect>
+         </property>
+         <layout class="QHBoxLayout" name="lay_hor_wai_oa_reps" stretch="1,0,1">
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <property name="sizeConstraint">
+           <enum>QLayout::SetDefaultConstraint</enum>
+          </property>
+          <item>
+           <layout class="QVBoxLayout" name="lay_ver_wai_oa_reps_left">
+            <item>
+             <widget class="QListWidget" name="lst_wai_oa_reps"/>
+            </item>
+            <item>
+             <widget class="Line" name="lin_wai_oa_reps_rep_list_rep_buttons">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btn_wai_oa_reps_edit">
+              <property name="text">
+               <string>&amp;Edit REP Selection</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btn_wai_oa_reps_load">
+              <property name="text">
+               <string>&amp;Restore REP Selection</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btn_wai_oa_reps_save">
+              <property name="text">
+               <string>&amp;Save REP Selection</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="Line" name="lin_wai_oa_reps_rep_selection_rep_logo">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="lay_ver_wai_oa_reps_right" stretch="1,10">
+            <item>
+             <widget class="QLabel" name="lbl_wai_oa_reps_logo_label">
+              <property name="font">
+               <font>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>REP Preview</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="lbl_wai_oa_reps_logo">
+              <property name="text">
+               <string>TextLabel</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="tab_wai_oa_scheduler">
+        <attribute name="title">
+         <string>Scheduler</string>
+        </attribute>
+        <widget class="QWidget" name="horizontalLayoutWidget_4">
+         <property name="geometry">
+          <rect>
+           <x>9</x>
+           <y>9</y>
+           <width>921</width>
+           <height>391</height>
+          </rect>
+         </property>
+         <layout class="QHBoxLayout" name="lay_hor_wai_oa_scheduler" stretch="1,1,1">
+          <item>
+           <layout class="QVBoxLayout" name="lay_ver_wai_oa_scheduler_left">
+            <item>
+             <widget class="QLabel" name="lbl_wai_oa_scheduler_time_slots">
+              <property name="text">
+               <string>Daily Session Time Slots:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="Line" name="line_4">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btn_wai_oa_scheduler_time_slots">
+              <property name="text">
+               <string>&amp;Edit Selected Time Slot</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QListWidget" name="lst_wai_oa_scheduler_time_slots"/>
+            </item>
+            <item>
+             <widget class="Line" name="line_13">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btn_wai_oa_scheduler_save">
+              <property name="text">
+               <string>&amp;Save Scheduler Session Settings</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btn_wai_oa_scheduler_load">
+              <property name="text">
+               <string>&amp;Reload Scheduler Session Settings</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="lay_ver_wai_oa_scheduler_middle" stretch="0,0,0,0,0,0">
+            <item>
+             <widget class="QLabel" name="lbl_wai_oa_scheduler_sessions">
+              <property name="text">
+               <string>Daily Session Overview:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="Line" name="line_23">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btn_wai_oa_scheduler_session_settings">
+              <property name="text">
+               <string>&amp;Edit Selected Session</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QListWidget" name="lst_wai_oa_scheduler_sessions"/>
+            </item>
+            <item>
+             <widget class="Line" name="line_22">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="lay_hor_wai_oa_scheduler_weekday">
+              <item>
+               <widget class="QLabel" name="lbl_wai_oa_scheduler_weekday">
+                <property name="text">
+                 <string>Weekday:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="cmb_wai_oa_scheduler_weekday">
+                <property name="currentText">
+                 <string>monday</string>
+                </property>
+                <property name="maxVisibleItems">
+                 <number>7</number>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>monday</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>tuesday</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>wednesday</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>thursday</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>friday</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>saturday</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>sunday</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="lay_ver_wai_oa_scheduler_right">
+            <item>
+             <widget class="QLabel" name="lbl_wai_oa_scheduler_session_settings">
+              <property name="text">
+               <string>Session Overview:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="Line" name="line_2">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="lay_hor_wai_oa_scheduler_session_time">
+              <item>
+               <widget class="QLabel" name="lbl_wai_oa_scheduler_session_time">
+                <property name="text">
+                 <string>Session Time:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lne_wai_oa_scheduler_session_time_start_hour">
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lne_wai_oa_scheduler_session_time_start_minute">
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbl_wai_oa_scheduler_session_time_start_end">
+                <property name="text">
+                 <string>-</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lne_wai_oa_scheduler_session_time_end_hour">
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lne_wai_oa_scheduler_session_time_end_minute">
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="lay_hor_wai_oa_scheduler_session_group">
+              <item>
+               <widget class="QLabel" name="lbl_wai_oa_scheduler_session_group">
+                <property name="text">
+                 <string>Session Group:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lne_wai_oa_scheduler_session_group"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="lay_hor_wai_oa_scheduler_session_topic">
+              <item>
+               <widget class="QLabel" name="label_4">
+                <property name="text">
+                 <string>Session Topic:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lne_wai_oa_scheduler_session_topic"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="lay_hor_wai_oa_scheduler_session_name">
+              <item>
+               <widget class="QLabel" name="label_5">
+                <property name="text">
+                 <string>Session Name:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lne_wai_oa_scheduler_session_name"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="Line" name="line">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="lbl_wai_oa_scheduler_preview_label">
+              <property name="text">
+               <string>Session Preview:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="lbl_wai_oa_scheduler_preview">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="tab_wai_oa_sessions">
+        <attribute name="title">
+         <string>Sessions</string>
+        </attribute>
+        <widget class="QWidget" name="horizontalLayoutWidget">
+         <property name="geometry">
+          <rect>
+           <x>9</x>
+           <y>9</y>
+           <width>921</width>
+           <height>391</height>
+          </rect>
+         </property>
+         <layout class="QHBoxLayout" name="lay_hor_wai_oa_sessions" stretch="5,5,0,0,0,10">
+          <property name="spacing">
+           <number>3</number>
+          </property>
+          <item>
+           <layout class="QVBoxLayout" name="lay_ver_wai_oa_sessions_left">
+            <item>
+             <widget class="QLabel" name="lbl_wai_oa_sessions">
+              <property name="text">
+               <string>Sessions - Selected for launch:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lne_wai_oa_sessions"/>
+            </item>
+            <item>
+             <widget class="QListWidget" name="lst_wai_oa_sessions">
+              <property name="sortingEnabled">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btn_wai_oa_save_session_selected_default">
+              <property name="text">
+               <string>&amp;Select For Launch</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btn_wai_oa_session_import">
+              <property name="text">
+               <string>&amp;Import</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="Line" name="lin_wai_oa_sessions_scenes">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="lbl_wai_oa_scenes">
+              <property name="text">
+               <string>Scenes:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QListWidget" name="lst_wai_oa_scenes">
+              <property name="sortingEnabled">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="lay_ver_wai_oa_sessions_middle">
+            <item>
+             <widget class="QLabel" name="label_3">
+              <property name="text">
+               <string>Scene Interactions:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QListWidget" name="lst_wai_oa_interactions"/>
+            </item>
+            <item>
+             <widget class="Line" name="line_3">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btn_wai_oa_interaction_remove">
+              <property name="text">
+               <string>&amp;Remove</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btn_wai_oa_interaction_edit">
+              <property name="text">
+               <string>&amp;Edit</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btn_wai_oa_interaction_add">
+              <property name="text">
+               <string>&amp;Add</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="Line" name="line_5">
+            <property name="frameShadow">
+             <enum>QFrame::Sunken</enum>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="lay_ver_wai_oa_sessions_interactions_add">
+            <item>
+             <widget class="QPushButton" name="btn_wai_oa_camera_graph_3d">
+              <property name="toolTip">
+               <string>Add CAMERA on 3D-GRAPH!</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btn_wai_oa_camera_graph_eval">
+              <property name="toolTip">
+               <string>Add CAMERA on EVAL-GRAPH!</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btn_wai_oa_camera_overview">
+              <property name="toolTip">
+               <string>Add CAMERA on OVERVIEW!</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btn_wai_oa_camera_presenter">
+              <property name="toolTip">
+               <string>Add CAMERA on PRESENTER!</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="Line" name="line_21">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="lay_ver_wai_oa_sessions_right" stretch="7,0,3">
+            <item>
+             <widget class="QLabel" name="lbl_wai_oa_scene_preview">
+              <property name="text">
+               <string>Scene Preview</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="lbl_wai_oa_interactions_triggers_available">
+              <property name="text">
+               <string>Available Interactions/Triggers:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="lay_ver_wai_oa_int_trig_available">
+              <item>
+               <widget class="QListWidget" name="lst_wai_oa_interactions_available"/>
+              </item>
+              <item>
+               <widget class="QListWidget" name="lst_wai_oa_triggers_available"/>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </widget>
+     </item>
+     <item>
+      <widget class="Line" name="lin_wai_oa_settings_parameters_settings_buttons">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="lay_hor_wai_oa_buttons">
+       <item>
+        <widget class="QPushButton" name="btn_wai_oa_about">
+         <property name="text">
+          <string>&amp;About</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_wai_oa_close">
+         <property name="text">
+          <string>&amp;Close</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>960</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="action_About"/>
+    <addaction name="action_Close"/>
+   </widget>
+   <addaction name="menuFile"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_Close">
+   <property name="text">
+    <string>&amp;Close</string>
+   </property>
+  </action>
+  <action name="action_About">
+   <property name="text">
+    <string>&amp;About</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package format="2">
+    <name>rviz_vive_plugin</name>
+    <version>0.0.0</version>
+    <description>Adds support for the HTV Vive VR HMD to RViz.</description>
+    <maintainer email="denys.kotelovych@gmail.com">Denys Kotelovych</maintainer>
+    <maintainer email="isop.alexander@gmail.com">Werner Alexander Isop</maintainer>
+    <license>BSD</license>
+    <buildtool_depend>catkin</buildtool_depend>
+    <depend>roscpp</depend>
+    <depend>libogre-dev</depend>
+    <depend>libqt4-dev</depend>
+    <depend>libqt4-opengl-dev</depend>
+    <depend>boost</depend>
+    <depend>rviz</depend>
+    <depend>tf</depend>
+    <depend>rviz_vive_plugin_msgs</depend>
+    <export>
+        <rviz plugin="${prefix}/plugin_description.xml"/>
+    </export>
+</package>

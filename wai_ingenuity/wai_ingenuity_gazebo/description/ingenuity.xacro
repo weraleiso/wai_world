@@ -1,0 +1,389 @@
+<?xml version='1.0'?>
+
+<robot name="ingenuity" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+
+    <!-- ========== -->
+    <!-- PROPERTIES -->
+    <!-- ========== -->
+
+
+	<xacro:property name="M_PI" value="3.1415926535897931"/>
+
+    <xacro:arg name="sensor_update_rate" default="25.0"/>
+    <xacro:arg name="controller_update_rate" default="50.0"/>
+    <xacro:property name="sensor_update_rate" value="$(arg sensor_update_rate)"/>
+    <xacro:property name="controller_update_rate" value="$(arg controller_update_rate)"/>
+
+
+
+    <!-- ======= -->
+    <!-- PLUGINS -->
+    <!-- ======= -->
+
+	<!-- Cameras -->
+	<gazebo reference="link_ingenuity_camera_front">
+		<sensor type="camera" name="camera_front">
+			<update_rate>${sensor_update_rate}</update_rate>
+			<camera>
+				<horizontal_fov>${90*M_PI/180.0}</horizontal_fov>
+				<image>
+					<format>R8G8B8</format>
+					<width>640</width>
+					<height>480</height>
+				</image>
+				<clip>
+					<near>0.01</near>
+					<far>100</far>
+				</clip>
+			</camera>
+
+			<plugin name="camera_camera_controller" filename="libgazebo_ros_camera.so">
+				<alwaysOn>true</alwaysOn>
+				<updateRate>${sensor_update_rate}</updateRate>
+				<cameraName>camera_front</cameraName>
+				<imageTopicName>image_raw</imageTopicName>
+				<cameraInfoTopicName>camera_info</cameraInfoTopicName>
+				<frameName>link_ingenuity_camera_optical_front</frameName>
+				<hackBaseline>0.07</hackBaseline>
+				<distortionK1>0.0</distortionK1>
+				<distortionK2>0.0</distortionK2>
+				<distortionK3>0.0</distortionK3>
+				<distortionT1>0.0</distortionT1>
+				<distortionT2>0.0</distortionT2>
+			</plugin>
+		</sensor>
+    </gazebo>
+
+	<gazebo reference="link_ingenuity_camera_down">
+		<sensor type="camera" name="camera_down">
+			<update_rate>${sensor_update_rate}</update_rate>
+			<camera>
+				<horizontal_fov>${90 * M_PI/180.0}</horizontal_fov>
+				<image>
+					<format>R8G8B8</format>
+					<width>640</width>
+					<height>480</height>
+				</image>
+				<clip>
+					<near>0.01</near>
+					<far>100</far>
+				</clip>
+			</camera>
+
+			<plugin name="camera_camera_controller" filename="libgazebo_ros_camera.so">
+				<alwaysOn>true</alwaysOn>
+				<updateRate>${sensor_update_rate}</updateRate>
+				<cameraName>camera_down</cameraName>
+				<imageTopicName>image_raw</imageTopicName>
+				<cameraInfoTopicName>camera_info</cameraInfoTopicName>
+				<frameName>link_ingenuity_camera_optical_down</frameName>
+				<hackBaseline>0.07</hackBaseline>
+				<distortionK1>0.0</distortionK1>
+				<distortionK2>0.0</distortionK2>
+				<distortionK3>0.0</distortionK3>
+				<distortionT1>0.0</distortionT1>
+				<distortionT2>0.0</distortionT2>
+			</plugin>
+		</sensor>
+    </gazebo>
+
+	<!-- Gazebo sensor plugins -->
+	<gazebo>
+		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+		</plugin>
+
+		<plugin name="quadrotor_imu_sim" filename="libhector_gazebo_ros_imu.so">
+		    <alwaysOn>true</alwaysOn>
+		    <updateRate>${sensor_update_rate}</updateRate>
+		    <bodyName>ingenuity::link_base</bodyName>
+		    <frameId>link_base</frameId>
+		    <topicName>imu</topicName>
+		    <gaussianNoise>0.05</gaussianNoise>
+		    <accelDrift>0.001 0.001 0.001</accelDrift>
+		</plugin>
+
+		<plugin name="quadrotor_groundtruth_sim" filename="libgazebo_ros_p3d.so">
+		    <!-- Takes a BODY NAME body::link and publishes an ODOM-Topic only, parent frame is world -->
+		    <!-- COMBINE WITH static_transform_publisher AND ground_truth_to_tf IN THE GAZEBO_SPAWN.launch FILE-->
+			<alwaysOn>true</alwaysOn>
+			<updateRate>${sensor_update_rate}</updateRate>
+			<bodyName>ingenuity::link_base</bodyName>
+			<topicName>odom</topicName>
+			<gaussianNoise>0.0</gaussianNoise>
+			<frameName>world</frameName> <!-- REQUIRES world HERE! -->
+		</plugin>
+	</gazebo>
+
+	<gazebo>
+      <plugin name="quadrotor_simple_controller" filename="libhector_gazebo_quadrotor_simple_controller.so">
+        <topicName>cmd_vel</topicName>
+        <imuTopic>imu</imuTopic>
+        <stateTopic>odom</stateTopic>
+        <landingtakeoffSpeed>0.25</landingtakeoffSpeed>
+        <landingtakeoffHeight>1.0</landingtakeoffHeight>
+        <dynamicsPublish>false</dynamicsPublish>
+        <wrenchTopic>wrench</wrenchTopic>
+        <twistTopic>twist</twistTopic>
+        <energyTopic>energy</energyTopic>
+        <maxForce>30.0</maxForce>
+        <autoEngage>true</autoEngage>
+        <bodyName>ingenuity::link_base</bodyName>
+        <rollpitchProportionalGain>20.0</rollpitchProportionalGain>
+        <rollpitchDifferentialGain>10.0</rollpitchDifferentialGain>
+        <rollpitchLimit>1.0</rollpitchLimit>
+        <yawProportionalGain>1.0</yawProportionalGain>
+        <yawDifferentialGain>0.1</yawDifferentialGain>
+        <yawLimit>3.1415</yawLimit>
+        <velocityXYProportionalGain>1.0</velocityXYProportionalGain>
+        <velocityXYDifferentialGain>0.5</velocityXYDifferentialGain>
+        <velocityXYLimit>1.0</velocityXYLimit>
+        <velocityZProportionalGain>5.0</velocityZProportionalGain>
+        <velocityZDifferentialGain>1.0</velocityZDifferentialGain>
+        <velocityZLimit>0.5</velocityZLimit>
+        <motionSmallNoise>0.025</motionSmallNoise>
+        <motionDriftNoise>0.015</motionDriftNoise>
+        <motionDriftNoiseTime>5.0</motionDriftNoiseTime>
+      </plugin>
+    </gazebo>
+
+
+
+    <!-- ===== -->
+    <!-- LINKS -->
+    <!-- ===== -->
+
+	<link name="link_base"></link>
+
+	<link name="link_ingenuity_body">
+        <visual name="link_ingenuity_body_visual">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://wai_ingenuity_gazebo/resources/link_ingenuity_body.dae"/>
+            </geometry>
+        </visual>
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="1.5"/>
+            <inertia ixx="0.007812" ixy="0" ixz="0" iyx="0.0" iyy="0.007812" iyz="0" izx="0.0" izy="0.0" izz="0.015625"/>
+        </inertial>
+        <collision name="link_ingenuity_body_collision">
+            <origin xyz="0.0 0.0 -0.125" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <!--<mesh filename="package://wai_ingenuity_gazebo/resources/link_ingenuity_body.dae"/>-->
+                <box size="0.25 0.25 0.25"/>
+            </geometry>
+        </collision>
+	</link>
+
+	<link name="link_ingenuity_rotor_middle">
+        <visual name="link_ingenuity_rotor_middle_visual">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://wai_ingenuity_gazebo/resources/link_ingenuity_rotor_middle.dae"/>
+            </geometry>
+        </visual>
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0.056" />
+            <inertia ixx="0.020172" ixy="0.0" ixz="0.0" iyx="0.0" iyy="0.020172" iyz="0.0" izx="0.0" izy="0.0" izz="0.04032"/>
+        </inertial>
+        <!--<collision name="link_ingenuity_rotor_middle_collision">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://wai_ingenuity_gazebo/resources/link_ingenuity_rotor_middle.dae"/>
+            </geometry>
+        </collision>-->
+	</link>
+
+	<link name="link_ingenuity_rotor_top">
+		<visual name="link_ingenuity_rotor_top_visual">
+		  <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+		  <geometry>
+			<mesh filename="package://wai_ingenuity_gazebo/resources/link_ingenuity_rotor_top.dae"/>
+		  </geometry>
+		</visual>
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0.056" />
+            <inertia ixx="0.020172" ixy="0.0" ixz="0.0" iyx="0.0" iyy="0.020172" iyz="0.0" izx="0.0" izy="0.0" izz="0.04032"/>
+        </inertial>
+		<!--<collision name="link_ingenuity_rotor_top_collision">
+		  <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+		  <geometry>
+			<mesh filename="package://wai_ingenuity_gazebo/resources/link_ingenuity_rotor_top.dae"/>
+		  </geometry>
+		</collision>-->
+	</link>
+
+	<link name="link_ingenuity_solar_panel">
+		<visual name="link_ingenuity_solar_panel_visual">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://wai_ingenuity_gazebo/resources/link_ingenuity_solar_panel.dae"/>
+            </geometry>
+		</visual>
+		<inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0.0001"/>
+            <inertia ixx="0.0000020885416666667" ixy="0" ixz="0" iyx="0.0" iyy="0.0000020885416666667" iyz="0" izx="0.0" izy="0.0" izz="0.0000020885416666667"/>
+		</inertial>
+		<!--<collision>
+			<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+			<geometry>
+                <sphere radius="0.01"/>
+			</geometry>
+		</collision>-->
+	</link>
+
+	<link name="link_ingenuity_camera_front">
+		<visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <sphere radius="0.01"/>
+            </geometry>
+		</visual>
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0.001"/>
+            <inertia  ixx="0.00000004" ixy="0.0"  ixz="0.0"  iyy="0.00000004"  iyz="0.0"  izz="0.00000004"/>
+        </inertial>
+		<!--<collision>
+			<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+			<geometry>
+                <sphere radius="0.01"/>
+			</geometry>
+		</collision>-->
+	</link>
+	<link name="link_ingenuity_camera_optical_front"></link>
+
+	<link name="link_ingenuity_camera_down">
+		<visual>
+		  <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+		  <geometry>
+			<sphere radius="0.01"/>
+		  </geometry>
+		</visual>
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0.001"/>
+            <inertia  ixx="0.00000004" ixy="0.0"  ixz="0.0"  iyy="0.00000004"  iyz="0.0"  izz="0.00000004"/>
+        </inertial>
+		<!--<collision>
+			<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+			<geometry>
+                <sphere radius="0.01"/>
+			</geometry>
+		</collision>-->
+	</link>
+	<link name="link_ingenuity_camera_optical_down"></link>
+
+
+
+    <!-- ====== -->
+    <!-- JOINTS -->
+    <!-- ====== -->
+
+	<joint name="joint_ingenuity_body" type="fixed">
+		<axis xyz="0 0 0" />
+		<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+		<parent link="link_base"/>
+		<child link="link_ingenuity_body"/>
+	</joint>
+
+	<joint name="joint_ingenuity_rotor_middle" type="continuous"> <!-- CONTINUOUS -->
+		<axis xyz="0 0 1" />
+		<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+		<parent link="link_ingenuity_body"/>
+		<child link="link_ingenuity_rotor_middle"/>
+		<limit effort="100" velocity="100"/>
+		<dynamics damping="0.0" friction="0.0"/>
+	</joint>
+
+	<joint name="joint_ingenuity_rotor_top" type="continuous"> <!-- CONTINUOUS -->
+		<axis xyz="0 0 1" />
+		<origin xyz="0.0 0.0 0.1" rpy="0.0 0.0 0.0"/> <!-- 0.034 -->
+		<parent link="link_ingenuity_body"/>
+		<child link="link_ingenuity_rotor_top"/>
+		<limit effort="100" velocity="100"/>
+		<dynamics damping="0.0" friction="0.0"/>
+	</joint>
+
+	<joint name="joint_ingenuity_solar_panel" type="revolute"> <!-- not actuated! -->
+		<axis xyz="0 0 1" />
+		<origin xyz="0.0 0.0 0.2" rpy="0.0 0.0 0.0"/>
+		<parent link="link_ingenuity_body"/>
+		<child link="link_ingenuity_solar_panel"/>
+		<limit lower="0.0" upper="0.0" effort="100" velocity="100"/>
+	</joint>
+
+	<joint name="joint_ingenuity_camera_front" type="fixed">
+		<axis xyz="0 0 0" />
+		<origin xyz="0.09 0.0 -0.065" rpy="0.0 0.3 0.0"/>
+		<parent link="link_ingenuity_body"/>
+		<child link="link_ingenuity_camera_front"/>
+	</joint>
+	<joint name="joint_ingenuity_camera_optical_front" type="fixed">
+		<!-- these values have to be these values otherwise the gazebo camera
+			image won't be aligned properly with the frame it is supposedly
+			originating from -->
+		<origin xyz="0 0 0" rpy="-1.570796327 0 -1.570796327"/>
+		<parent link="link_ingenuity_camera_front"/>
+		<child link="link_ingenuity_camera_optical_front"/>
+	</joint>
+
+	<joint name="joint_ingenuity_camera_down" type="fixed">
+		<axis xyz="0 0 0" />
+		<origin xyz="0.05 0.0 -0.13" rpy="0.0 1.570796327 0.0"/>
+		<parent link="link_ingenuity_body"/>
+		<child link="link_ingenuity_camera_down"/>
+	</joint>
+	<joint name="joint_ingenuity_camera_optical_down" type="fixed">
+		<!-- these values have to be these values otherwise the gazebo camera
+			image won't be aligned properly with the frame it is supposedly
+			originating from -->
+		<origin xyz="0 0 0" rpy="-1.570796327 0 -1.570796327"/>
+		<parent link="link_ingenuity_camera_down"/>
+		<child link="link_ingenuity_camera_optical_down"/>
+	</joint>
+
+
+
+    <!-- ============= -->
+    <!-- TRANSMISSIONS -->
+    <!-- ============= -->
+
+	<transmission name="joint_ingenuity_rotor_middle_transmission">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="joint_ingenuity_rotor_middle">
+		  <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="joint_ingenuity_rotor_middle_actuator">
+		  <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		  <mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+	<transmission name="joint_ingenuity_rotor_top_transmission">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="joint_ingenuity_rotor_top">
+		  <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="joint_ingenuity_rotor_top_actuator">
+		  <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		  <mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+	<transmission name="joint_ingenuity_solar_panel_transmission">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="joint_ingenuity_solar_panel">
+		  <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="joint_ingenuity_solar_panel_actuator">
+		  <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		  <mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+</robot>

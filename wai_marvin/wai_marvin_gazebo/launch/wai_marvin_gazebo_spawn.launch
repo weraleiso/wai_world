@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+
+<launch>
+
+    <arg name="namespace_global" default="wai_world"/>
+    <arg name="namespace_marvin" default="marvin"/>
+
+    <arg name="marvin_spawn_x" default="1.0"/>
+    <arg name="marvin_spawn_y" default="1.0"/>
+    <arg name="marvin_spawn_z" default="1.0"/>
+    <arg name="marvin_spawn_yaw" default="0.0"/>
+    <arg name="marvin_spawn_delay" default="0.0"/>
+    <arg name="marvin_node_start_delay" default="0.0"/>
+
+    <arg name="marvin_node_sample_frequency" default="25.0"/>
+    <arg name="marvin_sensor_sample_frequency" default="25.0"/>
+    <arg name="marvin_controller_sample_frequency" default="50.0"/>
+    <arg name="marvin_tf_pub_interval" default="40.0"/>
+
+
+    <group ns="$(arg namespace_marvin)">
+
+        <param name="tf_prefix" type="string" value="$(arg namespace_marvin)" />
+        <param name="robot_description" command="$(find xacro)/xacro '$(find wai_marvin_gazebo)/descriptions/marvin.xacro' prefix:=$(arg namespace_marvin) sensor_update_rate:=$(arg marvin_sensor_sample_frequency) controller_update_rate:=$(arg marvin_controller_sample_frequency)"/>
+        <node name="spawn_model" pkg="gazebo_ros" type="spawn_model"  launch-prefix="bash -c 'sleep $(arg marvin_spawn_delay); $0 $@' " output="screen" args="-x $(arg marvin_spawn_x) -y $(arg marvin_spawn_y) -z $(arg marvin_spawn_z) -R 0.0 -P 0.0 -Y $(arg marvin_spawn_yaw) -gazebo_namespace /$(arg namespace_global)/gazebo -urdf -param robot_description -model $(arg namespace_marvin)"/>
+
+        <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" ns="/$(arg namespace_global)/$(arg namespace_marvin)" output="screen" args="joint_state_controller joint_marvin_rotor_front_left_velocity_controller joint_marvin_hook_roll_position_controller joint_marvin_hook_pitch_position_controller joint_marvin_hook_gripper_position_controller">
+            <rosparam command="load" ns="/$(arg namespace_global)/$(arg namespace_marvin)" subst_value="true">
+                joint_state_controller:
+                    type: joint_state_controller/JointStateController
+                    publish_rate: $(arg marvin_controller_sample_frequency)
+                joint_marvin_rotor_front_left_velocity_controller:
+                    type: effort_controllers/JointVelocityController
+                    joint: joint_marvin_rotor_front_left
+                    pid: {p: 1.0, i: 0.0, d: 0.0}
+                joint_marvin_hook_roll_position_controller:
+                    type: effort_controllers/JointPositionController
+                    joint: joint_marvin_hook_roll
+                    pid: {p: 0.0, i: 0.0, d: 0.0}
+                joint_marvin_hook_pitch_position_controller:
+                    type: effort_controllers/JointPositionController
+                    joint: joint_marvin_hook_pitch
+                    pid: {p: 0.0, i: 0.0, d: 0.0}
+                joint_marvin_hook_gripper_position_controller:
+                    type: effort_controllers/JointPositionController
+                    joint: joint_marvin_hook_gripper
+                    pid: {p: 0.0, i: 0.0, d: 0.0}
+            </rosparam>
+        </node>
+
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+            <param name="use_tf_static" value="false"/>
+            <param name="ignore_timestamp" value="true"/>
+            <param name="publish_frequency" value="$(arg marvin_controller_sample_frequency)"/>
+        </node>
+
+        <!-- AVOID USING joint_state_publisher HERE, COMBINE WITH quadrotor_groundtruth_sim plugin IN XACRO FILE INSTEAD: -->
+        <node name="tf_pub_world_wrt_marvin_odom" pkg="tf" type="static_transform_publisher" args="0.0 0.0 0.0 0.0 0.0 0.0 world $(arg namespace_marvin)/odom $(arg marvin_tf_pub_interval)"/>
+        <node name="tf_pub_world_wrt_marvin_map" pkg="tf" type="static_transform_publisher" args="0.0 0.0 0.0 0.0 0.0 0.0 world $(arg namespace_marvin)/map $(arg marvin_tf_pub_interval)"/>
+
+        <node name="tf_pub_marvin_wrt_camera_2d" pkg="tf" type="static_transform_publisher" args="0.0 0.0 0.5 1.570796327 0.0 0.0 $(arg namespace_marvin)/link_base marvin/oa_camera_rgb $(arg marvin_tf_pub_interval)"/>
+        <node name="tf_pub_marvin_wrt_hologram" pkg="tf" type="static_transform_publisher" args="1.0 0.0 0.0 0.0 0.0 0.0 $(arg namespace_marvin)/link_base marvin_hologram $(arg marvin_tf_pub_interval)"/>
+
+        <node name="ground_truth_to_tf" pkg="message_to_tf" type="message_to_tf" output="screen">
+            <param name="odometry_topic" value="odom"/>
+            <param name="frame_id" value="odom"/> <!-- tf_prefix is included in plugin already! -->
+            <param name="child_frame_id" value="link_base"/> <!-- tf_prefix is included in plugin already! -->
+        </node>
+        <!-- WELL WORKING, DONT FORGET TO UPDATE GROUND TRUTH TO TF PLUGIN IN XACRO! -->
+
+        <node name="wai_marvin_control_center_node" pkg="wai_marvin_control_center" type="wai_marvin_control_center_node" required="true" launch-prefix="bash -c 'sleep $(arg marvin_node_start_delay); $0 $@' " output="screen">
+            <rosparam command="load" subst_value="true">
+                F_NODE_SAMPLE_FREQUENCY: $(arg marvin_node_sample_frequency)
+                F_DEFAULT_SETPOINT_TRANSLATION_X: 2.5
+                F_DEFAULT_SETPOINT_TRANSLATION_Y: 0.0
+                F_DEFAULT_SETPOINT_TRANSLATION_Z: 0.75
+                F_DEFAULT_SETPOINT_ROTATION_W: 0.0
+                F_DEFAULT_SETPOINT_ROTATION_X: 0.0
+                F_DEFAULT_SETPOINT_ROTATION_Y: 0.0
+                F_DEFAULT_SETPOINT_ROTATION_Z: 1.0
+                F_CONTROLLER_TRANSLATION_X_SAT_MIN: -1.0
+                F_CONTROLLER_TRANSLATION_X_SAT_MAX: 1.0
+                F_CONTROLLER_TRANSLATION_Y_SAT_MIN: -1.0
+                F_CONTROLLER_TRANSLATION_Y_SAT_MAX: 1.0
+                F_CONTROLLER_TRANSLATION_Z_SAT_MIN: -0.35
+                F_CONTROLLER_TRANSLATION_Z_SAT_MAX: 0.35
+                F_CONTROLLER_ROTATION_Z_SAT_MIN: -1.0
+                F_CONTROLLER_ROTATION_Z_SAT_MAX: 1.0
+                F_CONTROLLER_TRANSLATION_X_P: 1.0
+                F_CONTROLLER_TRANSLATION_X_I: 0.0
+                F_CONTROLLER_TRANSLATION_X_D: 0.0
+                F_CONTROLLER_TRANSLATION_Y_P: 1.0
+                F_CONTROLLER_TRANSLATION_Y_I: 0.0
+                F_CONTROLLER_TRANSLATION_Y_D: 0.0
+                F_CONTROLLER_TRANSLATION_Z_P: 1.0
+                F_CONTROLLER_TRANSLATION_Z_I: 0.0
+                F_CONTROLLER_TRANSLATION_Z_D: 0.0
+                F_CONTROLLER_ROTATION_Z_P: 1.0
+                F_CONTROLLER_ROTATION_Z_I: 0.0
+                F_CONTROLLER_ROTATION_Z_D: 0.0
+            </rosparam>
+            <rosparam file="$(find wai_marvin_control_center)/config/details.yaml" command="load" ns="/$(arg namespace_global)/$(arg namespace_marvin)/details"/>
+        </node>
+
+    </group>
+  
+
+</launch>

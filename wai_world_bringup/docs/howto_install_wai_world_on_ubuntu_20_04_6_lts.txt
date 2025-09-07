@@ -1,0 +1,137 @@
+===========================
+ HOWTO - INSTALL WAI WORLD
+===========================
+
+
+INSTALL UBUNTU
+==============
+
+Download appropriate *.iso file of Ubuntu 20.04.6LTS 64-bit PC (AMD64) desktop image and install via USB stick:
+https://releases.ubuntu.com/focal/
+
+
+
+PREPARE SYSTEM
+==============
+
+# Update Index:
+sudo apt-get update
+
+# Purge unnecessary packages:
+sudo apt-get purge modemmanager
+
+# To avoid any conflicts with regional settings (language and format), change the language format in Ubuntu's "Settings"
+under "Region & Language" and "Formats" to "United States".
+
+
+
+INSTALL ROS Noetic and Dependencies
+===================================
+
+# Install ROS (noetic) (Subscribe to all updates in software updates!):
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+sudo apt-get install curl
+curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install ros-noetic-desktop-full
+echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+sudo apt-get install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential python3-catkin-tools
+sudo rosdep init
+rosdep update
+
+# Install additional ROS packages:
+sudo apt-get install ros-noetic-camera-info-manager ros-noetic-cv-bridge ros-noetic-rqt-multiplot ros-noetic-rosbridge-* python3-tornado ros-noetic-ddynamic-reconfigure ros-noetic-image-transport ros-noetic-image-transport-plugins ros-noetic-octomap* ros-noetic-geographic-* ros-noetic-octomap-ros ros-noetic-zbar-ros ros-noetic-transmission-interface ros-noetic-joint-limits-interface ros-noetic-gazebo-ros ros-noetic-ros-control ros-noetic-gazebo-ros-control ros-noetic-control-toolbox ros-noetic-ros-controllers ros-noetic-position-controllers ros-noetic-velocity-controllers ros-noetic-effort-controllers ros-noetic-joint-state-controller ros-noetic-controller-* ros-noetic-moveit*
+
+# Install additional libraries:
+sudo apt-get install libcurlpp-dev libhidapi-* libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libsndfile1-dev libx11-dev libspnav-dev libspdlog-dev libsdl2-* festival ffmpeg libv4l-dev v4l-utils
+
+# Install developer tools:
+sudo apt-get install gparted ssh* net-tools meld qtcreator qtmultimedia5-* xmlstarlet python3-pip
+
+# (OPTIONAL!) Install dependencies for H.264 image streaming via PIP:
+pip install av
+pip install pygame
+
+# (OPTIONAL!) Install Python3 support
+sudo apt-get install python-is-python3
+pip install pyside6
+--> In QTCreator switch default QtVersion from 2.x to 3.x
+--> In any PyQt project switch Python version from 2.x to 3.x in the project/build settings
+
+
+
+
+
+(OPTIONAL!) INSTALL HTC VIVE
+============================
+
+
+- Enable Graphics "Hybrid Mode" in BIOS (integrated plus discrete)
+- UNPLUG NETWORK CABLE, INSTALL WITHOUT INTERNET CONNECTION AND SKIP UPDATES!
+- Install Ubuntu 20.04.6 via graphics safe mode
+- After install and after first login: Dont proceed with initial setup steps (location, ubunt pro opt-in, aso.)
+- Switch resolution to 1600x900
+- Disable all live updates in Software Manager
+- Reboot to test install
+- Graphics driver 525 should now be working by default and show up in "Additional Drivers"
+- Reboot and DISABLE HYBRID mode in BIOS switching to DISCRETE GRAPHICS only!
+- Boot, CONNECT NETWORK and update apt!
+- Completely purge old 525 driver
+    * sudo apt update
+    * sudo apt purge ~nnvidia
+    * sudo apt purge nvidia*
+    * sudo apt autoremove
+    * sudo apt clean
+    * sudo reboot now
+- Reinstall stock nvidia-driver-535
+    * sudo apt install nvidia-driver-535
+- Reboot and test install
+- Install steam-devices package (STEAM Installer + all necessary udev rules are included already!)
+- Prepare and connect HTC Vive:
+    * Disconnect alle vive components
+    * Fully recharge controllers
+    * Disasseble and reassemble all HTC Vive components and reconnect power supply of HTC Vive hub
+    * Switch on all other components, wait for some time and plug on the PC side --> USB connector fist, then plug HDMI
+    * Wait for some time and then disconnect both plugs again...
+    * Reboot and reconnect both plugs from HTC Vive
+- Start steam, update everything and install either old test version of SteamVR (temp_v1.27.5) --> You may ignore "Error: vrclient Shared Lib Not Found (102)" and "Plugin crashed and blocked" messages!
+- Finish room calibration and test if HMD comes up with sample VR scene in direct mode!
+- DISABLE "null" or "Unknown" window via setting "preload" parameters in the two HIDDEN "webhelperoverlays.json" files to false!
+- Disable direct mode in advanced developer settings!
+- Double check that FPS of screen in graphics driver, FPS setting of Rviz and FPS setting of Vive are EQUAL (90Hz if possible)
+
+
+HTC VIVE - CALIBRATION
+----------------------
+- Start room calibration
+- Pointing one controller to PC screen, just as close as possible and straight to the screen
+- Floor clibration: point HMD to LEFT side (no doubt! ^^) and put both controllers to the side of HMD
+- For calibration of the interaction space, double check that the ARROW AFTER CALIBRATION is pointing to the LEFT side (the tool does randomly choose a best fit there!)
+Troubleshoot #1:
+- If SteamVR updates, you must keep OpenVR uptodate to use Room Calibration Tool, download current version via: https://github.com/ValveSoftware/openvr
+- Unpack archive into wai_world_tools folder, and completely recompile(!) catkin_ws! This also generates a new libopenvr_api.so!
+- Dont forget to copy/update newly compiled libopenvr_api.so file from catkin_ws TO the following Steam folder:
+    /home/ias/.steam/debian-installation/steamapps/common/SteamVR/tools/steamvr_room_setup/linux64/steamvr_room_setup_Data/Plugins/x86_64/libopenvr_api.so
+- If devices are not found/accessible in the room calibration tool, dont forget to enable bluetooth!
+
+HTC VIVE - TROUBLESHOOT
+-----------------------
+Troubleshoot #1:
+- Remove any unnecessary USB devices (you need enough current on USB ports)!
+- Unplug, reboot PC and replug!
+- Clear download cache under Downloaded Files in Steam
+- Competely unplug HTC Vive on PC side
+- Replug HTC Vive
+- Wait some seconds and relaunch Steam
+- Message should come up warning for missing config files or with newer SteamVR version an info message that Sudo rights are required (that's fine then!).
+- Launch Steam and SteamVR before and then launch ROS application!
+Troubleshoot #2:
+- Be careful if OpenVR libraries change (should be compatible with current SteamVR version!) or if SteamVR gets updated (may not be compatible with OpenVR any more --> Update)
+- Remove any unnecessary USB devices (avoid having too less current on USB ports)!
+- Unplug, reboot PC and replug!
+- Clear workspace Build Files and Recompile, dont forget to enable openvr package so that updated libraries get compiled and actually installed
+- Clear Steam Downloaded Files Cache
+- Try to switch SteamVR versions (currently V2.6.2 stable release)!
+- Clear Steam Downloaded Files Cache again and CHECK INTEGRITY of SteamVR installation (missing/updated files get installed or corrected then)!
+- Replug HTC Vive and restart Steam and SteamVR

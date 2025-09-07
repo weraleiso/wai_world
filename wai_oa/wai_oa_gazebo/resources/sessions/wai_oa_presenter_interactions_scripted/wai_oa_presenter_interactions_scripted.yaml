@@ -1,0 +1,464 @@
+setup_session_expertise:
+    session_expertise: 'oa_default'
+    session_expertise_level: '3'
+
+setup_session_defaults:
+    workspace_presenter:
+        default: 'default'
+    presenter:
+        default: [0.0,0.0,1.0,0.0]
+    projector:
+        default: 'slide'
+    projection:
+        default: [2.49,3.0,1.0,0.0]
+    camera:
+        break: [-4.7026,-12.244,9.9361, 1.352,-1.1921,-1.8079]
+        default: [-1.8312,1.4215,1.8032, 0.96589,1.4216,0.77907]
+        expand_projection: [0.5,3.0,1.05, 1.0,3.0,1.05]
+        graph_3d: [12.502,-2.0836,9.3688, 11.158,2.5593,3.2247]
+        graph_eval: [2.6221,-5.4203,20.995, 6.2576,8.8025,8.9597]
+        graph_stats: [2.5,-1.0,4.5, 5.0,-1.0,4.5]
+        overview: [-9.3404,-17.831,29.44, 3.0501,1.7788,3.1549]
+        presenter: [0.08393,0.47313,1.1179, 1.0389,0.23996,0.93473]
+        presenter_fpv: [2.3768,-0.040192,1.4326, -0.53616,0.34137,1.1204]
+        startup: [-250.0,-50.0,25.0, 0.0,0.0,0.0]
+        wim: [0.12969,0.5321,1.116, 0.69693,0.88327,0.89466]
+    reps:
+        rep_name: 'marvin'
+        rep_interaction: 'land'
+    reps_state:
+        lectern: [2.45,-2.0,0.0, 0.0]
+        table: [1.75,-2.0,0.0, 0.0]
+        vase: [2.0,4.5,0.5, 0.0]
+        wall_left: [3.0,1.0,0.0, 0.0]
+        wall_right: [3.0,-2.0,0.0, 0.0]
+        whiteboard: [2.5,3.0,0.0, 0.0]
+
+setup_scene_1:
+    teleprompter: Add slide notes here
+    sound: PlenumSettingUpSessionStartup
+
+setup_scene_2:
+    teleprompter: Add slide notes here
+
+setup_scene_3:
+    teleprompter: Add slide notes here
+    camera: expand_projection
+    rep_name: marvin
+    rep_interaction: reference
+    rep_interaction_switch: [2.0,2.0,1.0,3.141592654]
+
+setup_scene_4:
+    teleprompter: Add slide notes here
+    rep_name: marvin
+    rep_interaction: reference
+    rep_interaction_switch: [2.5,0.0,0.75,3.141592654]
+
+setup_scene_5:
+    teleprompter: Add slide notes here
+
+setup_scene_6:
+    teleprompter: Add slide notes here
+    camera: presenter
+
+setup_scene_7:
+    teleprompter: Add slide notes here
+
+setup_scene_8:
+    teleprompter: Add slide notes here
+    projector: slide
+
+setup_scene_9:
+    teleprompter: Add slide notes here
+
+setup_scene_10:
+    teleprompter: Add slide notes here
+    projector: livecam
+
+setup_scene_11:
+    teleprompter: Add slide notes here
+
+setup_scene_12:
+    teleprompter: Add slide notes here
+    projector: repcam
+    rep_name: marvin
+
+setup_scene_13:
+    teleprompter: Add slide notes here
+
+setup_scene_14:
+    teleprompter: Add slide notes here
+    projector: oa_demo.png
+
+setup_scene_15:
+    teleprompter: Add slide notes here
+
+setup_scene_16:
+    teleprompter: Add slide notes here
+    projector: oa_demo.mp4
+
+setup_scene_17:
+    teleprompter: Add slide notes here
+
+setup_scene_18:
+    teleprompter: Add slide notes here
+    projector: slide
+    projector_transition: dark_to_light
+
+setup_scene_19:
+    teleprompter: Add slide notes here
+
+setup_scene_20:
+    teleprompter: Add slide notes here
+    camera: presenter_fpv
+    projector_state: [-5.0,0.0,1.5,3.1415]
+
+setup_scene_21:
+    teleprompter: Add slide notes here
+    camera: presenter_fpv
+
+setup_scene_22:
+    teleprompter: Add slide notes here
+    camera: default
+    projector_state: [2.49,3.0,1.0,0.0]
+
+setup_scene_23:
+    teleprompter: Add slide notes here
+    camera: presenter
+
+setup_scene_24:
+    teleprompter: Add slide notes here
+
+setup_scene_25:
+    teleprompter: Add slide notes here
+    light: off
+
+setup_scene_26:
+    teleprompter: Add slide notes here
+    light: default
+
+setup_scene_27:
+    teleprompter: Add slide notes here
+    light: [96.0,64.0,64.0, 96.0,64.0,64.0]
+
+setup_scene_28:
+    teleprompter: Add slide notes here
+    camera: presenter
+    light: default
+
+setup_scene_29:
+    teleprompter: Add slide notes here
+
+setup_scene_30:
+    teleprompter: Add slide notes here
+    camera: overview
+
+setup_scene_31:
+    teleprompter: Add slide notes here
+
+setup_scene_32:
+    teleprompter: Add slide notes here
+    camera: [-2.0,2.0,2.0,0.0,0.0,0.5]
+    camera_link: vase/link_base
+
+setup_scene_33:
+    teleprompter: Add slide notes here
+
+setup_scene_34:
+    teleprompter: Add slide notes here
+    camera_follow: marvin
+    rep_name: marvin
+    rep_interaction: reference
+    rep_interaction_switch: [2.5,0.0,0.75,3.141592654]
+
+setup_scene_35:
+    teleprompter: Add slide notes here
+
+setup_scene_36:
+    teleprompter: Add slide notes here
+
+setup_scene_37:
+    teleprompter: Welcome to OA!
+
+setup_scene_38:
+    teleprompter: Add slide notes here
+
+setup_scene_39:
+    browser_link: www.google.at
+
+setup_scene_40:
+    teleprompter: Add slide notes here
+    light: default
+
+setup_scene_41:
+    teleprompter: Add slide notes here
+    sound: oa_demo
+
+setup_scene_42:
+    teleprompter: Add slide notes here
+
+setup_scene_43:
+    teleprompter: Add slide notes here
+    lectern: true
+
+setup_scene_44:
+    teleprompter: Add slide notes here
+    lectern: false
+
+setup_scene_45:
+    teleprompter: Add slide notes here
+    table: true
+
+setup_scene_46:
+    teleprompter: Add slide notes here
+
+setup_scene_47:
+    teleprompter: Add slide notes here
+    virtual_presenter: oa_demo
+    table: true
+
+setup_scene_48:
+    teleprompter: Add slide notes here
+
+setup_scene_49:
+    teleprompter: Add slide notes here
+    camera: graph_3d
+    graph_3d: oa_demo
+    graph_3d_grid: 0.04
+
+setup_scene_50:
+    teleprompter: Add slide notes here
+
+setup_scene_51:
+    teleprompter: Add slide notes here
+    camera: graph_stats
+    graph_stats: oa_demo
+
+setup_scene_52:
+    teleprompter: Add slide notes here
+    table: false
+
+setup_scene_53:
+    teleprompter: Add slide notes here
+    respawn_2d3d: oa_demo
+
+setup_scene_54:
+    teleprompter: Add slide notes here
+
+setup_scene_55:
+    teleprompter: Add slide notes here
+    hand_text: Welcome to OA!
+
+setup_scene_56:
+    teleprompter: Add slide notes here
+    camera: presenter
+    rep_name: marvin
+    rep_interaction: reference
+    rep_interaction_switch: [2.5,0.0,0.75,3.141592654]
+
+setup_scene_57:
+    teleprompter: Add slide notes here
+
+setup_scene_58:
+    teleprompter: Add slide notes here
+    camera: [-1.5,-1.5,3.0, 0.0,0.0,0.0]
+    camera_link: respawn_demo/link_base
+    rep_name: respawn_demo
+    rep_interaction: respawn
+    rep_interaction_switch: [0.5,0.5,1.5,0.0]
+
+setup_scene_59:
+    teleprompter: Add slide notes here
+
+setup_scene_60:
+    teleprompter: Add slide notes here
+    rep_name: workspace_presenter
+    rep_interaction: force
+    rep_interaction_switch: [0.0,0.0,-9.81]
+
+setup_scene_61:
+    teleprompter: Add slide notes here
+    rep_name: workspace_presenter
+    rep_interaction: force
+    rep_interaction_switch: [0.0,0.0,0.0]
+
+setup_scene_62:
+    teleprompter: Add slide notes here
+    rep_name: workspace_presenter
+    rep_interaction: state
+    rep_interaction_switch: [0.0,0.0,-0.01,0.0]
+
+setup_scene_63:
+    teleprompter: Add slide notes here
+    table: false
+
+setup_scene_64:
+    teleprompter: Add slide notes here
+    camera: [-1.0,-1.0,1.0,1.5,0.0,0.0]
+    camera_link: camera_rgbd_out_link
+    rep_name: presenter
+    rep_interaction: state
+    rep_interaction_switch: [5.0,-2.5,1.0,0.0]
+
+setup_scene_65:
+    teleprompter: Add slide notes here
+
+setup_scene_66:
+    teleprompter: Add slide notes here
+    rep_name: presenter
+    rep_interaction: state
+    rep_interaction_switch: [0.0,0.0,1.0,0.0]
+
+setup_scene_67:
+    teleprompter: Add slide notes here
+    camera: presenter
+
+setup_scene_68:
+    teleprompter: Add slide notes here
+    camera: default
+
+setup_scene_69:
+    teleprompter: Add slide notes here
+    camera: [-2.0,-2.0,2.0,0.0,0.0,0.0]
+    camera_link: marvin/link_base
+    rep_name: marvin
+    rep_interaction: reference
+    rep_interaction_switch: [2.75,0.0,4.0,0.0]
+
+setup_scene_70:
+    teleprompter: Add slide notes here
+    camera: default
+
+setup_scene_71:
+    teleprompter: Add slide notes here
+    camera: [-2.0,-2.0,2.0,0.0,0.0,0.0]
+    camera_link: marvin/link_base
+    rep_name: marvin
+    rep_interaction: reference
+    rep_interaction_switch: [6.0,-2.5,0.25,0.0]
+
+setup_scene_72:
+    teleprompter: Add slide notes here
+    camera: default
+
+setup_scene_73:
+    teleprompter: Add slide notes here
+    camera: [-2.0,-2.0,2.0,0.0,0.0,0.0]
+    camera_link: marvin/link_base
+    rep_name: marvin
+    rep_interaction: land
+
+setup_scene_74:
+    teleprompter: Add slide notes here
+    camera: default
+
+setup_scene_75:
+    teleprompter: Add slide notes here
+    camera: [-2.0,-2.0,2.0,0.0,0.0,0.0]
+    camera_link: marvin/link_base
+    rep_name: marvin
+    rep_interaction: reference
+    rep_interaction_switch: [6.0,-2.5,2.5,0.0]
+
+setup_scene_76:
+    teleprompter: Add slide notes here
+    camera: [-2.0,-2.0,2.0,0.0,0.0,0.0]
+    camera_link: marvin/link_base
+    rep_name: marvin
+    rep_interaction: takeoff
+
+setup_scene_77:
+    teleprompter: Add slide notes here
+    camera: [-4.0,-4.0,4.0,0.0,0.0,0.0]
+    camera_link: marvin/link_base
+    rep_name: marvin
+    rep_interaction: reference
+    rep_interaction_switch: [7.5,1.0,5.0,0.0]
+
+setup_scene_78:
+    teleprompter: Add slide notes here
+    camera: [-4.0,-4.0,4.0,0.0,0.0,0.0]
+    camera_link: marvin/link_base
+    rep_name: marvin
+    rep_interaction: reference
+    rep_interaction_switch: [-5.0,0.0,5.0,0.0]
+
+setup_scene_79:
+    teleprompter: Add slide notes here
+    camera: presenter_fpv
+
+setup_scene_80:
+    teleprompter: Add slide notes here
+    camera_follow: marvin
+    rep_name: marvin
+    rep_interaction: reference
+    rep_interaction_switch: [1.25,3.0,0.5,0.0]
+
+setup_scene_81:
+    teleprompter: Add slide notes here
+    camera: [-0.1,-0.1,4.0,0.0,0.0,0.0]
+    camera_link: marvin/link_base
+    rep_name: marvin
+    rep_interaction: reference
+    rep_interaction_switch: [2.5,0.0,0.75,3.141592654]
+
+setup_scene_82:
+    teleprompter: Add slide notes here
+
+setup_scene_83:
+    teleprompter: Add slide notes here
+    camera: overview
+    rep_name: sequencer_demo
+    rep_interaction: multiplot
+    rep_interaction_switch: sequencer_demo
+
+setup_scene_84:
+    teleprompter: Add slide notes here
+
+setup_scene_85:
+    teleprompter: Add slide notes here
+    camera: [-3.0,-3.0,3.0,0.0,0.0,0.0]
+    camera_link: sequencer_demo/link_base
+    rep_name: sequencer_demo
+    rep_interaction: sequence
+    rep_sequence_duration: 30.0
+    rep_sequence_state: [0.0,0.0,0.0,3.0,0.0,0.0,0.0]
+    rep_sequence_twist: [5.0,0.5,0.0,0.0,0.0,0.0,0.0, 10.0,0.5,0.25,0.25,0.0,0.0,0.0, 15.0,0.5,0.25,0.25,0.0,0.0,0.1, 24.0,0.0,0.0,0.0,0.0,0.0,0.0]
+    rep_sequence_force: [21.0,0.0,0.0,-9.81,0.0,0.0,0.0, 25.0,0.0,0.0,-9.81,0.0,0.0,0.0, 29.0,0.0,0.0,0.0,0.0,0.0,0.0]
+
+setup_scene_86:
+    teleprompter: Add slide notes here
+    rep_name: marvin
+    rep_interaction: reference
+    rep_interaction_switch: [0.5,4.0,1.0,-1.0]
+
+setup_scene_87:
+    teleprompter: Add slide notes here
+    camera: [2.0,2.0,2.0,0.0,0.0,0.0]
+    camera_link: marvin/link_base
+    marvin_presenter: This is just an example, how I could support with presenting.
+
+setup_scene_88:
+    teleprompter: Add slide notes here
+    rep_name: marvin
+    rep_interaction: reference
+    rep_interaction_switch: [0.5,4.0,1.0,-1.0]
+
+setup_scene_89:
+    teleprompter: Add slide notes here
+    camera: [0.70881,0.57457,2.2903, 1.2725,1.8775,1.4676]
+    camera_link: world
+    marvin_hologram: oa_demo
+
+setup_scene_90:
+    teleprompter: Add slide notes here
+
+setup_scene_91:
+    teleprompter: Add slide notes here
+
+setup_scene_92:
+    teleprompter: Add slide notes here
+
+setup_scene_93:
+    teleprompter: Add slide notes here
+

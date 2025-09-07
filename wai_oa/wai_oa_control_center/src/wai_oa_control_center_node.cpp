@@ -1,0 +1,81 @@
+/*
+ * Software License Agreement (BSD License)
+ *
+ *  Robot Operating System (ROS)
+ *  Copyright (c) 2008, Willow Garage, Inc.
+ *  All rights reserved.
+ *
+ *  Related utilized or refactored original work(s)/ROS-Package(s)
+ *      - Name: ...
+ *      - Resource(s) URL: ...
+ *  Copyright (c) ...-...
+ *  Institution(s): ...
+ *  Author(s): ...
+ *  Maintainer(s): ...
+ *  Additional Conditions/Notes: ...
+ *  All rights reserved.
+ *
+ *  WAI World - WAI Open Auditorium (OA) (wai_oa)
+ *  Copyright (c) 2019, Werner Alexander Isop
+ *  All rights reserved.
+ *
+ *  Redistribution and use in source and binary forms, with or without
+ *  modification, are permitted provided that the following conditions
+ *  are met:
+ *
+ *   1.Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ *   2.Redistributions in binary form must reproduce the above
+ *     copyright notice, this list of conditions and the following
+ *     disclaimer in the documentation and/or other materials provided
+ *     with the distribution.
+ *   3.Neither the name of this package/solution nor the names of its
+ *     contributors may be used to endorse or promote products derived
+ *     from this software without specific prior written permission.
+ *
+ * --------------------- ETHICAL CONDITIONS OF USE --------------------
+ *   1.ROLE: Roles of all actors (educators, learners, and AIS) must be clearly defined. Actors can either assume leading, guiding, participating, or supporting roles. Respecting fundamental human rights, all use cases to develop skills and competencies, during the interactive process of teaching and learning, are essentially conducted by natural human actors. Educators are leading or guiding, learners are leading or participating. AIS are supporting, at different IOL - according to the educational stage; however, educators or learners are not to be replaced.
+ *   2.MULTIPLICITY: If possible, and not intended by the teaching/learning activity otherwise (e.g., homework), the interactive process of teaching and learning must involve N (1..*) natural human educators and n (1..*) natural human learners (at different IOL - according to the educational stage), and m (0..*) AIS.
+ *   3.BEHAVIOR: If not intended by the teaching/learning activity otherwise (e.g, "learn from failure"), all actors must always promote (maintain, facilitate, or encourage) ethical behavior during the interactive process of teaching and learning.
+ *   4.VISUAL REPRESENTATION: All natural human actors are visually represented as real or, at least, by their virtualization, at different IOL - according to the educational stage. AIS may be represented purely virtual at any time; however, they must not mimic natural human actors.
+ *      4.1.SYNCHRONICITY: If possible (e.g., not restricted due to crisis), and not intended by the teaching/learning activity otherwise (e.g., "out-of-class" flipped classroom), the interactive process of teaching and learning must be conducted synchronously, at different IOL – based on the educational stage. Predominant asynchronous scenarios (e.g, pure offline prerecording of teaching/learning sessions and simple replaying) may be indicated (e.g., by distinct labels/colors, decreased quality of visual representation, etc.) or avoided in general.
+ *      4.2.LOCATION: If possible (e.g., not restricted due to crisis), and not intended by the teaching/learning activity otherwise (e.g., "homework"), the interactive process of teaching and learning must be conducted colocated, at different IOL - according to the educational stage. Predominant dislocated scenarios may be conducted with respect to condition 4.1).
+ *      4.3.EMBODIMENT: All actors must be, at any time, embodied. Natural human educators and learners must preserve visual coherence of their embodiment, at different IOL - according to the educational stage. AIS must be visually embodied and clearly labeled as such, including an indication of their system boundaries (location) to avoid omnipresence and to increase transparency and trust.
+ * --------------------------------------------------------------------
+ *
+ *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ *  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ *  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+ *  FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ *  COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ *  INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ *  BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ *  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+ *  CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ *  LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+ *  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ *  POSSIBILITY OF SUCH DAMAGE.
+ */
+
+/////////////////////////////////////////////////
+/// Include Header of Node Implementation
+/////////////////////////////////////////////////
+#include<wai_oa.h>
+
+
+int main(int argc, char **argv)
+{
+    ros::init(argc, argv, ros::this_node::getName());
+
+    WAIOpenAuditorium* wai_oa=WAIOpenAuditorium::getInstance();
+
+    QApplication qap_qapplication(argc,argv);
+
+    ROS_INFO("Node with name \"%s\" Initialized. About to call run()...",ros::this_node::getName().c_str());
+    wai_oa->run();
+
+    qap_qapplication.quit();
+    ROS_INFO("Exiting...");
+
+    return 0;
+}

@@ -1,0 +1,5 @@
+link_base:
+    name: "Forename Surename"
+    year: "Year of birth."
+    specs: "Natural (Human)"
+    description: "Tell the audience about yourself."

@@ -1,0 +1,1383 @@
+<!--
+   Please note: This HTML file is displayed by a QTextBrowser widget
+   in rviz.  QTextBrowser supports only a SUBSET of HTML.
+
+   See http://developer.qt.nokia.com/doc/qt-4.8/richtext-html-subset.html
+   for the details.
+-->
+<html>
+    <head>
+        <style type="text/css">
+            .odd { background-color: transparent }
+            .even { background-color: lightgrey }
+            .empty { background-color: darkgrey }
+            .key { font-weight: bold; color: #04597f }
+            p { margin-left: 10px }
+        </style>
+    </head>
+
+
+
+    <body>
+
+    <h1>OPEN AUDITORIUM (OA) PRESENTER - Help Pages</h1>
+    <p>The following pages serve as guideline how to trigger the interactions in Open Auditorium as a Presenter.<br><br>
+    If you need help as <b>Audience</b>, please refer to the content at the <a href="#help_pages_audience">bottom of this document.</a><br><br>
+    At the moment OA supports the following <b>input devices</b>:</p>
+    <ol>
+      <li><a href="#keyboard_interactions">[KEY] Keyboard</a> (Key-Combinations)</li>
+      <li><a href="#mouse_interactions">[PCL] Mouse</a> (Point-And-Click and Mouse Wheel)</li>
+      <li><a href="#joypad_interactions">[JOY] Joypad</a> (Axes and Buttons)</li>
+      <li><a href="#vive_interactions">[VIV] HTC Vive</a> (Axes and Buttons)</li>
+      <li><a href="#mobile_interactions">[MOB] Mobile Devices</a> (ROS-Mobile App)</li>
+      <li><a href="#body_interactions">[BOI] Body Gestures</a> (A Kinect-like 3D-Sensor is required! Pointing and activation of triggers in 3D with body gestures)</li>
+      <li><a href="#voice_interactions">[VOI] Voice Commands</a> (Voice-To-Text Interface)</li>
+      <li><a href="#scripted_interactions">[SCR] Scripted Inputs</a> (Triggered via *.yaml script, generated from presentation slides)</li>
+    </ol>
+    <p>Please note that all interactions with 3D data involved require a <u>Kinect-like 3D-Sensor</u>.</p>
+    <br><br><br>
+
+
+
+    <h2>BASIC View Controls</h2>
+    <h3>RViz view controls</h3>
+    <p>
+      <em>In the default view, the viewpoint is always aimed at a focal point.<br>
+      You can move around the point (orbit it) or you can move the point itself.</em>
+    <table border="1" cellspacing="0" cellpadding="3">
+      <tr class="odd">
+        <td class="key">Mouse BUTTON LEFT + Mouse MOVE</td>
+        <td>Drag to rotate around the focal point.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Mouse BUTTON MIDDLE + Mouse MOVE</td>
+        <td>Drag to move the focal point.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Mouse BUTTON RIGHT + Mouse MOVE</td>
+        <td>Drag up or down to zoom towards or away from the focal point.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Mouse SCROLL WHEEL DOWN</td>
+        <td>Zoom towards the focal point.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Mouse SCROLL WHEEL UP</td>
+        <td>Zoom away from the focal point.</td>
+      </tr>
+    </table>
+    </p>
+    <br><br><br>
+
+
+
+    <a id="keyboard_interactions">
+    <h2>1. [KEY] KEYBOARD Triggers and Interactions</h2>
+
+    <p>To trigger an interaction with the KEYBOARD, you need to use the modifier <b>"Key TAB"</b> or <b>"Key CAPS LOCK"</b>.<br>
+    Press and hold it and press one of the following keys.</p>
+
+    <h3>1.1 SCENE Interactions</h3>
+    <p><table border="1" cellspacing="0" cellpadding="3">
+      <tr class="odd">
+        <td class="key">Key TAB + Key LEFT</td>
+        <td>Select PREVIOUS SCENE.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Key TAB + Key RIGHT</td>
+        <td>Select NEXT SCENE.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Key TAB + Key SHIFT</td>
+        <td>Select a specific SCENE by NUMBER.</td>
+      </tr>
+    </table></p>
+
+    <h3>1.2 CAMERA Interactions</h3>
+    <p><table border="1" cellspacing="0" cellpadding="3">
+      <tr class="odd">
+        <td class="key">Key TAB + Key DOWN</td>
+        <td>Transition the CAMERA (RViz) to the DEFAULT view.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Key TAB + Key UP</td>
+        <td>Transition the CAMERA (RViz) to CYCLE to the next view in a list of predefined views.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Key TAB + Key Y</td>
+        <td>SELECT a CAMERA (RViz) view from a list of labeled views.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Key TAB + Key Z</td>
+        <td>ENFORCE the CAMERA (RViz) of the Audience/Listeners to follow the PRESENTERs camera.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Key TAB + Key ESC</td>
+        <td>Toggle CAMERA (RViz) IDLE mode.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Key TAB + Key F</td>
+        <td>Toggle CAMERA (RViz) mode to FOLLOW the PRESENTER. Requires a 3D-Sensor, 3D presence mode, body interaction and avatar enabled).</td>
+      </tr>
+    </table></p>
+
+    <h3>1.3 PRESENTER HELPER Interactions</h3>
+    <p><table border="1" cellspacing="0" cellpadding="3">
+      <tr class="odd">
+        <td class="key">Key TAB + Key I</td>
+        <td>Toggle INTRODUCTION mode of the PRESENTER.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Key TAB + Key O</td>
+        <td>Cycle through the PRESENCE modes of the PRESENTER.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Key TAB + Key B</td>
+        <td>Toggle the BODY INTERACTION of the presenter (Requires a Kinect-like 3D-Sensor and the presenters PRESENCE mode set to 3D).</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Key TAB + Key V</td>
+        <td>Toggle AVATAR on top of the presenters head (Hope you like Tony Stark!).</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Key TAB + Key L</td>
+        <td>Toggle LECTERN in front of presenter (helpful if presenter is <em>standing</em>).</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Key TAB + Key T</td>
+        <td>Toggle TABLE in front of presenter (helpful if presenter is <em>sitting</em>).</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Key TAB + Key Q</td>
+        <td>Toggle AUDIO communication with Audience/Listeners.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Key TAB + Key P</td>
+        <td>(Re)open the SKETCH tool. Start being creative and send your sketch to other representatives in OA.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Key TAB + Key ??? (Unmapped)</td>
+        <td>Trigger 2D/3D RESPAWN, if the virtual hand pointer is close to the right half of the projectors surface.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Key TAB + Key ??? (Unmapped)</td>
+        <td>Trigger applying a FORCE to a selected representative (select by moving the hand pointer close to it).</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Key TAB + Key C</td>
+        <td>Enable Intel and Marvin to listen to your VOICE COMMAND Interactions.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Key TAB + Key X</td>
+        <td>Enable Marvin to listen to your VOICE PROMPT interactions.</td>
+      </tr>
+    </table></p>
+
+    <h3>1.4 AUDIENCE Interactions</h3>
+    <p><table border="1" cellspacing="0" cellpadding="3">
+      <tr class="odd">
+        <td class="key">Key TAB + Key INSERT</td>
+        <td>REJECT (delete) next request of Audience/Listener in the queue without consideration.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Key TAB + Key HOME</td>
+        <td>ACCEPT next request of Audience/Listener in the queue and focus Camera (Rviz).</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Key TAB + Key S</td>
+        <td>FOCUS on PREVIOUS row of Audience/Listener IDs.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Key TAB + Key W</td>
+        <td>FOCUS on NEXT row of Audience/Listener IDs.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Key TAB + Key A</td>
+        <td>FOCUS on PREVIOUS Audience/Listener ID.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Key TAB + Key D</td>
+        <td>FOCUS on NEXT Audience/Listener ID.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Key TAB + Key <span>&#60;</span></td>
+        <td>FOCUS on specific NUMBER of Audience/Listener ID.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Key TAB + Key SHIFT RIGHT</td>
+        <td>SELECT/DESELECT current Audience/Listener ID.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Key TAB + Key M</td>
+        <td>Send short MESSAGE to whole Audience.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Key TAB + Key N</td>
+        <td>Send short MESSAGE to one Listener.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Key TAB + Key ,</td>
+        <td>KICK currently focused Audience/Listener ID.</td>
+      </tr>
+    </table></p>
+
+    <h3>1.5 EVALUATION Interactions</h3>
+    <p>Note that the default fraction size for participation is a max. score of 8 and the default fraction size for examination is a max. score of 24.</p>
+    <p>The purpose of the evaluation metaphors is to increase transparency of evaluations and according accaptance on sides of the audience.</p>
+    <p><table border="1" cellspacing="0" cellpadding="3">
+      <tr class="odd">
+        <td class="key">Key TAB + Key -</td>
+        <td>Evaluate PARTICIPATION of currently focused Audience/Listener ID with MINUS or MINIMUM SCORE of predefined fraction.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Key TAB + Key #</td>
+        <td>Evaluate PARTICIPATION of currently focused Audience/Listener ID with TILDE or MEDIUM SCORE of predefined fraction.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Key TAB + Key +</td>
+        <td>Evaluate PARTICIPATION of currently focused Audience/Listener ID with PLUS or MAXIMUM SCORE of predefined fraction.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Key TAB + Key .</td>
+        <td>Evaluate PARTICIPATION of currently focused Audience/Listener ID with CUSTOM SCORE of predefined fraction.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Key TAB + Key 5</td>
+        <td>Evaluate EXAMINATION of currently focused Audience/Listener ID with INSUFFICIENT of predefined fraction.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Key TAB + Key 4</td>
+        <td>Evaluate EXAMINATION of currently focused Audience/Listener ID with SUFFICIENT of predefined fraction.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Key TAB + Key 3</td>
+        <td>Evaluate EXAMINATION of currently focused Audience/Listener ID with SATISFYING of predefined fraction.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Key TAB + Key 2</td>
+        <td>Evaluate EXAMINATION of currently focused Audience/Listener ID with GOOD of predefined fraction.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Key TAB + Key 1</td>
+        <td>Evaluate EXAMINATION of currently focused Audience/Listener ID with VERY GOOD of predefined fraction.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Key TAB + Key 0</td>
+        <td>Evaluate EXAMINATION of currently focused Audience/Listener ID with CUSTOM SCORE of predefined fraction.</td>
+      </tr>
+      <tr class="empty">
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Key TAB + Key E</td>
+        <td>Transition Camera (RViz) to see an overview of the evaluations in the EVALUATION GRAPH.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Key TAB + ??? (Unmapped)</td>
+        <td>Inspect the evaluations in a specific TIME PERIOD of the currently selected Audience/Listener ID in the EVALUATION GRAPH.</td>
+      </tr>
+      <tr class="empty">
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Key TAB + Key 6</td>
+        <td>Prepare BOWL METAPHOR for currently focused Audience/Listener ID based on the current evaluation.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Key TAB + Key 7</td>
+        <td>Prepare MARVIN METAPHOR for currently focused Audience/Listener ID based on the current evaluation.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Key TAB + Key 8</td>
+        <td>Prepare WEIGHT BALANCE METAPHOR for currently focused Audience/Listener ID based on the current evaluation.</td>
+      </tr>
+    </table></p>
+
+    <h3>1.6 REP Interactions</h3>
+    <p><table border="1" cellspacing="0" cellpadding="3">
+      <tr class="even">
+        <td class="key">Key TAB + Key H</td>
+        <td>Focus on a specific REPRESENTATIVE and DETAIL from a list view.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Key TAB + Key G</td>
+        <td>SELECT/DESELECT current representative and detail.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Key TAB + Key R</td>
+        <td>Toggle ROTATION of currently selected representative and detail.</td>
+      </tr>
+    </table></p>
+
+    <h3>1.7 LEARNING MODE Interactions</h3>
+    <p>OA is designed to implement different learning methods or modes, besides of presenting "in plenum".<br>
+        Other modern and vital learning methods include, for example, cooperative learning or group-based learning.<br>
+        This is still work in progress!</p>
+    <p><table border="1" cellspacing="0" cellpadding="3">
+      <tr class="odd">
+        <td class="key">Key CAPS LOCK + Key 1</td>
+        <td>Switch LERANING MODE to IN-PLENUM (Frontal teaching) (default).</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Key CAPS LOCK + Key 2</td>
+        <td>Switch LERANING MODE to COOPERATIVE LEARNING. The currently focused REPRESENTATIVE and according DETAILS can be investigated in a circular audience workspace layout.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Key CAPS LOCK + Key 3</td>
+        <td>Feel free to add your own cool learning method...!</td>
+      </tr>
+    </table></p>
+    <br><br><br>
+
+
+
+    <a id="mouse_interactions">
+    <h2>2. [PAC] MOUSE (Point-And-Click) Triggers and Interactions</h2>
+    <p>To trigger an interaction with the MOUSE, you need to use the key <b>"C"</b>.<br>
+    Before interacting with the RViz scene by mouse, press the C key and check if<br>
+    the "Location" symbol appears. Then activate one of the following triggers.</p>
+
+    <h3>2.1 SCENE Interactions</h3>
+    <p>Note that all triggers are highlighted as transparent spherical objects, standing on a colored pier.</p>
+    <p><table border="1" cellspacing="0" cellpadding="3">
+      <tr class="odd">
+        <td class="key">Key C + Click MOUSE LEFT on trigger "SCENE Previous"</td>
+        <td>Transition to PREVIOUS SCENE.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Key C + Click MOUSE LEFT on trigger "SCENE Next"</td>
+        <td>Transition to NEXT SCENE.</td>
+      </tr>
+    </table></p>
+
+    <h3>2.6 REP Interactions</h3>
+    <p>Note that all representatives are highlighted with small transparent blueish spheres, located close to them.<br>
+    They also represent the origin of the representatives frame.</p>
+    <p><table border="1" cellspacing="0" cellpadding="3">
+      <tr class="odd">
+        <td class="key">Key C + Click MOUSE LEFT onto origin (small blueish sphere).</td>
+        <td>SELECT currently focused representative and detail (<b>DESELECT</b> with clicking again or Key TAB+Key G).</td>
+      </tr>
+    </table></p>
+    <br><br><br>
+
+
+
+    <a id="joypad_interactions">
+    <h2>3. [JOY] JOYPAD Triggers and Interactions</h2>
+
+    <p>To trigger an interaction with the JOYPAD, you need to typically combine, at the<br>
+    most, two buttons. Simply press and hold both for a short period of time.<br>
+    Throughout the axes of the joypad you can for example point with a virtual hand in 3D,<br>
+    or focus and select Audience/Listeners and representatives from the world in miniature (WIM).<br>
+    Note that some interactions (e.g. applying a force) also trigger force feedback.<br>
+    Currently <u>PS3, PS4 and PS5 controllers</u> are supported only!</p>
+
+    <h3>3.1 SCENE Interactions</h3>
+    <p><table border="1" cellspacing="0" cellpadding="3">
+      <tr class="odd">
+        <td class="key">Button SHARE + Button CROSS LEFT</td>
+        <td>Select PREVIOUS SCENE.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button SHARE + Button CROSS RIGHT</td>
+        <td>Select NEXT SCENE.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Select a specific SCENE by NUMBER.</td>
+      </tr>
+    </table></p>
+
+    <h3>3.2 CAMERA Interactions</h3>
+    <p><table border="1" cellspacing="0" cellpadding="3">
+      <tr class="odd">
+        <td class="key">Button SHARE + Button CROSS DOWN</td>
+        <td>Transition the CAMERA (RViz) to the DEFAULT view.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button SHARE + Button CROSS UP</td>
+        <td>Transition the CAMERA (RViz) to CYCLE to the next view in a list of predefined views.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>SELECT a CAMERA (RViz) view from a list of labeled views.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button PS + Button RECTANGLE</td>
+        <td>ENFORCE the CAMERA (RViz) of the Audience/Listeners to follow the PRESENTERs camera.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button PS + Button CROSS</td>
+        <td>Toggle CAMERA (RViz) IDLE mode.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button SHARE + Button PS</td>
+        <td>Toggle CAMERA (RViz) mode to FOLLOW the PRESENTER. Requires a 3D-Sensor, 3D presence mode, body interaction and avatar enabled).</td>
+      </tr>
+    </table></p>
+
+    <h3>3.3 PRESENTER HELPER Interactions</h3>
+    <p><table border="1" cellspacing="0" cellpadding="3">
+      <tr class="odd">
+        <td class="key">Button PS + Button TRIANGLE</td>
+        <td>Toggle INTRODUCTION mode of the PRESENTER.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button SHARE + Button OPTIONS</td>
+        <td>Cycle through the PRESENCE modes of the PRESENTER.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button JS LEFT + Button JS RIGHT</td>
+        <td>Toggle the BODY INTERACTION of the presenter (Requires a Kinect-like 3D-Sensor and the presenters PRESENCE mode set to 3D).</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button SHARE + Button CROSS</td>
+        <td>Toggle AVATAR on top of the presenters head (Hope you like Tony Stark!).</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button SHARE + Button TRIANGLE</td>
+        <td>Toggle LECTERN in front of presenter (helpful if presenter is <em>standing</em>).</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button SHARE + Button SQUARE</td>
+        <td>Toggle TABLE in front of presenter (helpful if presenter is <em>sitting</em>).</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button SHARE + Button CIRCLE</td>
+        <td>Toggle AUDIO communication with Audience/Listeners.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>(Re)open the SKETCH tool. Start being creative and send your sketch to other representatives in OA.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Axis JS LEFT/RIGHT + Button TRIGGER L2</td>
+        <td>Trigger 2D/3D RESPAWN, if the virtual hand pointer is close to the right half of the projectors surface.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Axis JS LEFT/RIGHT + Button TRIGGER R2</td>
+        <td>Trigger applying a FORCE to a selected representative (select by moving the hand pointer close to it).</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button PS + Button CIRCLE</td>
+        <td>Enable Intel and Marvin to listen to your VOICE COMMAND Interactions.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Enable Marvin to listen to your VOICE PROMPT interactions.</td>
+      </tr>
+    </table></p>
+
+    <h3>3.4 AUDIENCE Interactions</h3>
+    <p><table border="1" cellspacing="0" cellpadding="3">
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>REJECT (delete) next request of Audience/Listener in the queue without consideration.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>ACCEPT next request of Audience/Listener in the queue and focus Camera (Rviz).</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button OPTIONS + Axis JS RIGHT DOWN</td>
+        <td>FOCUS on PREVIOUS row of Audience/Listener IDs.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button OPTIONS + Axis JS RIGHT UP</td>
+        <td>FOCUS on NEXT row of Audience/Listener IDs.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button OPTIONS + Axis JS RIGHT LEFT</td>
+        <td>FOCUS on PREVIOUS Audience/Listener ID.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button OPTIONS + Axis JS RIGHT RIGHT</td>
+        <td>FOCUS on NEXT Audience/Listener ID.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>FOCUS on specific NUMBER of Audience/Listener ID.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button OPTIONS + Button JS RIGHT</td>
+        <td>SELECT/DESELECT current Audience/Listener ID.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Send short MESSAGE to Audience/Listeners.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>KICK currently focused Audience/Listener ID.</td>
+      </tr>
+    </table></p>
+
+    <h3>3.5 EVALUATION Interactions</h3>
+    <p>Note that the default fraction size for participation is a max. score of 8 and the default fraction size for examination is a max. score of 24.</p>
+    <p>The purpose of the evaluation metaphors is to increase transparency of evaluations and according accaptance on sides of the audience.</p>
+    <p><table border="1" cellspacing="0" cellpadding="3">
+      <tr class="odd">
+        <td class="key">Button JOYSTICK LEFT + Button CIRCLE</td>
+        <td>Evaluate PARTICIPATION of currently focused Audience/Listener ID with MINUS or MINIMUM SCORE of predefined fraction.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button JOYSTICK LEFT + Button CROSS</td>
+        <td>Evaluate PARTICIPATION of currently focused Audience/Listener ID with TILDE or MEDIUM SCORE of predefined fraction.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button JOYSTICK LEFT + Button TRIANGLE</td>
+        <td>Evaluate PARTICIPATION of currently focused Audience/Listener ID with PLUS or MAXIMUM SCORE of predefined fraction.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button JOYSTICK LEFT + Button SQUARE</td>
+        <td>Evaluate PARTICIPATION of currently focused Audience/Listener ID with CUSTOM SCORE of predefined fraction.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Evaluate EXAMINATION of currently focused Audience/Listener ID with INSUFFICIENT of predefined fraction.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Evaluate EXAMINATION of currently focused Audience/Listener ID with SUFFICIENT of predefined fraction.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Evaluate EXAMINATION of currently focused Audience/Listener ID with SATISFYING of predefined fraction.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Evaluate EXAMINATION of currently focused Audience/Listener ID with GOOD of predefined fraction.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Evaluate EXAMINATION of currently focused Audience/Listener ID with VERY GOOD of predefined fraction.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button JOYSTICK RIGHT + Button SQUARE</td>
+        <td>Evaluate EXAMINATION of currently focused Audience/Listener ID with CUSTOM SCORE of predefined fraction.</td>
+      </tr>
+      <tr class="empty">
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button TRIGGER L1 + Button TRIGGER R1</td>
+        <td>Transition Camera (RViz) to see an overview of the evaluations in the EVALUATION GRAPH.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Inspect the evaluations in a specific TIME PERIOD of the currently selected Audience/Listener ID in the EVALUATION GRAPH.</td>
+      </tr>
+      <tr class="empty">
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Prepare BOWL METAPHOR for currently focused Audience/Listener ID based on the current evaluation.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Prepare MARVIN METAPHOR for currently focused Audience/Listener ID based on the current evaluation.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Prepare WEIGHT BALANCE METAPHOR for currently focused Audience/Listener ID based on the current evaluation.</td>
+      </tr>
+    </table></p>
+
+    <h3>3.6 REP Interactions</h3>
+    <p><table border="1" cellspacing="0" cellpadding="3">
+      <tr class="even">
+        <td class="key">Button OPTIONS + Axis JS LEFT DOWN</td>
+        <td>Focus on a specific REPRESENTATIVE and DETAIL from a list view.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button OPTIONS + Button JS LEFT</td>
+        <td>SELECT/DESELECT current representative and detail.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button OPTIONS + Button PS</td>
+        <td>Toggle ROTATION of currently selected representative and detail.</td>
+      </tr>
+    </table></p>
+
+    <h3>3.7 LEARNING MODE Interactions</h3>
+    <p>OA is designed to implement different learning methods or modes, besides of presenting "in plenum".<br>
+        Other modern and vital learning methods include, for example, cooperative learning or group-based learning.<br>
+        This is still work in progress!</p>
+    <p><table border="1" cellspacing="0" cellpadding="3">
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Switch LERANING MODE to IN-PLENUM (Frontal teaching) (default).</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Switch LERANING MODE to COOPERATIVE LEARNING. The currently focused REPRESENTATIVE and according DETAILS can be investigated in a circular audience workspace layout.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Feel free to add your own cool learning method...!</td>
+      </tr>
+    </table></p>
+    <br><br><br>
+
+
+
+    <a id="vive_interactions">
+    <h2>4. [VIV] HTC VIVE Triggers and Interactions</h2>
+
+    <p>To trigger an interaction with the HTC VIVE, you need to typically combine, at the<br>
+    most, two buttons. Simply press and hold both for a short period of time.<br>
+    Throughout the axes of the trackpad you can for example move the camera in 3D,<br>
+    or focus and select Audience/Listeners and representatives from the world in miniature (WIM).<br>
+    Note that some interactions also trigger force feedback.<br>
+    Currently <u>the two controllers form the original HTC Vive</u> are supported only!</p>
+
+    <h3>4.1 SCENE Interactions</h3>
+    <p><table border="1" cellspacing="0" cellpadding="3">
+      <tr class="odd">
+        <td class="key">Controller RIGHT Trackpad LEFT</td>
+        <td>Select PREVIOUS SCENE.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Controller RIGHT Trackpad RIGHT</td>
+        <td>Select NEXT SCENE.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Select a specific SCENE by NUMBER.</td>
+      </tr>
+    </table></p>
+
+    <h3>4.2 CAMERA Interactions</h3>
+    <p><table border="1" cellspacing="0" cellpadding="3">
+      <tr class="odd">
+        <td class="key">Controller RIGHT Trackpad DOWN</td>
+        <td>Transition the CAMERA (RViz) to the DEFAULT view.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Controller RIGHT Trackpad UP</td>
+        <td>Transition the CAMERA (RViz) to CYCLE to the next view in a list of predefined views.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>SELECT a CAMERA (RViz) view from a list of labeled views.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>ENFORCE the CAMERA (RViz) of the Audience/Listeners to follow the PRESENTERs camera.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Toggle CAMERA (RViz) IDLE mode.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Toggle CAMERA (RViz) mode to FOLLOW the PRESENTER. Requires a 3D-Sensor, 3D presence mode, body interaction and avatar enabled).</td>
+      </tr>
+    </table></p>
+
+    <h3>4.3 PRESENTER HELPER Interactions</h3>
+    <p><table border="1" cellspacing="0" cellpadding="3">
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Toggle INTRODUCTION mode of the PRESENTER.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Cycle through the PRESENCE modes of the PRESENTER.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Toggle the BODY INTERACTION of the presenter (Requires a Kinect-like 3D-Sensor and the presenters PRESENCE mode set to 3D).</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Toggle AVATAR on top of the presenters head (Hope you like Tony Stark!).</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Toggle LECTERN in front of presenter (helpful if presenter is <em>standing</em>).</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Toggle TABLE in front of presenter (helpful if presenter is <em>sitting</em>).</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Toggle AUDIO communication with Audience/Listeners.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>(Re)open the SKETCH tool. Start being creative and send your sketch to other representatives in OA.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Trigger 2D/3D RESPAWN, if the virtual hand pointer is close to the right half of the projectors surface.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Trigger applying a FORCE to a selected representative (select by moving the hand pointer close to it).</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Enable Intel and Marvin to listen to your VOICE COMMAND Interactions.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Enable Marvin to listen to your VOICE PROMPT interactions.</td>
+      </tr>
+    </table></p>
+
+    <h3>4.4 AUDIENCE Interactions</h3>
+    <p><table border="1" cellspacing="0" cellpadding="3">
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>REJECT (delete) next request of Audience/Listener in the queue without consideration.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>ACCEPT next request of Audience/Listener in the queue and focus Camera (Rviz).</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Controller LEFT Trackpad DOWN</td>
+        <td>FOCUS on PREVIOUS row of Audience/Listener IDs.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Controller LEFT Trackpad UP</td>
+        <td>FOCUS on NEXT row of Audience/Listener IDs.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Controller LEFT Trackpad LEFT</td>
+        <td>FOCUS on PREVIOUS Audience/Listener ID.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Controller LEFT Trackpad RIGHT</td>
+        <td>FOCUS on NEXT Audience/Listener ID.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>FOCUS on specific NUMBER of Audience/Listener ID.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Controller LEFT Trackpad MIDDLE</td>
+        <td>SELECT/DESELECT current Audience/Listener ID.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Send short MESSAGE to Audience/Listeners.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>KICK currently focused Audience/Listener ID.</td>
+      </tr>
+    </table></p>
+
+    <h3>4.5 EVALUATION Interactions</h3>
+    <p>Note that the default fraction size for participation is a max. score of 8 and the default fraction size for examination is a max. score of 24.</p>
+    <p>The purpose of the evaluation metaphors is to increase transparency of evaluations and according accaptance on sides of the audience.</p>
+    <p><table border="1" cellspacing="0" cellpadding="3">
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Evaluate PARTICIPATION of currently focused Audience/Listener ID with MINUS or MINIMUM SCORE of predefined fraction.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Evaluate PARTICIPATION of currently focused Audience/Listener ID with TILDE or MEDIUM SCORE of predefined fraction.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Evaluate PARTICIPATION of currently focused Audience/Listener ID with PLUS or MAXIMUM SCORE of predefined fraction.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Evaluate PARTICIPATION of currently focused Audience/Listener ID with CUSTOM SCORE of predefined fraction.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Evaluate EXAMINATION of currently focused Audience/Listener ID with INSUFFICIENT of predefined fraction.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Evaluate EXAMINATION of currently focused Audience/Listener ID with SUFFICIENT of predefined fraction.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Evaluate EXAMINATION of currently focused Audience/Listener ID with SATISFYING of predefined fraction.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Evaluate EXAMINATION of currently focused Audience/Listener ID with GOOD of predefined fraction.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Evaluate EXAMINATION of currently focused Audience/Listener ID with VERY GOOD of predefined fraction.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Evaluate EXAMINATION of currently focused Audience/Listener ID with CUSTOM SCORE of predefined fraction.</td>
+      </tr>
+      <tr class="empty">
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Transition Camera (RViz) to see an overview of the evaluations in the EVALUATION GRAPH.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Inspect the evaluations in a specific TIME PERIOD of the currently selected Audience/Listener ID in the EVALUATION GRAPH.</td>
+      </tr>
+      <tr class="empty">
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Prepare BOWL METAPHOR for currently focused Audience/Listener ID based on the current evaluation.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Prepare MARVIN METAPHOR for currently focused Audience/Listener ID based on the current evaluation.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Prepare WEIGHT BALANCE METAPHOR for currently focused Audience/Listener ID based on the current evaluation.</td>
+      </tr>
+    </table></p>
+
+    <h3>4.6 REP Interactions</h3>
+    <p><table border="1" cellspacing="0" cellpadding="3">
+      <tr class="even">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Focus on a specific REPRESENTATIVE and DETAIL from a list view.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>SELECT/DESELECT current representative and detail.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Toggle ROTATION of currently selected representative and detail.</td>
+      </tr>
+    </table></p>
+
+    <h3>4.7 LEARNING MODE Interactions</h3>
+    <p>OA is designed to implement different learning methods or modes, besides of presenting "in plenum".<br>
+        Other modern and vital learning methods include, for example, cooperative learning or group-based learning.<br>
+        This is still work in progress!</p>
+    <p><table border="1" cellspacing="0" cellpadding="3">
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Switch LERANING MODE to IN-PLENUM (Frontal teaching) (default).</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Switch LERANING MODE to COOPERATIVE LEARNING. The currently focused REPRESENTATIVE and according DETAILS can be investigated in a circular audience workspace layout.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Feel free to add your own cool learning method...!</td>
+      </tr>
+    </table></p>
+    <br><br><br>
+
+
+
+    <a id="mobile_interactions">
+    <h2>5. [MOB] MOBILE DEVICE Triggers and Interactions</h2>
+
+    <p>To trigger an interaction with a mobile device, you need to have an Android device<br>
+    and the "ROS-Mobile" app installed from the Google Play Store.<br>
+    A description of the ROS Mobile app can be found <a href="https://wiki.ros.org/ROS-Mobile" target="_blank">here!</a></p>
+    <br><br><br>
+
+
+
+    <a id="body_interactions">
+    <h2>6. [BOI] BODY Interactions</h2>
+
+    <p>To trigger a body interaction, you need a Kinect-Like 3D-sensor properly set up.<br>
+    Once you enable body interactions, you can, for example, steer a virtual pointer for your left and right hand.<br>
+    Currently you can interact with the SCENE triggers via your right hand and point with your left hand.</p>
+    <br><br><br>
+
+
+
+    <a id="voice_interactions">
+    <h2>7. [VOI] VOICE COMMAND Triggers and Interactions</h2>
+
+    <p>To trigger an interaction with your voice, simply activate the voice input engine<br>
+    by using the various input devices. Currently, INTEL or MARVIN are at your command and<br>
+    capable of the following interactions.</p>
+
+    <h3>How to trigger a voice command or prompt?</h3>
+    <p>Currently two triggers for commands and prompting are implemented for [KEY]<br>
+    and one trigger for commands via [JOY].</p>
+    <p><table border="1" cellspacing="0" cellpadding="3">
+      <tr class="odd">
+        <td class="key">Key TAB + Key C</td>
+        <td>Enable Intel and Marvin to listen to your VOICE COMMAND Interactions.</td>
+      </tr>
+     <tr class="even">
+        <td class="key">Key TAB + Key X</td>
+        <td>Enable Marvin to listen to your VOICE PROMPT interactions.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Button PS + Button CIRCLE</td>
+        <td>Enable Intel and Marvin to listen to your VOICE COMMAND Interactions.</td>
+      </tr>
+     <tr class="even">
+        <td class="key">Button ??? + Button ??? (Unmapped)</td>
+        <td>Enable Marvin to listen to your VOICE PROMPT interactions.</td>
+      </tr>
+    </table></p>
+
+    <h3>VOICE COMMAND Interactions</h3>
+    <p>The following voice commands are availabe for Intel and Marvin.<br>Plese also refer to the VOICE COMMAND Slots below, to find out which terms you can use.</p>
+    <p><table border="1" cellspacing="0" cellpadding="3">
+      <tr class="odd">
+        <td class="key">IntelTrigger</td>
+        <td>Intel $politeness:politeness trigger (the) $trigger:trigger</td>
+      </tr>
+      <tr class="even">
+        <td class="key">IntelShutdownRep</td>
+        <td>Intel $politeness:politeness shutdown (the) $rep:rep</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">IntelTellAboutYourself</td>
+        <td>Intel can you introduce yourself<br>Intel would you like to introduce yourself<br>Intel can you tell us a little bit about yourself</td>
+      </tr>
+      <tr class="even">
+        <td class="key">IntelSelectRep</td>
+        <td>Intel $politeness:politeness select (the) $rep:rep</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">IntelEngageRep</td>
+        <td>Intel $politeness:politeness engage (the) $rep:rep</td>
+      </tr>
+      <tr class="even">
+        <td class="key">IntelSelectAudience</td>
+        <td>Intel $politeness:politeness select audience $audience_id:audience_id</td>
+      </tr>
+      <tr class="empty">
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="odd">
+        <td class="key">MarvinTellMood</td>
+        <td>Marvin how do you feel today</td>
+      </tr>
+      <tr class="even">
+        <td class="key">MarvinTellAge</td>
+        <td>Marvin what is your age</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">MarvinTellWeight</td>
+        <td>Marvin what is your current weight</td>
+      </tr>
+      <tr class="even">
+        <td class="key">MarvinTellSatisfaction</td>
+        <td> Marvin are you satisfied with yourself</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">MarvinFlyToAudience</td>
+        <td>Marvin $politeness:politeness fly to audience $audience_id:audience_id</td>
+      </tr>
+      <tr class="even">
+        <td class="key">MarvinTellAboutYourself</td>
+        <td>Marvin can you introduce yourself<br>Marvin would you like to introduce yourself<br>Marvin can you tell us a little bit about yourself</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">MarvinFlyToRep</td>
+        <td>Marvin $politeness:politeness fly to (the) $rep:rep</td>
+      </tr>
+      <tr class="even">
+        <td class="key">MarvinSetupRepAtWaypoint</td>
+        <td>Marvin $politeness:politeness setup (the) $rep:rep at waypoint $waypoint:waypoint</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">MarvinTrigger</td>
+        <td>Marvin $politeness:politeness trigger (the) $trigger:trigger</td>
+      </tr>
+      <tr class="even">
+        <td class="key">MarvinFlyToWaypoint</td>
+        <td>Marvin $politeness:politeness fly to waypoint $waypoint:waypoint</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">MarvinSetupAudienceAtWaypoint</td>
+        <td>Marvin $politeness:politeness setup audience $audience_id:audience_id at waypoint $waypoint:waypoint</td>
+      </tr>
+    </table></p>
+
+    <h3>VOICE COMMAND Slots</h3>
+    <p>The following intention slots are availabe for Intel and Marvin.</p>
+    <p><table border="1" cellspacing="0" cellpadding="3">
+      <tr class="odd">
+        <td class="key">$politeness</td>
+        <td>
+            - please<br>
+            - quickly<br>
+            - dammit<br>
+            - would you like to<br>
+            - would you be so kind as to<br>
+            - please please please<br>
+            - you are commanded to
+        </td>
+      </tr>
+      <tr class="odd">
+        <td class="key">$rep</td>
+        <td>
+            - demo<br>
+            - weight balance evaluation<br>
+            - bowl evaluation<br>
+            - personal computer<br>
+            - marvin<br>
+            - curiosity<br>
+            - perseverance<br>
+            - ingenuity<br>
+            - projector<br>
+            - table<br>
+            - lectern<br>
+            - presenter<br>
+            - left wall<br>
+            - right wall<br>
+            - avatar<br>
+            - world in miniature<br>
+            - vase<br>
+            - bipolar transistor<br>
+            - field effect transistor<br>
+            - workspace
+        </td>
+      </tr>
+      <tr class="odd">
+        <td class="key">$audience_id</td>
+        <td>
+            - one ... up to<br>
+            - eighteen
+        </td>
+      </tr>
+      <tr class="odd">
+        <td class="key">$trigger</td>
+        <td>
+            - marvin<br>
+            - introduction<br>
+            - detail rotation<br>
+            - representative select<br>
+            - detail previous<br>
+            - detail next<br>
+            - representative previous<br>
+            - representative next<br>
+            - audience examination very good<br>
+            - audience examination good<br>
+            - audience examination satisfactory<br>
+            - audience examination adequate<br>
+            - audience examination unsatisfactory<br>
+            - audience participation plus<br>
+            - audience participation tilde<br>
+            - audience participation minus<br>
+            - audience select<br>
+            - audience right<br>
+            - audience left<br>
+            - audience up<br>
+            - audience down<br>
+            - audience request reject<br>
+            - audience request accept<br>
+            - evaluation marvin<br>
+            - evaluation weight balance<br>
+            - evaluation bowl<br>
+            - graph evaluation view<br>
+            - learning mode cooperative<br>
+            - learning mode plenum<br>
+            - audio<br>
+            - table<br>
+            - lectern<br>
+            - avatar<br>
+            - body interaction<br>
+            - presence mode<br>
+            - camera follow<br>
+            - camera idle<br>
+            - camera cycle<br>
+            - camera default<br>
+            - scene next<br>
+            - scene previous
+        </td>
+      </tr>
+      <tr class="odd">
+        <td class="key">$waypoint</td>
+        <td>
+            - one<br>
+            - two<br>
+            - three<br>
+            - four<br>
+            - five
+        </td>
+      </tr>
+    </table></p>
+
+    <h3>VOICE PROMPT Interactions</h3>
+
+    <p>The following voice prompt interface is availabe for Marvin.</p>
+    <p><table border="1" cellspacing="0" cellpadding="3">
+      <tr class="odd">
+        <td class="key">"Any voice prompt as natural language-based input..."</td>
+        <td>Let Marvin respond to your prompt, based on natural language processing (NLP). Currently,<br>
+        the voice prompt interactions are based on the llama-2-7b-chat-342 large language model (LLM),<br>
+        provided by PICOVOICE. To use the interactions, please setup an according service at <a href="https://picovoice.ai/" target="_blank">PICOVOICE</a>.<br>
+        Once you are registered, provide your own access key in the <b>wai_world_gazebo_spawn.launch</b> file<br>
+        (line 56-68) in the according <b>wai_world_gazebo</b> package.</td>
+      </tr>
+    </table></p>
+    <br><br><br>
+
+
+
+    <a id="scripted_interactions">
+    <h2>8. [SCR] Scripted Interactions</h2>
+
+    <p>To trigger scripted interactions, you need to place triggers inside your presentation file.<br>
+    Currently, the triggers are implemented as SLIDE NOTES in each slide.<br></p>
+
+    <h3>How to trigger a scripted interaction?</h3>
+    <p>Scripted interactions are automatically triggered during a scene transition.<br>
+    Once an according *.yaml file is available for a presentation (typically *.PPTX), <br>
+    OA automatically triggers the scripted interactions for a specific scene.</p>
+
+    <h3>SCRIPTED Interactions</h3>
+    <p>The following scripted interactions are availabe inside an according session config (*.yaml) file.<br>
+    If no switches are provided, OA typically uses default parameters for essential switches, which are also saved in the session config file.<br>
+    Please also refer to the <a target="_blank" href="file:///home/ias/catkin_ws/src/wai_oa/wai_oa_gazebo/resources/sessions/wai_oa_presenter_interactions_scripted/wai_oa_presenter_interactions_scripted.yaml">wai_oa_presenter_interactions_scripted</a> session, provided in the <b>wai_oa_gazebo/resources/sessions</b> folder.</p>
+    <p><table border="1" cellspacing="0" cellpadding="3" style="white-space:pre-wrap; word-wrap:break-word">
+      <tr class="odd">
+        <td class="key">Projector ("projector: ")</td>
+        <td>The following switches setup the PROJECTOR in OA (also refer to the examples given below!):
+            <b>slide</b> ... Setup the projector to show the presentation slide for the current scene.
+            <b>Filename (*.png/*.PNG)</b> ... Setup the projector to show a custom picture in the "resources/pictures" subfolder of the wai_oa_gazebo package (automatically resized to fit projector).
+            <b>Filename (*.mp4/*.MP4)</b> ... Setup the projector to show a custom *.MP4 video in the "resources/videos" subfolder of the wai_oa_gazebo package (automatically resized to fit projector).
+            <b>livecam</b> ... Setup the projector to show a real view from an additional external 2D camera (needs to be configured in usb_cam package first!).
+            <b>repcam</b> ... Setup the projector to show a virtual view from front camera of a REP in OA (needs to be combined with <b>"rep_name"</b> switch!).<hr>Examples for use:
+        projector: slide
+        projector: oa_demo.png
+        projector: oa_demo.MP4
+        projector: livecam
+        projector: repcam (combine it with, e.g., rep_name: marvin)</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Light ("light: ")</td>
+        <td>The following switches setup the LIGHT in OA (also refer to the examples given below!):
+            <b>off</b> ... Setup a fully switched off environmental light.
+            <b>dark</b> ... Setup an environmental light that is dark.
+            <b>default</b> ... Setup an environmental light with default settings.
+            <b>bright</b> ... Setup an environmental light that is bright.
+            <b>cold</b> ... Setup an environmental light that is cold.
+            <b>warm</b> ... Setup an environmental light that is warm.
+            <b>[Ambient R, G, B, Diffuse/Specular R, G, B]</b> ... Set ambient and specular/diffuse color of light to a custom color (0.0-255.0).<hr>Examples for use:
+        light: bright
+        light: default
+        light: [96.0,64.0,64.0, 96.0,64.0,64.0]</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Camera ("camera: ")<br>Camera Link ("camera_link: ")<br>Camera Follow ("camera_follow: ")</td>
+        <td>The following switches setup the CAMERA in OA (also refer to the examples given below!):
+            <b>camera: default</b> ... Setup the virtual camera in RViz to a default view.
+            <b>camera: "Camera Name"</b> ... Setup the virtual camera in RViz to a pre-defined view (e.g., presenter, expand_projection, aso.).
+            <b>camera: [Eye X, Y, Z, Focus, X, Y, Z]</b> ... Setup the virtual camera in RViz with custom world coordinates. Eye is the position of the camera, focus where it should point at.
+            <b>camera_link: </b> ... Setup the transform link, to which the focus/eye XYZ coordinates refer to. If you do not provide a link, the default reference is the world link.
+            <b>camera_follow: "Rep Name"</b> ... Setup the camera in RViz to follow a specific Representative (e.g., marvin). The camera by default refers to the link_base of the rep.<hr>Examples for use:
+        camera: overview
+        camera: [3.0,3.0,3.0,0.0,0.0,0.0]
+        camera_link: marvin/link_base
+        camera_follow: marvin</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Telepromter ("teleprompter: ")</td>
+        <td>The following switches setup the TELEPROMPTER in OA (also refer to the examples given below!):
+            <b>Text</b> ... Setup the teleprompter to slowly move text in an overlay from the right to the left.<hr>Examples for use:
+        teleprompter: keep overview short, dont forget to introducem marvin, ...</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Browser Link ("browser_link: ")</td>
+        <td>The following switches setup the BROWSER LINK in OA (also refer to the examples given below!):
+            <b>URL</b> ... Setup your browser to show a specific URL.<hr>Examples for use:
+        browser_link: www.google.at</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Sound ("sound: ")</td>
+        <td>The following switches setup a SOUND file in OA (also refer to the examples given below!):
+            <b>"Filename"</b> ... Setup OA to play a specific sound file in the "resources/sounds" subfolder of the wai_oa_gazebo package.<hr>Examples for use:
+        sound: www.google.at</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Lectern ("lectern: ")</td>
+        <td>The following switches setup the LECTERN in OA (also refer to the examples given below!):
+            <b>true/false</b> ... Setup OA to position a virtual lectern pretty much in front of the presenters location (presenter is standing).<hr>Examples for use:
+        lectern: true</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Table ("table: ")</td>
+        <td>The following switches setup the TABLE in OA (also refer to the examples given below!):
+            <b>true/false</b> ... Setup OA to position a table close to the 3D-cameras position (presenter is sitting).<hr>Examples for use:
+        table: true</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Virtual Presenter ("virtual_presenter: ")</td>
+        <td>The following switches setup a VIRTUAL PRESENTER in OA (also refer to the examples given below!):
+            <b>Filename (*.bag)</b> ... Setup a virtual presenter, recorded with a Kinect-like 3D-Sensor. The launch file to properly record a virtual presenter is provided in the wai_oa_gazebo package.<hr>Examples for use:
+        virtual_presenter: oa_demo</td>
+      </tr>
+      <tr class="even">
+        <td class="key">3D-Graph ("graph_3d: ")</td>
+        <td>The following switches setup a 3D-GRAPH in OA (also refer to the examples given below!):
+            <b>Filename (*.csv)</b> ... Setup a 3D-graph from a 2D array, based on samples stored in a *.csv file.<hr>Examples for use:
+        graph_3d: oa_demo</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Stats-Graph ("graph_stats: ")</td>
+        <td>The following switches setup a STATS-GRAPH in OA (also refer to the examples given below!):
+            <b>Filename (*.yaml)</b> ... Setup a 3D-graph showing statistical data, based in parameters stored in a *.yaml file.<hr>Examples for use:
+        graph_stats: oa_demo</td>
+      </tr>
+      <tr class="even">
+        <td class="key">2D/3D Respawn ("respawn_2d3d: ")</td>
+        <td>The following switches setup preparing 2D/3D RESPAWN in OA (also refer to the examples given below!):
+            <b>Filename (*.dae)</b> ... Setup respawning a 3D-object (provided as Collada file) out of the 2D-projection. Combine it with virtual pointer (red hand).<hr>Examples for use:
+        respawn_2d3d: oa_demo</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Hand Text ("hand_text: ")</td>
+        <td>The following switches setup a HAND-TEXT in OA (also refer to the examples given below!):
+            <b>Text</b> ... Setup additional info text. Must be combined with virtual pointer (red hand)<hr>Examples for use:
+        hand_text: Find me on scholar!</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Representative Name ("rep_name: ")<br>Interaction ("rep_interaction: ")<br>Switch ("rep_interaction_switch: ")</td>
+        <td>The following switches setup a REPRESENTATIVE in OA (also refer to the examples given below!):
+            <b>rep_name: name</b> ... Setup a specific REP by name, e.g. "marvin".
+            <b>rep_interaction: state</b> ... Setup the state of the according representative.
+            <b>rep_interaction: force</b> ... Setup a force on the according representative.
+            <b>rep_interaction: reference</b> ... Setup a reference for a position-controlled robotic representative.
+            <b>rep_interaction: startup</b> ... Startup a robotic representative. The interface needs to be implemented on sides of the robot!
+            <b>rep_interaction: takeoff</b> ... Takeoff a robotic representative. The interface needs to be implemented on sides of the robot!
+            <b>rep_interaction: land</b> ... Land a robotic representative. The interface needs to be implemented on sides of the robot!
+            <b>rep_interaction: shutdown</b> ... Shutdown a robotic representative. The interface needs to be implemented on sides of the robot!
+            <b>rep_interaction: respawn</b> ... Respawn a representative (however be careful with complex robots, spawning at runtime might be tricky!).
+        rep_name: vase
+        rep_interaction: force
+        rep_interaction_switch: [0.0,0.0,10.0]</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Rep Sequencer<br>(Learning Sequencer)</td>
+        <td>The following switches setup the REP SEQUENCER (Learning Sequencer) in OA (also refer to the examples given below!):
+            <b>rep_name: "Name"</b> ... Setup a specific REP by name, e.g. "marvin".
+            <b>rep_interaction: sequence</b> ... Setup a REP sequence (learning sequence).
+            <b>rep_sequence_duration: Duration (s)</b> ... Setup the simulation final time, e.g. 30 seconds.
+            <b>rep_sequence_state: [t_0,x,y,z,roll,pitch,yaw]</b> ... Define at what specific time the state of the representative should be changed.
+            <b>rep_sequence_twist: [t_0,v_x,v_y,v_z,w_x,w_y,w_z, t_1,v_x,v_y,v_z,w_x,w_y,w_z, t_2,...]</b> ... Define changes of velocity.
+            <b>rep_sequence_force: [t_0,F_x,F_y,F_z,M_x,M_y,M_z, t_1,F_x,F_y,F_z,M_x,M_y,M_z, t_2,...]</b> ... Define changes of force.
+        rep_name: sequencer_demo
+        rep_interaction: sequence
+        rep_sequence_duration: 30.0
+        rep_sequence_state: [0.0,0.0,0.0,3.0,0.0,0.0,0.0]
+        rep_sequence_twist: [5.0,0.5,0.0,0.0,0.0,0.0,0.0, 10.0,0.5,0.25,0.25,0.0,0.0,0.0, 15.0,0.5,0.25,0.25,0.0,0.0,0.1, 24.0,0.0,0.0,0.0,0.0,0.0,0.0]
+        rep_sequence_force: [21.0,0.0,0.0,-9.81,0.0,0.0,0.0, 25.0,0.0,0.0,-9.81,0.0,0.0,0.0, 29.0,0.0,0.0,0.0,0.0,0.0,0.0]</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Learning Mode ("learning_mode: ")</td>
+        <td>The following switches setup a LEARNING MODE in OA (also refer to the examples given below!):
+            <b>true/false</b> ... Setup a preferred learning mode after scene transition.<hr>Examples for use:
+        learning_mode: cooperative</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Marvin Presenter ("marvin_presenter: ")</td>
+        <td>The following switches setup MARVIN AS PRESENTER in OA (also refer to the examples given below!):
+            <b>Text</b> ... Setup MARVIN to present a specific script after scene transition.<hr>Examples for use:
+        marvin_presenter: Hi guys, my name is MARVIN!</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Marvin Hologram ("marvin_hologram: ")</td>
+        <td>The following switches setup MARVINs HOLOGRAM in OA (also refer to the examples given below!):
+            <b>Filename (*.dae)</b> ... Setup MARVIN to project a hologram (provided as Collada file) in 3D.<hr>Examples for use:
+        marvin_hologram: oa_demo</td>
+      </tr>
+    </table></p>
+    <br><br><br>
+
+
+
+
+    <a id="help_pages_audience">
+    <h1>OA AUDIENCE/LISTENER - Help Pages</h1>
+    <p>The following pages serve as guideline how to trigger the interactions in Open Auditorium<br>
+    as Audience. Currently, the following input devices are supported:</p>
+    <ol>
+      <li>Keyboard (Key-Combinations)</li>
+      <!--<li>Mouse (Point-And-Click)</li>-->
+      <li>Joypad (Axes and Buttons)</li>
+      <!--<li>Mobile (GUI via ROS-Mobile App)</li>
+      <li>3D-Sensors (Pointing and activation of triggers in 3D with body gestures)</li>
+      <li>Voice (Voice-To-Text Interface)</li>-->
+    </ol>
+
+    <h2>KEYBOARD - (Audience/Listener) Triggers and Interactions</h2>
+
+    <p>To trigger an interaction with the KEYBOARD, you need to use the modifier <b>"Key TAB"</b>.<br>
+    Press and hold it and press one of the following keys.</p>
+
+    <h3>Basic - (Audience/Listener) Triggers and Interactions</h3>
+    <p><table border="1" cellspacing="0" cellpadding="3">
+      <tr class="even">
+        <td class="key">Key TAB + Key DOWN</td>
+        <td>Transition the CAMERA (RViz) to the DEFAULT view.</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Key TAB + Key UP</td>
+        <td>Transition the CAMERA (RViz) to CYCLE to the next view in a list of predefined views.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Key TAB + Key F</td>
+        <td>Toggle CAMERA (RViz) mode to FOLLOW the PRESENTER (Your camera follows the camera of the presenter, but only if he/she updates his own camera view by trigger!).</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Key TAB + Key O</td>
+        <td>Cycle through the PRESENCE modes of the AUDIENCE/LISTENER.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Key TAB + Key B</td>
+        <td>Toggle the BODY INTERACTION of the AUDIENCE/LISTENER (Requires a Kinect-like 3D-Sensor and the presenters PRESENCE mode set to 3D).</td>
+      </tr>
+      <tr class="odd">
+        <td class="key">Key TAB + Key V</td>
+        <td>Toggle AVATAR on top of the AUDIENCE/LISTENERs head (Hope you like Tony Stark!).</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Key TAB + Key P</td>
+        <td>(Re)open the SKETCH tool. Start being creative and send your sketch to other representatives in OA.</td>
+      </tr>
+    </table></p>
+
+    <h3>Requests - (Audience/Listener) Triggers and Interactions</h3>
+    <p><table border="1" cellspacing="0" cellpadding="3">
+      <tr class="odd">
+        <td class="key">Key TAB + Key Q</td>
+        <td>Send REQUEST for a QUESTION of the AUDIENCE/LISTENER to the presenter.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Key TAB + Key R</td>
+        <td>Send REQUEST for a BREAK of the AUDIENCE/LISTENER to the presenter.</td>
+      </tr>
+      <tr class="even">
+        <td class="key">Key TAB + Key M</td>
+        <td>Send REQUEST for a MESSAGE of the AUDIENCE/LISTENER to the presenter.</td>
+      </tr>
+    </table></p>
+
+
+    <br><br><br><h4>Help Pages - Current Version 1.0</h3>
+    Last modified: 08.08.2019
+    </body>
+</html>

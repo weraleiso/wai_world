@@ -1,0 +1,7 @@
+<library path="lib/librviz_plugin_wai_texture">
+    <class name="rviz_plugin_wai_texture/RVizPluginWAITexture" type="rviz_plugin_wai_texture::RVizPluginWAITexture" base_class_type="rviz::Display">
+        <description>
+            Adds dynamic textures to RViz.
+        </description>
+    </class>
+</library>

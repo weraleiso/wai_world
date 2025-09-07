@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+
+<launch>
+
+
+    <!-- (Global) Performance settings -->
+    <arg name="node_sample_frequency" default="20.0"/>
+    <arg name="sensor_sample_frequency" default="20.0"/>
+    <arg name="controller_sample_frequency" default="20.0"/>
+    <arg name="tf_pub_interval" default="50.0"/>
+    <arg name="rviz_frame_rate" default="20"/>
+
+
+    <!-- Configure REPS -->
+    <arg name="namespace_global"                            default="wai_world"/>
+
+    <arg name="namespace_world"                             default="world"/>
+
+    <!-- Configure OA -->
+    <arg name="namespace_oa"                                default="oa"/>
+        <arg name="oa_spawn_x"                              default="0.0"/>
+        <arg name="oa_spawn_y"                              default="0.0"/>
+        <arg name="oa_spawn_z"                              default="-0.01"/>
+        <arg name="oa_spawn_yaw"                            default="0.0"/>
+        <arg name="oa_spawn_delay"                          default="0.0"/>
+        <arg name="oa_node_start_delay"                     default="0.0"/>
+        <arg name="oa_node_sample_frequency"                default="$(arg node_sample_frequency)"/>
+        <arg name="oa_sensor_sample_frequency"              default="$(arg sensor_sample_frequency)"/>
+        <arg name="oa_controller_sample_frequency"          default="$(arg controller_sample_frequency)"/>
+        <arg name="oa_tf_pub_interval"                      default="$(arg tf_pub_interval)"/>
+
+    <arg name="namespace_marvin"                            default="marvin"/>
+        <arg name="marvin_spawn_x"                          default="1.25"/>
+        <arg name="marvin_spawn_y"                          default="0.0"/>
+        <arg name="marvin_spawn_z"                          default="0.5"/>
+        <arg name="marvin_spawn_yaw"                        default="0.0"/>
+        <arg name="marvin_spawn_delay"                      default="0.0"/> <!-- 2.5 -->
+        <arg name="marvin_node_start_delay"                 default="0.0"/>
+        <arg name="marvin_node_sample_frequency"            default="$(arg node_sample_frequency)"/>
+        <arg name="marvin_sensor_sample_frequency"          default="$(arg sensor_sample_frequency)"/>
+        <arg name="marvin_controller_sample_frequency"      default="$(arg controller_sample_frequency)"/>
+        <arg name="marvin_tf_pub_interval"                  default="$(arg tf_pub_interval)"/>
+
+    <arg name="namespace_ingenuity"                         default="ingenuity"/>
+        <arg name="ingenuity_spawn_x"                       default="7.0"/>
+        <arg name="ingenuity_spawn_y"                       default="-3.0"/>
+        <arg name="ingenuity_spawn_z"                       default="0.5"/>
+        <arg name="ingenuity_spawn_yaw"                     default="0.0"/>
+        <arg name="ingenuity_spawn_delay"                   default="0.0"/>
+        <arg name="ingenuity_node_start_delay"              default="0.0"/>
+        <arg name="ingenuity_node_sample_frequency"         default="$(arg node_sample_frequency)"/>
+        <arg name="ingenuity_sensor_sample_frequency"       default="$(arg sensor_sample_frequency)"/>
+        <arg name="ingenuity_controller_sample_frequency"   default="$(arg controller_sample_frequency)"/>
+        <arg name="ingenuity_tf_pub_interval"               default="$(arg tf_pub_interval)"/>
+
+
+    <group ns="$(arg namespace_global)">
+
+        <!-- Spawn GAZEBO (WORLD) -->
+        <group if="$(eval namespace_world == 'world')">
+            <include file="$(find wai_world_gazebo)/launch/wai_world_gazebo_spawn.launch">
+                <arg name="namespace_global" value="$(arg namespace_global)"/>
+                <arg name="namespace_world" value="$(arg namespace_world)"/>
+                <arg name="world_name" value="$(find wai_world_gazebo)/descriptions/world.world"/>
+                <arg name="tf_pub_interval" value="$(arg tf_pub_interval)"/>
+                <arg name="rviz_frame_rate" value="$(arg rviz_frame_rate)"/>
+            </include>
+        </group>
+
+        <!-- Spawn AUDITORIUM Server (WORKSPACE) -->
+        <group if="$(eval namespace_oa == 'oa')">
+            <include file="$(find wai_oa_gazebo)/launch/wai_oa_gazebo_spawn.launch">
+                <arg name="namespace_global" value="$(arg namespace_global)"/>
+                <arg name="namespace_oa" value="$(arg namespace_oa)"/>
+                <arg name="oa_spawn_x" value="$(arg oa_spawn_x)"/>
+                <arg name="oa_spawn_y" value="$(arg oa_spawn_y)"/>
+                <arg name="oa_spawn_z" value="$(arg oa_spawn_z)"/>
+                <arg name="oa_spawn_yaw" value="$(arg oa_spawn_yaw)"/>
+                <arg name="oa_spawn_delay" value="$(arg oa_spawn_delay)"/>
+                <arg name="oa_node_start_delay" value="$(arg oa_node_start_delay)"/>
+                <arg name="oa_node_sample_frequency" value="$(arg oa_node_sample_frequency)"/>
+                <arg name="oa_sensor_sample_frequency" value="$(arg oa_sensor_sample_frequency)"/>
+                <arg name="oa_controller_sample_frequency" value="$(arg oa_controller_sample_frequency)"/>
+                <arg name="oa_tf_pub_interval" value="$(arg oa_tf_pub_interval)"/>
+            </include>
+        </group>
+
+        <!-- Spawn MARVIN (ROBOT REPRESENTATIVE) -->
+        <group if="$(eval namespace_marvin == 'marvin')">
+            <include file="$(find wai_marvin_gazebo)/launch/wai_marvin_gazebo_spawn.launch">
+                <arg name="namespace_global" value="$(arg namespace_global)"/>
+                <arg name="namespace_marvin" value="$(arg namespace_marvin)"/>
+                <arg name="marvin_spawn_x" value="$(arg marvin_spawn_x)"/>
+                <arg name="marvin_spawn_y" value="$(arg marvin_spawn_y)"/>
+                <arg name="marvin_spawn_z" value="$(arg marvin_spawn_z)"/>
+                <arg name="marvin_spawn_yaw" value="$(arg marvin_spawn_yaw)"/>
+                <arg name="marvin_spawn_delay" value="$(arg marvin_spawn_delay)"/>
+                <arg name="marvin_node_start_delay" value="$(arg marvin_node_start_delay)"/>
+                <arg name="marvin_node_sample_frequency" value="$(arg marvin_node_sample_frequency)"/>
+                <arg name="marvin_sensor_sample_frequency" value="$(arg marvin_sensor_sample_frequency)"/>
+                <arg name="marvin_controller_sample_frequency" value="$(arg marvin_controller_sample_frequency)"/>
+                <arg name="marvin_tf_pub_interval" value="$(arg marvin_tf_pub_interval)"/>
+            </include>
+        </group>
+
+        <!-- Spawn INGENUITY (ROBOT REPRESENTATIVE) -->
+        <group if="$(eval namespace_ingenuity == 'ingenuity')">
+            <include file="$(find wai_ingenuity_gazebo)/launch/wai_ingenuity_gazebo_spawn.launch">
+                <arg name="namespace_global" value="$(arg namespace_global)"/>
+                <arg name="namespace_ingenuity" value="$(arg namespace_ingenuity)"/>
+                <arg name="ingenuity_spawn_x" value="$(arg ingenuity_spawn_x)"/>
+                <arg name="ingenuity_spawn_y" value="$(arg ingenuity_spawn_y)"/>
+                <arg name="ingenuity_spawn_z" value="$(arg ingenuity_spawn_z)"/>
+                <arg name="ingenuity_spawn_yaw" value="$(arg ingenuity_spawn_yaw)"/>
+                <arg name="ingenuity_spawn_delay" value="$(arg ingenuity_spawn_delay)"/>
+                <arg name="ingenuity_node_start_delay" value="$(arg ingenuity_node_start_delay)"/>
+                <arg name="ingenuity_node_sample_frequency" value="$(arg ingenuity_node_sample_frequency)"/>
+                <arg name="ingenuity_sensor_sample_frequency" value="$(arg ingenuity_sensor_sample_frequency)"/>
+                <arg name="ingenuity_controller_sample_frequency" value="$(arg ingenuity_controller_sample_frequency)"/>
+                <arg name="ingenuity_tf_pub_interval" value="$(arg ingenuity_tf_pub_interval)"/>
+            </include>
+        </group>
+
+    </group>
+
+
+</launch>

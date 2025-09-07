@@ -1,0 +1,28 @@
+#
+## Alias OBJ Material File
+# Exported from SketchUp, (c) 2000-2012 Trimble Navigation Limited
+
+newmtl Formica_Speckled_Grey
+Ka 0.000000 0.000000 0.000000
+Kd 0.368627 0.411765 0.435294
+Ks 0.330000 0.330000 0.330000
+map_Kd link_eval_weight_balance_body/Formica_Speckled_Grey.jpg
+
+newmtl Formica_Laminate_Light
+Ka 0.000000 0.000000 0.000000
+Kd 0.835294 0.741176 0.643137
+Ks 0.330000 0.330000 0.330000
+map_Kd link_eval_weight_balance_body/Formica_Laminate_Light.jpg
+
+newmtl Metal_Rusted
+Ka 0.000000 0.000000 0.000000
+Kd 0.721569 0.458824 0.356863
+Ks 0.330000 0.330000 0.330000
+map_Kd link_eval_weight_balance_body/Metal_Rusted.jpg
+
+newmtl Terrazzo_Light_Blue
+Ka 0.000000 0.000000 0.000000
+Kd 0.768627 0.839216 0.890196
+Ks 0.330000 0.330000 0.330000
+map_Kd link_eval_weight_balance_body/Terrazzo_Light_Blue.jpg
+

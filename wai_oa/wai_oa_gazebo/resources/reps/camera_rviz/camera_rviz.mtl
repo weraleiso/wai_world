@@ -1,0 +1,82 @@
+#
+## Alias OBJ Material File
+# Exported from SketchUp, (c) 2000-2012 Trimble Navigation Limited
+
+newmtl Color_006
+Ka 0.000000 0.000000 0.000000
+Kd 0.337255 0.337255 0.337255
+Ks 0.330000 0.330000 0.330000
+map_Kd camera_rviz/Color_006.png
+
+newmtl Color_008
+Ka 0.000000 0.000000 0.000000
+Kd 0.117647 0.117647 0.117647
+Ks 0.330000 0.330000 0.330000
+map_Kd camera_rviz/Color_008.png
+
+newmtl Color_M07
+Ka 0.000000 0.000000 0.000000
+Kd 0.227451 0.227451 0.227451
+Ks 0.330000 0.330000 0.330000
+map_Kd camera_rviz/Color_M07.png
+
+newmtl Color_007
+Ka 0.000000 0.000000 0.000000
+Kd 0.227451 0.227451 0.227451
+Ks 0.330000 0.330000 0.330000
+map_Kd camera_rviz/Color_007.png
+
+newmtl Color_002
+Ka 0.000000 0.000000 0.000000
+Kd 0.776471 0.776471 0.776471
+Ks 0.330000 0.330000 0.330000
+map_Kd camera_rviz/Color_002.png
+
+newmtl Color_M02
+Ka 0.000000 0.000000 0.000000
+Kd 0.776471 0.776471 0.776471
+Ks 0.330000 0.330000 0.330000
+map_Kd camera_rviz/Color_M02.png
+
+newmtl open_auditorium_logo_no_transparency
+Ka 0.000000 0.000000 0.000000
+Kd 0.501961 0.501961 0.501961
+Ks 0.000000 0.000000 0.000000
+map_Kd camera_rviz/open_auditorium_logo_no_transparency.png
+
+newmtl Terrazzo_Light_Blue
+Ka 0.000000 0.000000 0.000000
+Kd 0.768627 0.839216 0.890196
+Ks 0.330000 0.330000 0.330000
+map_Kd camera_rviz/Terrazzo_Light_Blue.jpg
+
+newmtl Quartz_Light_Grey
+Ka 0.000000 0.000000 0.000000
+Kd 0.984314 0.984314 0.988235
+Ks 0.330000 0.330000 0.330000
+map_Kd camera_rviz/Quartz_Light_Grey.jpg
+
+newmtl _Charcoal_
+Ka 0.000000 0.000000 0.000000
+Kd 0.137255 0.137255 0.137255
+Ks 0.330000 0.330000 0.330000
+map_Kd camera_rviz/_Charcoal_.png
+
+newmtl M_0135_DarkGray
+Ka 0.000000 0.000000 0.000000
+Kd 0.317647 0.317647 0.317647
+Ks 0.330000 0.330000 0.330000
+map_Kd camera_rviz/M_0135_DarkGray.png
+
+newmtl _1
+Ka 0.000000 0.000000 0.000000
+Kd 0.019608 0.019608 0.019608
+Ks 0.330000 0.330000 0.330000
+map_Kd camera_rviz/_1.png
+
+newmtl _3
+Ka 0.000000 0.000000 0.000000
+Kd 0.078431 0.078431 0.078431
+Ks 0.330000 0.330000 0.330000
+map_Kd camera_rviz/_3.png
+

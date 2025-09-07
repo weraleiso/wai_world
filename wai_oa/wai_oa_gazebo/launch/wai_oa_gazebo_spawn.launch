@@ -1,0 +1,464 @@
+<?xml version="1.0" ?>
+
+<launch>
+
+    <!-- GLOBAL SETTINGS - Overwritten by world bringup launchfile! -->
+    <arg name="namespace_global" default="wai_world"/>
+    <arg name="namespace_oa" default="oa"/>
+    <arg name="oa_spawn_x" default="0.0"/>
+    <arg name="oa_spawn_y" default="0.0"/>
+    <arg name="oa_spawn_z" default="-0.01"/>
+    <arg name="oa_spawn_yaw" default="0.0"/>
+    <arg name="oa_spawn_delay" default="0.0"/>
+    <arg name="oa_node_start_delay" default="0.0"/>
+    <arg name="oa_node_sample_frequency" default="20.0"/>
+    <arg name="oa_sensor_sample_frequency" default="20.0"/>
+    <arg name="oa_controller_sample_frequency" default="10.0"/>
+    <arg name="oa_tf_pub_interval" default="100.0"/>
+
+    <!-- LOCAL SETTINGS - Configured for each individual workspace! -->
+    <arg name="oa_presenter_presence_mode" default="1"/>
+    <arg name="oa_presenter_prompt_mode" default="0"/>
+    <arg name="oa_presenter_pose_x" default="0.0"/>
+    <arg name="oa_presenter_pose_y" default="0.0"/>
+    <arg name="oa_presenter_pose_z" default="1.0"/>
+    <arg name="oa_presenter_pose_yaw" default="0.0"/>
+    <arg name="oa_projection_pose_x" default="2.49"/>
+    <arg name="oa_projection_pose_y" default="3.0"/>
+    <arg name="oa_projection_pose_z" default="1.0"/>
+    <arg name="oa_projection_pose_yaw" default="0.0"/>
+    <arg name="oa_workspace_presenter_model" default="auditorium"/> <!-- auditorium -->
+    <arg name="oa_workspace_audience_model" default="audience"/>
+    <arg name="oa_session_group" default="group_default"/>
+    <arg name="oa_session_topic" default="topic_default"/>
+    <arg name="oa_session_expertise" default="expertise_default"/>
+    <arg name="oa_session_expertise_level" default="3"/>
+    <arg name="oa_session_name" default="wai_oa_presenter_interactions_scripted"/>
+    <arg name="oa_session_length" default="50"/>
+    <arg name="oa_session_break_length" default="2"/>
+    <arg name="oa_scene_start_before" default="1"/>
+    <arg name="oa_audience_count_max" default="4"/>
+    <arg name="oa_audience_listeners_per_row" default="4"/>
+    <arg name="oa_audience_request_queue_size" default="10"/>
+    <arg name="oa_scene_transition_timeout" default="3.0"/>
+    <arg name="oa_scene_trigger_timeout" default="1.0"/>
+    <arg name="oa_scene_trigger_coll_thres" default="0.175"/>
+    <arg name="oa_camera_rgbd_color_mode" default="8"/>
+    <arg name="oa_camera_rgbd_depth_mode" default="8"/>
+    <arg name="oa_camera_rgbd_ir_mode" default="8"/>
+    <arg name="oa_camera_rgbd_resolution_x" default="320"/>
+    <arg name="oa_camera_rgbd_resolution_y" default="240"/>
+    <arg name="oa_camera_rgbd_resolution_scale" default="1.0"/>
+    <arg name="oa_camera_rgbd_fx" default="285.171112061"/> <!-- 570.3422241210938/2.0 -->
+    <arg name="oa_camera_rgbd_fy" default="285.171112061"/> <!-- 570.3422241210938/2.0 -->
+    <arg name="oa_camera_rgbd_cx" default="159.75"/> <!-- 319.5/2.0 -->
+    <arg name="oa_camera_rgbd_cy" default="119.75"/> <!-- 239.5/2.0 -->
+    <arg name="oa_camera_rgbd_depth_resolution_x" default="320"/> <!-- UNUSED currently -->
+    <arg name="oa_camera_rgbd_depth_resolution_y" default="240"/>
+    <arg name="oa_camera_rgbd_depth_resolution_scale" default="1.0"/>
+    <arg name="oa_camera_rgbd_depth_fx" default="285.171112061"/>
+    <arg name="oa_camera_rgbd_depth_fy" default="285.171112061"/>
+    <arg name="oa_camera_rgbd_depth_cx" default="159.75"/>
+    <arg name="oa_camera_rgbd_depth_cy" default="119.75"/>
+    <arg name="oa_camera_rgbd_range_min" default="0.5"/>
+    <arg name="oa_camera_rgbd_range_max" default="2.3"/>
+    <arg name="oa_camera_rgbd_mask_width" default="0.15"/>
+    <arg name="oa_camera_rgbd_threshold_dist" default="0.3"/>
+    <arg name="oa_camera_rgbd_threshold_bounds" default="0.15"/>
+    <arg name="oa_enable_kalman" default="false"/>
+    <arg name="oa_enable_teleprompter" default="false"/>
+    <arg name="oa_enable_camera_rviz_flyin" default="true"/>
+    <arg name="oa_enable_camera_rviz_idle" default="true"/>
+    <arg name="oa_enable_lectern" default="false"/>
+    <arg name="oa_enable_table" default="false"/>
+    <arg name="oa_enable_audio" default="false"/>
+    <arg name="oa_enable_slide_interactions" default="false"/>
+    <arg name="oa_enable_session_scheduler" default="false"/>
+
+    <!-- Enable/Disable ADDITIONAL REPS in OA  -->
+    <arg name="namespace_presenter" default="presenter"/>
+    <arg name="namespace_workspace_presenter" default="workspace_presenter"/>
+    <arg name="namespace_workspace_audience" default="workspace_audience"/>
+    <arg name="namespace_whiteboard" default="whiteboard"/>
+    <arg name="namespace_wall_left" default="wall_left"/>
+    <arg name="namespace_wall_right" default="wall_right"/>
+    <arg name="namespace_table" default="table"/>
+    <arg name="namespace_lectern" default="lectern"/>
+    <arg name="namespace_vase" default="vase"/>
+    <arg name="namespace_sequencer_demo" default="sequencer_demo"/>
+    <arg name="namespace_respawn_demo" default=""/>
+    <arg name="namespace_pendulum" default=""/>
+    <arg name="namespace_eval_bowl" default="eval_bowl"/>
+    <arg name="namespace_eval_weight_balance" default="eval_weight_balance"/>
+    <arg name="namespace_eval_marvin" default="eval_marvin"/>
+
+    <!-- Spawn Presenter (Load DETAILS and Spawn WORKSPACE) -->
+    <group ns="$(arg namespace_presenter)"> <!-- needs to be unified with other REPS, consider in ISP!!! -->
+        <rosparam file="$(find wai_oa_gazebo)/resources/details/$(arg namespace_presenter).yaml" command="load" ns="/$(arg namespace_global)/$(arg namespace_presenter)/details"/>
+    </group>
+    <group ns="$(arg namespace_workspace_presenter)">
+        <param name="tf_prefix" type="string" value="$(arg namespace_workspace_presenter)"/>
+        <param name="robot_description" command="$(find xacro)/xacro '$(find wai_oa_gazebo)/resources/descriptions/workspace_presenter.xacro' prefix:=$(arg namespace_workspace_presenter) workspace_presenter_model:=$(arg oa_workspace_presenter_model)"/>
+        <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" launch-prefix="bash -c 'sleep $(arg oa_spawn_delay); $0 $@' " output="screen" args="-x $(arg oa_spawn_x) -y $(arg oa_spawn_y) -z $(arg oa_spawn_z) -Y $(arg oa_spawn_yaw) -gazebo_namespace /$(arg namespace_global)/gazebo -urdf -param robot_description -model $(arg namespace_workspace_presenter)"/>
+    </group>
+
+    <!-- Spawn Audience -->
+    <include file="$(find wai_oa_gazebo)/launch/wai_oa_workspace_audience.launch">
+        <arg name="namespace_global" value="$(arg namespace_global)"/>
+        <arg name="namespace_workspace_audience" value="$(arg namespace_workspace_audience)"/>
+        <arg name="oa_controller_sample_frequency" value="$(arg oa_controller_sample_frequency)"/>
+        <arg name="oa_workspace_audience_model" value="$(arg oa_workspace_audience_model)"/>
+        <arg name="id" value="$(eval arg('oa_audience_count_max')-1)"/>
+        <arg name="ids_per_row" value="$(arg oa_audience_listeners_per_row)"/>
+    </include>
+    <!--<group ns="$(arg namespace_workspace_audience)">  
+        <param name="tf_prefix" type="string" value="$(arg namespace_workspace_audience)" />
+        <param name="robot_description" command="$(find xacro)/xacro '$(find wai_oa_gazebo)/resources/descriptions/workspace_audience.xacro' prefix:=$(arg namespace_workspace_audience) workspace_audience_model:=$(arg oa_workspace_audience_model)"/>
+        <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" output="screen" args="-x 0.0 -y -2.25 -z 0.0 -Y 3.141592654 -P 0.0 -R 0.0 -gazebo_namespace /$(arg namespace_global)/gazebo -urdf -param robot_description -model $(arg namespace_workspace_audience)"/>
+    </group>-->
+
+
+    <!-- Spawn helper objects (TODO: For new architecture, put them into their own namespace in xacro file!) -->
+    <!-- ==================== -->
+    <!-- NOTES: Fixed joints are published automatically by ROS/gazebo and ROBOT_STATE_PUBLISHER only. -->
+    <!-- Non-fixed joints, e.g. revolute etc., CAN be published via joint_state_publisher, WITHOUT transmissions and controllers necessary -->
+    <!-- HOWEVER, its possible to publish Non-fixed joints via robot_state_publisher, IF, and only IF, transmissions and controllers are implemented! --> 
+    <!-- Also see Forum answer: RViz is just visualizing your robot while Gazebo is a complete simulation environment that simulates a complete robot, including its joints and the motors connected to them.
+    In case of rviz, running the joint_state_publisher node creates a publisher on the joint_states topic. The robot_state_publisher then subscribes to that topic and publishes the corresponding TF tree.
+    In gazebo you must not run the joint_state_publisher. Instead, you need to run controller plugin (e.g. the gazebo_ros_controller_manager) that reads the joint states from the simulated robot and publishes them on the joint_states topic. You cannot move the robot by just publishing different joint states since joint states represent the current state of the robot, not a goal. Instead you need to run controllers that apply forces at the simulated joints.
+    -->
+    
+    <!-- Example how to spawn an object in OA -->
+    <!--<group if="$(eval namespace_respawn_demo == 'respawn_demo')" ns="$(arg namespace_respawn_demo)">
+        <param name="tf_prefix" type="string" value="$(arg namespace_respawn_demo)"/>
+        <param name="robot_description" command="$(find xacro)/xacro '$(find wai_oa_gazebo)/resources/descriptions/respawn_demo.xacro' prefix:=$(arg namespace_respawn_demo)"/>
+        <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" output="screen" args="-x 0.5 -y 0.0 -z 1.0 -gazebo_namespace /$(arg namespace_global)/gazebo -urdf -param robot_description -model $(arg namespace_respawn_demo)"/>
+    </group>-->
+
+    <group if="$(eval namespace_eval_bowl == 'eval_bowl')" ns="$(arg namespace_eval_bowl)">
+        <param name="tf_prefix" type="string" value="$(arg namespace_eval_bowl)"/>
+        <param name="robot_description" command="$(find xacro)/xacro '$(find wai_oa_gazebo)/resources/descriptions/eval_bowl.xacro' prefix:=$(arg namespace_eval_bowl)"/>
+        <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" output="screen" args="-x -6.0 -y -5.0 -z 0.01 -gazebo_namespace /$(arg namespace_global)/gazebo -urdf -param robot_description -model $(arg namespace_eval_bowl)"/>
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+            <param name="use_tf_static" value="false"/>
+            <param name="ignore_timestamp" value="true"/>
+            <param name="publish_frequency" value="$(arg oa_controller_sample_frequency)"/>
+        </node>
+        <!--<rosparam file="$(find wai_oa_gazebo)/resources/details/$(arg namespace_eval_bowl).yaml" command="load" ns="/$(arg namespace_global)/$(arg namespace_eval_bowl)/details"/>-->
+    </group>
+
+    <group if="$(eval namespace_eval_weight_balance == 'eval_weight_balance')" ns="$(arg namespace_eval_weight_balance)">
+        <param name="tf_prefix" type="string" value="$(arg namespace_eval_weight_balance)"/>
+        <param name="robot_description" command="$(find xacro)/xacro '$(find wai_oa_gazebo)/resources/descriptions/eval_weight_balance.xacro' prefix:=$(arg namespace_eval_weight_balance)"/>
+        <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" output="screen" args="-x -6.5 -y 7.5 -z 0.01 -Y -1.570796327 -gazebo_namespace /$(arg namespace_global)/gazebo -urdf -param robot_description -model $(arg namespace_eval_weight_balance)"/>
+        <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" ns="/$(arg namespace_global)/$(arg namespace_eval_weight_balance)" output="screen" args="joint_state_controller joint_eval_weight_balance_position_controller">
+            <rosparam command="load" ns="/$(arg namespace_global)/$(arg namespace_eval_weight_balance)" subst_value="true">
+                joint_state_controller:
+                    type: joint_state_controller/JointStateController
+                    publish_rate: 25.0
+                joint_eval_weight_balance_position_controller:
+                    type: effort_controllers/JointPositionController
+                    joint: joint_eval_weight_balance_suspension
+                    pid: {p: 0.0, i: 0.0, d: 0.0}
+            </rosparam>
+        </node>
+        <!--<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>-->
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+            <param name="use_tf_static" value="false"/>
+            <param name="ignore_timestamp" value="true"/>
+            <param name="publish_frequency" value="$(arg oa_controller_sample_frequency)"/>
+        </node>
+        <!--<rosparam file="$(find wai_oa_gazebo)/resources/details/$(arg namespace_eval_weight_balance).yaml" command="load" ns="/$(arg namespace_global)/$(arg namespace_eval_weight_balance)/details"/>-->
+    </group>
+
+    <group if="$(eval namespace_eval_marvin == 'eval_marvin')" ns="$(arg namespace_eval_marvin)">
+        <param name="tf_prefix" type="string" value="$(arg namespace_eval_marvin)"/>
+        <param name="robot_description" command="$(find xacro)/xacro '$(find wai_oa_gazebo)/resources/descriptions/eval_marvin.xacro' prefix:=$(arg namespace_eval_marvin)"/>
+        <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" output="screen" args="-x -9.0 -y 1.5 -z 0.25 -Y -1.570796327 -gazebo_namespace /$(arg namespace_global)/gazebo -urdf -param robot_description -model $(arg namespace_eval_marvin)"/>
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+            <param name="use_tf_static" value="false"/>
+            <param name="ignore_timestamp" value="true"/>
+            <param name="publish_frequency" value="$(arg oa_controller_sample_frequency)"/>
+        </node>
+        <!--<rosparam file="$(find wai_oa_gazebo)/resources/details/$(arg namespace_eval_marvin).yaml" command="load" ns="/$(arg namespace_global)/$(arg namespace_eval_marvin)/details"/>-->
+    </group>
+
+    <group if="$(eval namespace_whiteboard == 'whiteboard')" ns="$(arg namespace_whiteboard)">
+        <param name="tf_prefix" type="string" value="$(arg namespace_whiteboard)"/>
+        <param name="robot_description" command="$(find xacro)/xacro '$(find wai_oa_gazebo)/resources/descriptions/whiteboard.xacro' prefix:=$(arg namespace_whiteboard)"/>
+        <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" output="screen" args="-x 0.0 -y -10.0 -z 0.0 -gazebo_namespace /$(arg namespace_global)/gazebo -urdf -param robot_description -model $(arg namespace_whiteboard)"/>
+    </group>
+
+    <group if="$(eval namespace_wall_left == 'wall_left')" ns="$(arg namespace_wall_left)">
+        <param name="tf_prefix" type="string" value="$(arg namespace_wall_left)"/>
+        <param name="robot_description" command="$(find xacro)/xacro '$(find wai_oa_gazebo)/resources/descriptions/wall_left.xacro' prefix:=$(arg namespace_wall_left)"/>
+        <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" output="screen" args="-x 0.0 -y -7.5 -z 0.0 -gazebo_namespace /$(arg namespace_global)/gazebo -urdf -param robot_description -model $(arg namespace_wall_left)"/>
+    </group>
+
+    <group if="$(eval namespace_wall_right == 'wall_right')" ns="$(arg namespace_wall_right)">
+        <param name="tf_prefix" type="string" value="$(arg namespace_wall_right)"/>
+        <param name="robot_description" command="$(find xacro)/xacro '$(find wai_oa_gazebo)/resources/descriptions/wall_right.xacro' prefix:=$(arg namespace_wall_right)"/>
+        <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" output="screen" args="-x 0.0 -y -5.0 -z 0.0 -gazebo_namespace /$(arg namespace_global)/gazebo -urdf -param robot_description -model $(arg namespace_wall_right)"/>
+    </group>
+
+    <group if="$(eval namespace_table == 'table')" ns="$(arg namespace_table)">
+        <param name="tf_prefix" type="string" value="$(arg namespace_table)"/>
+        <param name="robot_description" command="$(find xacro)/xacro '$(find wai_oa_gazebo)/resources/descriptions/table.xacro' prefix:=$(arg namespace_table)"/>
+        <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" output="screen" args="-x 0.0 -y 5.0 -z 0.0 -gazebo_namespace /$(arg namespace_global)/gazebo -urdf -param robot_description -model $(arg namespace_table)"/>
+    </group>
+
+    <group if="$(eval namespace_lectern == 'lectern')" ns="$(arg namespace_lectern)">
+        <param name="tf_prefix" type="string" value="$(arg namespace_lectern)"/>
+        <param name="robot_description" command="$(find xacro)/xacro '$(find wai_oa_gazebo)/resources/descriptions/lectern.xacro' prefix:=$(arg namespace_lectern)"/>
+        <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" output="screen" args="-x 0.0 -y 2.5 -z 0.0 -gazebo_namespace /$(arg namespace_global)/gazebo -urdf -param robot_description -model $(arg namespace_lectern)"/>
+    </group>
+
+    <group if="$(eval namespace_vase == 'vase')" ns="$(arg namespace_vase)">
+        <param name="tf_prefix" type="string" value="$(arg namespace_vase)"/>
+        <param name="robot_description" command="$(find xacro)/xacro '$(find wai_oa_gazebo)/resources/descriptions/vase.xacro' prefix:=$(arg namespace_vase)"/>
+        <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" output="screen" args="-x 0.0 -y -2.5 -z 0.5 -gazebo_namespace /$(arg namespace_global)/gazebo -urdf -param robot_description -model $(arg namespace_vase)"/>
+    </group>
+
+    <group if="$(eval namespace_sequencer_demo == 'sequencer_demo')" ns="$(arg namespace_sequencer_demo)">
+        <param name="tf_prefix" type="string" value="$(arg namespace_sequencer_demo)"/>
+        <param name="robot_description" command="$(find xacro)/xacro '$(find wai_oa_gazebo)/resources/descriptions/sequencer_demo.xacro' prefix:=$(arg namespace_sequencer_demo)"/>
+        <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" output="screen" args="-x 0.5 -y 5.0 -z 0.1 -gazebo_namespace /$(arg namespace_global)/gazebo -urdf -param robot_description -model $(arg namespace_sequencer_demo)"/>
+    </group>
+
+    <group if="$(eval namespace_pendulum == 'pendulum')" ns="$(arg namespace_pendulum)">
+        <param name="tf_prefix" type="string" value="$(arg namespace_pendulum)"/>
+        <param name="robot_description" command="$(find xacro)/xacro '$(find wai_oa_gazebo)/resources/descriptions/pendulum.xacro' prefix:=$(arg namespace_pendulum)"/>
+        <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" output="screen" args="-x 10.0 -y 5.0 -z 0.1 -Y 1.570796327 -gazebo_namespace /$(arg namespace_global)/gazebo -urdf -param robot_description -model $(arg namespace_pendulum) -J joint_pendulum_suspension 0.5"/>
+        <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" ns="/$(arg namespace_global)/$(arg namespace_pendulum)" output="screen" args="joint_state_controller joint_pendulum_position_controller joint_pendulum_end_position_controller">
+            <rosparam command="load" ns="/$(arg namespace_global)/$(arg namespace_pendulum)" subst_value="true">
+                joint_state_controller:
+                    type: joint_state_controller/JointStateController
+                    publish_rate: 20.0
+                joint_pendulum_position_controller:
+                    type: effort_controllers/JointPositionController
+                    joint: joint_pendulum_suspension
+                    pid: {p: 0.0, i: 0.0, d: 0.0}
+                joint_pendulum_end_position_controller:
+                    type: effort_controllers/JointPositionController
+                    joint: joint_pendulum_end
+                    pid: {p: 0.0, i: 0.0, d: 0.0}
+            </rosparam>
+        </node>
+        <!--<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>-->
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+            <param name="use_tf_static" value="false"/>
+            <param name="ignore_timestamp" value="true"/>
+            <param name="publish_frequency" value="$(arg oa_controller_sample_frequency)"/>
+        </node>
+        <rosparam file="$(find wai_oa_gazebo)/resources/details/$(arg namespace_pendulum).yaml" command="load" ns="/$(arg namespace_global)/$(arg namespace_pendulum)/details"/>
+    </group>
+
+
+
+    <!-- Start auditorium node -->
+    <group ns="$(arg namespace_oa)">
+
+        <node name="tf_pub_world_wrt_camera_rgbd_in_link" pkg="tf" type="static_transform_publisher" args="0.0 0.0 1.0 0.0 0.0 0.0 world camera_rgbd_in_link $(arg oa_tf_pub_interval)"/>
+
+        <node name="tf_pub_camera_rgbd_out_link_wrt_camera_openni_depth_frame" pkg="tf" type="static_transform_publisher" args="0.0 0.0 0.0 0.0 0.0 0.0 camera_rgbd_out_link openni_depth_frame $(arg oa_tf_pub_interval)"/>
+        <node name="tf_pub_camera_rgbd_out_link_wrt_camera_rgbd_out_rgb_frame" pkg="tf" type="static_transform_publisher" args="0.0 -0.045 0.0 0.0 0.0 0.0 camera_rgbd_out_link camera_rgbd_out_rgb_frame $(arg oa_tf_pub_interval)"/>
+        <node name="tf_pub_camera_rgbd_out_link_wrt_camera_rgbd_out_depth_frame" pkg="tf" type="static_transform_publisher" args="0.0 -0.02 0.0 0.0 0.0 0.0 camera_rgbd_out_link camera_rgbd_out_depth_frame $(arg oa_tf_pub_interval)"/>
+        <node name="tf_pub_camera_rgbd_out_link_wrt_camera_rgbd_out_rgb_optical_frame" pkg="tf" type="static_transform_publisher" args="0.0 -0.045 0.0 -1.570796327 0.0 -1.570796327 camera_rgbd_out_rgb_frame camera_rgbd_out_rgb_optical_frame $(arg oa_tf_pub_interval)"/>
+        <node name="tf_pub_camera_rgbd_out_link_wrt_camera_rgbd_out_depth_optical_frame" pkg="tf" type="static_transform_publisher" args="0.0 -0.02 0.0 -1.570796327 0.0 -1.570796327 camera_rgbd_out_depth_frame camera_rgbd_out_depth_optical_frame $(arg oa_tf_pub_interval)"/>
+
+        <node name="tf_pub_world_wrt_camera_virtual_link" pkg="tf" type="static_transform_publisher" args="0.0 0.0 1.0 0.0 0.0 0.0 world camera_virtual_link $(arg oa_tf_pub_interval)"/>
+        <node name="tf_pub_camera_virtual_link_wrt_camera_virtual_rgb_frame" pkg="tf" type="static_transform_publisher" args="0.0 -0.045 0.0 0.0 0.0 0.0 camera_virtual_link camera_virtual_rgb_frame $(arg oa_tf_pub_interval)"/>
+        <node name="tf_pub_camera_virtual_link_wrt_camera_virtual_depth_frame" pkg="tf" type="static_transform_publisher" args="0.0 -0.02 0.0 0.0 0.0 0.0 camera_virtual_link camera_virtual_depth_frame $(arg oa_tf_pub_interval)"/>
+        <node name="tf_pub_camera_virtual_link_wrt_camera_virtual_rgb_optical_frame" pkg="tf" type="static_transform_publisher" args="0.0 -0.045 0.0 -1.570796327 0.0 -1.570796327 camera_virtual_rgb_frame camera_virtual_rgb_optical_frame $(arg oa_tf_pub_interval)"/>
+        <node name="tf_pub_camera_virtual_link_wrt_camera_virtual_depth_optical_frame" pkg="tf" type="static_transform_publisher" args="0.0 -0.02 0.0 -1.570796327 0.0 -1.570796327 camera_virtual_depth_frame camera_virtual_depth_optical_frame $(arg oa_tf_pub_interval)"/>
+
+        <node name="tf_pub_world_wrt_graph_3d_function" pkg="tf" type="static_transform_publisher" args="8.0 1.0 2.5 0.0 0.0 0.0 world graph_3d_function $(arg oa_tf_pub_interval)"/>
+        <node name="tf_pub_world_wrt_graph_3d_eval" pkg="tf" type="static_transform_publisher" args="0.0 0.0 15.0 0.0 0.0 0.0 world graph_3d_eval $(arg oa_tf_pub_interval)"/>
+        <node name="tf_pub_world_wrt_graph_3d_stats" pkg="tf" type="static_transform_publisher" args="8.0 -1.0 2.5 -1.570796327 0.0 0.0 world graph_3d_stats $(arg oa_tf_pub_interval)"/>
+        <node name="tf_pub_world_wrt_wim" pkg="tf" type="static_transform_publisher" args="1.25 1.25 0.6 0.0 -0.5 0.0 world wim $(arg oa_tf_pub_interval)"/>
+
+        <node name="wai_oa_control_center_node" pkg="wai_oa_control_center" type="wai_oa_control_center_node" required="true" launch-prefix="bash -c 'sleep $(arg oa_node_start_delay); $0 $@' " output="screen">
+            <rosparam command="load" subst_value="true">
+                S_SESSION_GROUP: '$(arg oa_session_group)'
+                S_SESSION_TOPIC: '$(arg oa_session_topic)'
+                S_SESSION_EXPERTISE: '$(arg oa_session_expertise)'
+                S_SESSION_EXPERTISE_LEVEL: '$(arg oa_session_expertise_level)'
+                S_SESSION_NAME: '$(arg oa_session_name)'
+                I_SESSION_LENGTH: $(arg oa_session_length)
+                I_SESSION_BREAK_LENGTH: $(arg oa_session_break_length)
+                I_SCENE_START_BEFORE: $(arg oa_scene_start_before)
+                I_AUDIENCE_COUNT_MAX: $(arg oa_audience_count_max)
+                I_AUDIENCE_LISTENERS_PER_ROW: $(arg oa_audience_listeners_per_row)
+                I_AUDIENCE_REQUEST_QUEUE_SIZE: $(arg oa_audience_request_queue_size)
+                F_NODE_SAMPLE_FREQUENCY: $(arg oa_node_sample_frequency)
+                F_SCENE_TRANSITION_TIMEOUT: $(arg oa_scene_transition_timeout)
+                F_SCENE_TRIGGER_TIMEOUT: $(arg oa_scene_trigger_timeout)
+                F_SCENE_TRIGGER_COLL_THRES: $(arg oa_scene_trigger_coll_thres)
+                I_PRESENTER_PRESENCE_MODE: $(arg oa_presenter_presence_mode)
+                I_PRESENTER_PROMPT_MODE: $(arg oa_presenter_prompt_mode)
+                S_PRESENTER_WORKSPACE_MODEL: $(arg oa_workspace_presenter_model)
+                F_PRESENTER_POSE_X: $(arg oa_presenter_pose_x)
+                F_PRESENTER_POSE_Y: $(arg oa_presenter_pose_y)
+                F_PRESENTER_POSE_Z: $(arg oa_presenter_pose_z)
+                F_PRESENTER_POSE_YAW: $(arg oa_presenter_pose_yaw)
+                F_PROJECTION_POSE_X: $(arg oa_projection_pose_x)
+                F_PROJECTION_POSE_Y: $(arg oa_projection_pose_y)
+                F_PROJECTION_POSE_Z: $(arg oa_projection_pose_z)
+                F_PROJECTION_POSE_YAW: $(arg oa_projection_pose_yaw)
+                F_CAMERA_RGBD_RESOLUTION_X: $(arg oa_camera_rgbd_resolution_x)
+                F_CAMERA_RGBD_RESOLUTION_Y: $(arg oa_camera_rgbd_resolution_y)
+                F_CAMERA_RGBD_RESOLUTION_SCALE: $(arg oa_camera_rgbd_resolution_scale)
+                F_CAMERA_RGBD_FX: $(arg oa_camera_rgbd_fx)
+                F_CAMERA_RGBD_FY: $(arg oa_camera_rgbd_fy)
+                F_CAMERA_RGBD_CX: $(arg oa_camera_rgbd_cx)
+                F_CAMERA_RGBD_CY: $(arg oa_camera_rgbd_cy)
+                F_CAMERA_RGBD_DEPTH_RESOLUTION_X: $(arg oa_camera_rgbd_depth_resolution_x)
+                F_CAMERA_RGBD_DEPTH_RESOLUTION_Y: $(arg oa_camera_rgbd_depth_resolution_y)
+                F_CAMERA_RGBD_DEPTH_RESOLUTION_SCALE: $(arg oa_camera_rgbd_depth_resolution_scale)
+                F_CAMERA_RGBD_DEPTH_FX: $(arg oa_camera_rgbd_depth_fx)
+                F_CAMERA_RGBD_DEPTH_FY: $(arg oa_camera_rgbd_depth_fy)
+                F_CAMERA_RGBD_DEPTH_CX: $(arg oa_camera_rgbd_depth_cx)
+                F_CAMERA_RGBD_DEPTH_CY: $(arg oa_camera_rgbd_depth_cy)
+                F_CAMERA_RGBD_RANGE_MIN: $(arg oa_camera_rgbd_range_min)
+                F_CAMERA_RGBD_RANGE_MAX: $(arg oa_camera_rgbd_range_max)
+                F_CAMERA_RGBD_MASK_WIDTH: $(arg oa_camera_rgbd_mask_width)
+                F_CAMERA_RGBD_THRESHOLD_DIST: $(arg oa_camera_rgbd_threshold_dist)
+                F_CAMERA_RGBD_THRESHOLD_BOUNDS: $(arg oa_camera_rgbd_threshold_bounds)
+                B_ENABLE_KALMAN: $(arg oa_enable_kalman)
+                B_ENABLE_TELEPROMPTER: $(arg oa_enable_teleprompter)
+                B_ENABLE_CAMERA_RVIZ_FLY_IN: $(arg oa_enable_camera_rviz_flyin)
+                B_ENABLE_CAMERA_RVIZ_IDLE: $(arg oa_enable_camera_rviz_idle)
+                B_ENABLE_LECTERN: $(arg oa_enable_lectern)
+                B_ENABLE_TABLE: $(arg oa_enable_table)
+                B_ENABLE_AUDIO: $(arg oa_enable_audio)
+                B_ENABLE_SLIDE_INTERACTIONS: $(arg oa_enable_slide_interactions)
+                B_ENABLE_SESSION_SCHEDULER: $(arg oa_enable_session_scheduler)
+                setup_sessions_scheduler:
+                    sessions_schedule:
+                        session_1: [7,25,8,15]
+                        session_2: [8,15,9,05]
+                        session_3: [9,10,10,00]
+                        session_4: [10,00,10,50]
+                        session_5: [11,05,11,55]
+                        session_6: [11,55,12,45]
+                        session_7: [13,10,14,0]
+                        session_8: [14,0,14,50]
+                        session_9: [14,50,15,40]
+                        session_10: [15,50,16,40]
+                        session_11: [16,40,17,30]
+                    sessions_default: ['group_break','topic_break','break']
+                    sessions_monday:
+                        session_1: ['audience_1','wai_oa_tutorials_1','wai_oa_presenter_interactions_input_devices']
+                        session_2: ['audience_2','wai_oa_tutorials_2','wai_oa_presenter_interactions_scripted']
+                        session_3: ['','','']
+                        session_4: ['','','']
+                        session_5: ['','','']
+                        session_6: ['','','']
+                        session_7: ['','','']
+                        session_8: ['','','']
+                        session_9: ['','','']
+                        session_10: ['','','']
+                        session_11: ['','','']
+                    sessions_tuesday:
+                        session_1: ['','','']
+                        session_2: ['','','']
+                        session_3: ['','','']
+                        session_4: ['','','']
+                        session_5: ['','','']
+                        session_6: ['','','']
+                        session_7: ['','','']
+                        session_8: ['','','']
+                        session_9: ['','','']
+                        session_10: ['','','']
+                        session_11: ['','','']
+                    sessions_wednesday:
+                        session_1: ['','','']
+                        session_2: ['','','']
+                        session_3: ['','','']
+                        session_4: ['','','']
+                        session_5: ['','','']
+                        session_6: ['','','']
+                        session_7: ['','','']
+                        session_8: ['','','']
+                        session_9: ['','','']
+                        session_10: ['','','']
+                        session_11: ['','','']
+                    sessions_thursday:
+                        session_1: ['','','']
+                        session_2: ['','','']
+                        session_3: ['','','']
+                        session_4: ['','','']
+                        session_5: ['','','']
+                        session_6: ['','','']
+                        session_7: ['','','']
+                        session_8: ['','','']
+                        session_9: ['','','']
+                        session_10: ['','','']
+                        session_11: ['','','']
+                    sessions_friday:
+                        session_1: ['','','']
+                        session_2: ['','','']
+                        session_3: ['','','']
+                        session_4: ['','','']
+                        session_5: ['','','']
+                        session_6: ['','','']
+                        session_7: ['','','']
+                        session_8: ['','','']
+                        session_9: ['','','']
+                        session_10: ['','','']
+                        session_11: ['','','']
+                    sessions_saturday:
+                        session_1: ['','','']
+                        session_2: ['','','']
+                        session_3: ['','','']
+                        session_4: ['','','']
+                        session_5: ['','','']
+                        session_6: ['','','']
+                        session_7: ['','','']
+                        session_8: ['','','']
+                        session_9: ['','','']
+                        session_10: ['','','']
+                        session_11: ['','','']
+                    sessions_sunday:
+                        session_1: ['','','']
+                        session_2: ['','','']
+                        session_3: ['','','']
+                        session_4: ['','','']
+                        session_5: ['','','']
+                        session_6: ['','','']
+                        session_7: ['','','']
+                        session_8: ['','','']
+                        session_9: ['','','']
+                        session_10: ['','','']
+                        session_11: ['','','']
+            </rosparam>
+        </node>
+
+        <!-- Launch internal Webcam for 2D-Mode if MARVIN is not present:
+        <node pkg="tf" type="static_transform_publisher" name="tf_pub_world_wrt_camera_2d_link" args="0.0 0.0 1.25 0.0 0.0 0.0 world camera_2d_link $(arg oa_tf_pub_interval)"/>
+        <group if="$(eval namespace_marvin == 'marvin')">
+            <node pkg="tf" type="static_transform_publisher" name="tf_marvin_wrt_camera_2d" args="0.0 0.0 0.5 1.570796327 0.0 -1.570796327 marvin/link_base oa_camera_rgb $(arg oa_tf_pub_interval)"/>
+        </group>
+        <group if="$(eval namespace_marvin == '')">
+            <node pkg="tf" type="static_transform_publisher" name="tf_pub_camera_2d_link_wrt_camera_2d" args="2.5 0.0 0.0 -1.570796327 0.0 -1.570796327 camera_2d_link oa_camera_rgb $(arg oa_tf_pub_interval)"/>
+        </group> -->
+        <include file="$(find usb_cam)/launch/wai_oa_camera_rgb.launch"/>
+
+        <!-- Launch USB-Cam (Livecam) -->
+        <include file="$(find usb_cam)/launch/wai_oa_camera_rgb_livecam.launch"/>
+
+
+        <!-- Launch OpenNI2 for 3D-Mode -->
+        <include file="$(find openni2_launch)/launch/openni2.launch">
+            <arg name="oa_camera_rgbd_color_mode" value="$(arg oa_camera_rgbd_color_mode)"/>
+            <arg name="oa_camera_rgbd_depth_mode" value="$(arg oa_camera_rgbd_depth_mode)"/>
+            <arg name="oa_camera_rgbd_ir_mode" value="$(arg oa_camera_rgbd_ir_mode)"/>
+        </include>
+
+        <!-- Launch sound_play for PLAYING SOUND FILES -->
+        <include file="$(find sound_play)/soundplay_node.launch"/>
+
+    </group>
+
+
+</launch>

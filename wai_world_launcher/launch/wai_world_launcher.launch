@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+
+<launch>
+
+    <arg name="namespace_global" default="wai_world"/>
+    <arg name="namespace_launcher" default="launcher"/>
+
+    <group ns="/"> <!-- $(arg namespace_global)/$(arg namespace_launcher) -->
+        <node name="wai_world_launcher_node" pkg="wai_world_launcher" type="wai_world_launcher_node" required="true"/>
+	</group>
+
+</launch>

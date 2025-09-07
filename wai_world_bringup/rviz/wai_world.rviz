@@ -1,0 +1,1471 @@
+Panels:
+  - Class: rviz/Displays
+    Help Height: 70
+    Name: Displays
+    Property Tree Widget:
+      Expanded: ~
+      Splitter Ratio: 0.5
+    Tree Height: 478
+  - Class: rviz/Help
+    Name: Help
+  - Class: rviz_plugin_wai_oa_panel/RVizPluginWAIOAPanel
+    Name: WAIOAPanel
+  - Class: rviz/Views
+    Expanded:
+      - /Current View1
+    Name: Views
+    Splitter Ratio: 0.5
+Preferences:
+  PromptSaveOnExit: true
+Toolbars:
+  toolButtonStyle: 2
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 0.25
+      Class: rviz/Grid
+      Color: 160; 160; 164
+      Enabled: true
+      Line Style:
+        Line Width: 0.029999999329447746
+        Value: Lines
+      Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 1.5
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 25
+      Reference Frame: <Fixed Frame>
+      Value: true
+    - Class: rviz/TF
+      Enabled: false
+      Filter (blacklist): ""
+      Filter (whitelist): ""
+      Frame Timeout: 15
+      Frames:
+        All Enabled: true
+      Marker Alpha: 1
+      Marker Scale: 1
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+      Tree:
+        {}
+      Update Interval: 0
+      Value: false
+    - Class: rviz/Group
+      Displays:
+        - Alpha: 1
+          Auto Size:
+            Auto Size Factor: 1
+            Value: false
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/DepthCloud
+          Color: 255; 255; 255
+          Color Image Topic: /wai_world/oa/camera_rgbd_out/rgb/image_raw
+          Color Transformer: RGB8
+          Color Transport Hint: compressed
+          Decay Time: 0
+          Depth Map Topic: /wai_world/oa/camera_rgbd_out/depth/image_raw
+          Depth Map Transport Hint: compressedDepth
+          Enabled: true
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Min Color: 0; 0; 0
+          Name: dpt_oa_presenter
+          Occlusion Compensation:
+            Occlusion Time-Out: 30
+            Value: false
+          Position Transformer: XYZ
+          Queue Size: 1
+          Selectable: true
+          Size (Pixels): 4
+          Size (m): 0.0035066665150225163
+          Style: Points
+          Topic Filter: true
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: true
+        - Alpha: 1
+          Auto Size:
+            Auto Size Factor: 1
+            Value: false
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/DepthCloud
+          Color: 255; 255; 255
+          Color Image Topic: /wai_world/oa/camera_rgbd_virtual_out/rgb/image_raw
+          Color Transformer: MONO8
+          Color Transport Hint: compressed
+          Decay Time: 0.5
+          Depth Map Topic: /wai_world/oa/camera_rgbd_virtual_out/depth/image_raw
+          Depth Map Transport Hint: compressedDepth
+          Enabled: true
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Min Color: 0; 0; 0
+          Name: dpt_oa_presenter_virtual
+          Occlusion Compensation:
+            Occlusion Time-Out: 30
+            Value: false
+          Position Transformer: XYZ
+          Queue Size: 1
+          Selectable: true
+          Size (Pixels): 4
+          Size (m): 0.009999999776482582
+          Style: Points
+          Topic Filter: true
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: true
+        - Border Color: 25; 108; 149
+          Border Size: 0.004999999888241291
+          Class: rviz_plugin_wai_texture/RVizPluginWAITexture
+          Enabled: true
+          Image Alpha: 1
+          Image Topic: /wai_world/oa/camera_rgb_out/usb_cam/image_raw
+          Image Transport Hint: compressed
+          Name: msh_oa_presenter_camera_2d
+          Orientation:
+            W: 1
+            X: 0
+            Y: 0
+            Z: 0
+          Pixels To Meters: 0.0020000000949949026
+          Position:
+            X: 0
+            Y: 0
+            Z: 0
+          TF Frame: marvin/oa_camera_rgb
+          Value: true
+        - Border Color: 25; 108; 149
+          Border Size: 0.004999999888241291
+          Class: rviz_plugin_wai_texture/RVizPluginWAITexture
+          Enabled: true
+          Image Alpha: 1
+          Image Topic: /wai_world/oa/projector/image_raw
+          Image Transport Hint: compressed
+          Name: msh_oa_presenter_projector
+          Orientation:
+            W: 1
+            X: 0
+            Y: 0
+            Z: 0
+          Pixels To Meters: 0.0024999999441206455
+          Position:
+            X: 0
+            Y: 0
+            Z: 0
+          TF Frame: projector
+          Value: true
+        - Class: rviz/Marker
+          Enabled: true
+          Marker Topic: /wai_world/oa/mrk_oa_arrow_force
+          Name: arr_oa_presenter_force
+          Namespaces:
+            {}
+          Queue Size: 0
+          Value: true
+        - Class: rviz/Marker
+          Enabled: true
+          Marker Topic: /wai_world/oa/mrk_oa_detail_label
+          Name: lbl_oa_presenter_rep_detail
+          Namespaces:
+            {}
+          Queue Size: 0
+          Value: true
+        - Class: rviz/MarkerArray
+          Enabled: true
+          Marker Topic: /wai_world/oa/wai_oa_rep_trigger_scene_prev
+          Name: trg_oa_presenter_scene_prev
+          Namespaces:
+            /wai_world/oa/wai_oa_control_center_node: true
+          Queue Size: 0
+          Value: true
+        - Class: rviz/MarkerArray
+          Enabled: true
+          Marker Topic: /wai_world/oa/wai_oa_rep_trigger_scene_next
+          Name: trg_oa_presenter_scene_next
+          Namespaces:
+            /wai_world/oa/wai_oa_control_center_node: true
+          Queue Size: 0
+          Value: true
+        - Class: rviz/MarkerArray
+          Enabled: true
+          Marker Topic: /wai_world/oa/wai_oa_rep_trigger_basic
+          Name: trg_oa_presenter_basic
+          Namespaces:
+            /wai_world/oa/wai_oa_control_center_node: true
+          Queue Size: 0
+          Value: true
+        - Class: rviz/MarkerArray
+          Enabled: true
+          Marker Topic: /wai_world/oa/wai_oa_rep_trigger_audience
+          Name: trg_oa_presenter_audience
+          Namespaces:
+            /wai_world/oa/wai_oa_control_center_node: true
+          Queue Size: 0
+          Value: true
+        - Class: rviz/MarkerArray
+          Enabled: true
+          Marker Topic: /wai_world/oa/wai_oa_rep_ooi_hand_left
+          Name: ooi_oa_presenter_hand_left
+          Namespaces:
+            /wai_world/oa/wai_oa_control_center_node: true
+          Queue Size: 0
+          Value: true
+        - Class: rviz/MarkerArray
+          Enabled: true
+          Marker Topic: /wai_world/oa/wai_oa_rep_ooi_hand_right
+          Name: ooi_oa_presenter_hand_right
+          Namespaces:
+            /wai_world/oa/wai_oa_control_center_node: true
+          Queue Size: 0
+          Value: true
+        - Class: rviz/MarkerArray
+          Enabled: true
+          Marker Topic: /wai_world/oa/wai_oa_rep_ooi_head
+          Name: ooi_oa_presenter_head
+          Namespaces:
+            /wai_world/oa/wai_oa_control_center_node: true
+          Queue Size: 0
+          Value: true
+        - Class: rviz/MarkerArray
+          Enabled: false
+          Marker Topic: /wai_world/oa/wai_oa_rep_ooi_camera_rviz
+          Name: ooi_oa_presenter_camera_rviz
+          Namespaces:
+            {}
+          Queue Size: 0
+          Value: false
+        - Class: rviz/MarkerArray
+          Enabled: true
+          Marker Topic: /wai_world/oa/wai_oa_rep_detail
+          Name: ooi_oa_presenter_rep_detail
+          Namespaces:
+            {}
+          Queue Size: 0
+          Value: true
+        - Class: rviz/MarkerArray
+          Enabled: true
+          Marker Topic: /wai_world/oa/wai_oa_rep_wim
+          Name: wim_oa_presenter
+          Namespaces:
+            /wai_world/oa/wai_oa_control_center_node: true
+          Queue Size: 0
+          Value: true
+        - Class: rviz/MarkerArray
+          Enabled: true
+          Marker Topic: /wai_world/oa/wai_oa_rep_graph_3d_function
+          Name: g3d_oa_presenter_function
+          Namespaces:
+            {}
+          Queue Size: 0
+          Value: true
+        - Class: rviz/MarkerArray
+          Enabled: true
+          Marker Topic: /wai_world/oa/wai_oa_rep_graph_3d_stats
+          Name: g3d_oa_presenter_stats
+          Namespaces:
+            {}
+          Queue Size: 0
+          Value: true
+        - Class: rviz/MarkerArray
+          Enabled: true
+          Marker Topic: /wai_world/oa/wai_oa_rep_graph_3d_eval
+          Name: g3d_oa_presenter_eval
+          Namespaces:
+            /wai_world/oa/wai_oa_control_center_node: true
+          Queue Size: 0
+          Value: true
+        - Class: rviz/Marker
+          Enabled: true
+          Marker Topic: /wai_world/oa/mrk_oa_eval_metaphor
+          Name: mrk_oa_presenter_eval_metaphor
+          Namespaces:
+            /wai_world/oa/wai_oa_control_center_node/eval_metaphor: true
+          Queue Size: 0
+          Value: true
+        - Alpha: 1
+          Class: rviz/RobotModel
+          Collision Enabled: false
+          Enabled: true
+          Links:
+            All Links Enabled: true
+            Expand Joint Details: false
+            Expand Link Details: false
+            Expand Tree: false
+            Link Tree Style: Links in Alphabetic Order
+            link_base:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            link_eval_bowl_body:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+          Name: rbt_oa_presenter_eval_bowl
+          Robot Description: /wai_world/eval_bowl/robot_description
+          TF Prefix: eval_bowl
+          Update Interval: 0
+          Value: true
+          Visual Enabled: true
+        - Alpha: 1
+          Class: rviz/RobotModel
+          Collision Enabled: false
+          Enabled: true
+          Links:
+            All Links Enabled: true
+            Expand Joint Details: false
+            Expand Link Details: false
+            Expand Tree: false
+            Link Tree Style: Links in Alphabetic Order
+            link_base:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            link_eval_weight_balance_body:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            link_eval_weight_balance_suspension:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+          Name: rbt_oa_presenter_eval_weight_balance
+          Robot Description: /wai_world/eval_weight_balance/robot_description
+          TF Prefix: eval_weight_balance
+          Update Interval: 0
+          Value: true
+          Visual Enabled: true
+        - Alpha: 1
+          Class: rviz/RobotModel
+          Collision Enabled: false
+          Enabled: true
+          Links:
+            All Links Enabled: true
+            Expand Joint Details: false
+            Expand Link Details: false
+            Expand Tree: false
+            Link Tree Style: Links in Alphabetic Order
+            link_base:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            link_eval_marvin_body:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+          Name: rbt_oa_presenter_eval_marvin
+          Robot Description: /wai_world/eval_marvin/robot_description
+          TF Prefix: eval_marvin
+          Update Interval: 0
+          Value: true
+          Visual Enabled: true
+        - Alpha: 1
+          Class: rviz/RobotModel
+          Collision Enabled: false
+          Enabled: true
+          Links:
+            All Links Enabled: true
+            Expand Joint Details: false
+            Expand Link Details: false
+            Expand Tree: false
+            Link Tree Style: Links in Alphabetic Order
+            link_base:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+          Name: rbt_oa_presenter_workspace_presenter
+          Robot Description: /wai_world/workspace_presenter/robot_description
+          TF Prefix: workspace_presenter
+          Update Interval: 0
+          Value: true
+          Visual Enabled: true
+        - Alpha: 1
+          Class: rviz/RobotModel
+          Collision Enabled: false
+          Enabled: true
+          Links:
+            All Links Enabled: true
+            Expand Joint Details: false
+            Expand Link Details: false
+            Expand Tree: false
+            Link Tree Style: Links in Alphabetic Order
+            link_base:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+          Name: rbt_oa_presenter_whiteboard
+          Robot Description: /wai_world/whiteboard/robot_description
+          TF Prefix: whiteboard
+          Update Interval: 0
+          Value: true
+          Visual Enabled: true
+        - Alpha: 1
+          Class: rviz/RobotModel
+          Collision Enabled: false
+          Enabled: true
+          Links:
+            All Links Enabled: true
+            Expand Joint Details: false
+            Expand Link Details: false
+            Expand Tree: false
+            Link Tree Style: Links in Alphabetic Order
+            link_base:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+          Name: rbt_oa_presenter_wall_left
+          Robot Description: /wai_world/wall_left/robot_description
+          TF Prefix: wall_left
+          Update Interval: 0
+          Value: true
+          Visual Enabled: true
+        - Alpha: 1
+          Class: rviz/RobotModel
+          Collision Enabled: false
+          Enabled: true
+          Links:
+            All Links Enabled: true
+            Expand Joint Details: false
+            Expand Link Details: false
+            Expand Tree: false
+            Link Tree Style: Links in Alphabetic Order
+            link_base:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+          Name: rbt_oa_presenter_wall_right
+          Robot Description: /wai_world/wall_right/robot_description
+          TF Prefix: wall_right
+          Update Interval: 0
+          Value: true
+          Visual Enabled: true
+        - Alpha: 1
+          Class: rviz/RobotModel
+          Collision Enabled: false
+          Enabled: true
+          Links:
+            All Links Enabled: true
+            Expand Joint Details: false
+            Expand Link Details: false
+            Expand Tree: false
+            Link Tree Style: Links in Alphabetic Order
+            link_base:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+          Name: rbt_oa_presenter_table
+          Robot Description: /wai_world/table/robot_description
+          TF Prefix: table
+          Update Interval: 0
+          Value: true
+          Visual Enabled: true
+        - Alpha: 1
+          Class: rviz/RobotModel
+          Collision Enabled: false
+          Enabled: true
+          Links:
+            All Links Enabled: true
+            Expand Joint Details: false
+            Expand Link Details: false
+            Expand Tree: false
+            Link Tree Style: Links in Alphabetic Order
+            link_base:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+          Name: rbt_oa_presenter_lectern
+          Robot Description: /wai_world/lectern/robot_description
+          TF Prefix: lectern
+          Update Interval: 0
+          Value: true
+          Visual Enabled: true
+        - Alpha: 1
+          Class: rviz/RobotModel
+          Collision Enabled: false
+          Enabled: true
+          Links:
+            All Links Enabled: true
+            Expand Joint Details: false
+            Expand Link Details: false
+            Expand Tree: false
+            Link Tree Style: Links in Alphabetic Order
+            link_base:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+          Name: rbt_oa_presenter_vase
+          Robot Description: /wai_world/vase/robot_description
+          TF Prefix: vase
+          Update Interval: 0
+          Value: true
+          Visual Enabled: true
+        - Alpha: 1
+          Class: rviz/RobotModel
+          Collision Enabled: false
+          Enabled: true
+          Links:
+            All Links Enabled: true
+            Expand Joint Details: false
+            Expand Link Details: false
+            Expand Tree: false
+            Link Tree Style: Links in Alphabetic Order
+          Name: rbt_oa_presenter_respawn_demo
+          Robot Description: /wai_world/respawn_demo/robot_description
+          TF Prefix: respawn_demo
+          Update Interval: 0
+          Value: true
+          Visual Enabled: true
+        - Alpha: 1
+          Class: rviz/RobotModel
+          Collision Enabled: false
+          Enabled: true
+          Links:
+            All Links Enabled: true
+            Expand Joint Details: false
+            Expand Link Details: false
+            Expand Tree: false
+            Link Tree Style: Links in Alphabetic Order
+          Name: rbt_oa_sphere
+          Robot Description: /wai_world/sphere/robot_description
+          TF Prefix: sphere
+          Update Interval: 0
+          Value: true
+          Visual Enabled: true
+        - Alpha: 1
+          Class: rviz/RobotModel
+          Collision Enabled: false
+          Enabled: true
+          Links:
+            All Links Enabled: true
+            Expand Joint Details: false
+            Expand Link Details: false
+            Expand Tree: false
+            Link Tree Style: Links in Alphabetic Order
+          Name: rbt_oa_presenter_pendulum
+          Robot Description: /wai_world/pendulum/robot_description
+          TF Prefix: pendulum
+          Update Interval: 0
+          Value: true
+          Visual Enabled: true
+      Enabled: true
+      Name: grp_oa_presenter
+    - Class: rviz/Group
+      Displays:
+        - Alpha: 1
+          Auto Size:
+            Auto Size Factor: 1
+            Value: false
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/DepthCloud
+          Color: 255; 255; 255
+          Color Image Topic: /wai_world/oa0/camera_rgbd_out0/rgb/image_raw
+          Color Transformer: RGB8
+          Color Transport Hint: compressed
+          Decay Time: 0.5
+          Depth Map Topic: /wai_world/oa0/camera_rgbd_out0/depth/image_raw
+          Depth Map Transport Hint: compressedDepth
+          Enabled: true
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Min Color: 0; 0; 0
+          Name: dpt_oa_audience_0
+          Occlusion Compensation:
+            Occlusion Time-Out: 30
+            Value: false
+          Position Transformer: XYZ
+          Queue Size: 1
+          Selectable: false
+          Size (Pixels): 3
+          Size (m): 0.009999999776482582
+          Style: Points
+          Topic Filter: true
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: true
+        - Alpha: 1
+          Class: rviz/RobotModel
+          Collision Enabled: false
+          Enabled: true
+          Links:
+            All Links Enabled: true
+            Expand Joint Details: false
+            Expand Link Details: false
+            Expand Tree: false
+            Link Tree Style: Links in Alphabetic Order
+            link_base:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            link_camera_rgbd:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+          Name: rbt_oa_audience_0_workspace
+          Robot Description: /wai_world/workspace_audience_0/robot_description
+          TF Prefix: workspace_audience_0
+          Update Interval: 0
+          Value: true
+          Visual Enabled: true
+        - Border Color: 25; 108; 149
+          Border Size: 0.004999999888241291
+          Class: rviz_plugin_wai_texture/RVizPluginWAITexture
+          Enabled: true
+          Image Alpha: 1
+          Image Topic: /wai_world/oa0/camera_rgb_out/usb_cam/image_raw
+          Image Transport Hint: compressed
+          Name: msh_oa_audience_0_camera_2d
+          Orientation:
+            W: 0.6830127239227295
+            X: 0.1830126941204071
+            Y: 0.1830126941204071
+            Z: 0.6830127239227295
+          Pixels To Meters: 0.0020000000949949026
+          Position:
+            X: 1
+            Y: 0
+            Z: 0.875
+          TF Frame: workspace_audience_0/link_base
+          Value: true
+        - Border Color: 25; 108; 149
+          Border Size: 0.004999999888241291
+          Class: rviz_plugin_wai_texture/RVizPluginWAITexture
+          Enabled: true
+          Image Alpha: 1
+          Image Topic: /wai_world/oa0/projector/image_raw
+          Image Transport Hint: compressed
+          Name: msh_oa_audience_0_whiteboard
+          Orientation:
+            W: 0.5
+            X: -0.5
+            Y: -0.5
+            Z: 0.5
+          Pixels To Meters: 0.001500000013038516
+          Position:
+            X: 0.44999998807907104
+            Y: 0
+            Z: 0.7509999871253967
+          TF Frame: workspace_audience_0/link_base
+          Value: true
+        - Class: rviz/MarkerArray
+          Enabled: true
+          Marker Topic: /wai_world/oa0/wai_oaa_trg_action
+          Name: mar_oa_audience_0
+          Namespaces:
+            {}
+          Queue Size: 0
+          Value: true
+        - Class: rviz/MarkerArray
+          Enabled: true
+          Marker Topic: /wai_world/oa0/wai_oa_rep_ooi_head
+          Name: mar_oa_audience_0_head
+          Namespaces:
+            {}
+          Queue Size: 0
+          Value: true
+        - Alpha: 1
+          Auto Size:
+            Auto Size Factor: 1
+            Value: false
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/DepthCloud
+          Color: 255; 255; 255
+          Color Image Topic: /wai_world/oa1/camera_rgbd_out1/rgb/image_raw
+          Color Transformer: RGB8
+          Color Transport Hint: compressed
+          Decay Time: 0.5
+          Depth Map Topic: /wai_world/oa1/camera_rgbd_out1/depth/image_raw
+          Depth Map Transport Hint: compressedDepth
+          Enabled: true
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Min Color: 0; 0; 0
+          Name: dpt_oa_audience_1
+          Occlusion Compensation:
+            Occlusion Time-Out: 30
+            Value: false
+          Position Transformer: XYZ
+          Queue Size: 1
+          Selectable: false
+          Size (Pixels): 3
+          Size (m): 0.009999999776482582
+          Style: Points
+          Topic Filter: true
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: true
+        - Alpha: 1
+          Class: rviz/RobotModel
+          Collision Enabled: false
+          Enabled: true
+          Links:
+            All Links Enabled: true
+            Expand Joint Details: false
+            Expand Link Details: false
+            Expand Tree: false
+            Link Tree Style: Links in Alphabetic Order
+            link_base:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            link_camera_rgbd:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+          Name: rbt_oa_audience_1_workspace
+          Robot Description: /wai_world/workspace_audience_1/robot_description
+          TF Prefix: workspace_audience_1
+          Update Interval: 0
+          Value: true
+          Visual Enabled: true
+        - Border Color: 25; 108; 149
+          Border Size: 0.004999999888241291
+          Class: rviz_plugin_wai_texture/RVizPluginWAITexture
+          Enabled: true
+          Image Alpha: 1
+          Image Topic: /wai_world/oa1/camera_rgb_out/usb_cam/image_raw
+          Image Transport Hint: compressed
+          Name: msh_oa_audience_1_camera_2d
+          Orientation:
+            W: 0.6830127239227295
+            X: 0.1830126941204071
+            Y: 0.1830126941204071
+            Z: 0.6830127239227295
+          Pixels To Meters: 0.0020000000949949026
+          Position:
+            X: 1
+            Y: 0
+            Z: 0.875
+          TF Frame: workspace_audience_1/link_base
+          Value: true
+        - Border Color: 25; 108; 149
+          Border Size: 0.004999999888241291
+          Class: rviz_plugin_wai_texture/RVizPluginWAITexture
+          Enabled: true
+          Image Alpha: 1
+          Image Topic: /wai_world/oa1/projector/image_raw
+          Image Transport Hint: compressed
+          Name: msh_oa_audience_1_whiteboard
+          Orientation:
+            W: 0.5
+            X: -0.5
+            Y: -0.5
+            Z: 0.5
+          Pixels To Meters: 0.001500000013038516
+          Position:
+            X: 0.44999998807907104
+            Y: 0
+            Z: 0.7509999871253967
+          TF Frame: workspace_audience_1/link_base
+          Value: true
+        - Class: rviz/MarkerArray
+          Enabled: true
+          Marker Topic: /wai_world/oa1/wai_oaa_trg_action
+          Name: mar_oa_audience_1
+          Namespaces:
+            {}
+          Queue Size: 0
+          Value: true
+        - Class: rviz/MarkerArray
+          Enabled: true
+          Marker Topic: /wai_world/oa1/wai_oa_rep_ooi_head
+          Name: mar_oa_audience_1_head
+          Namespaces:
+            {}
+          Queue Size: 0
+          Value: true
+        - Alpha: 1
+          Auto Size:
+            Auto Size Factor: 1
+            Value: false
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/DepthCloud
+          Color: 255; 255; 255
+          Color Image Topic: /wai_world/oa2/camera_rgbd_out2/rgb/image_raw
+          Color Transformer: RGB8
+          Color Transport Hint: compressed
+          Decay Time: 0.5
+          Depth Map Topic: /wai_world/oa2/camera_rgbd_out2/depth/image_raw
+          Depth Map Transport Hint: compressedDepth
+          Enabled: true
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Min Color: 0; 0; 0
+          Name: dpt_oa_audience_2
+          Occlusion Compensation:
+            Occlusion Time-Out: 30
+            Value: false
+          Position Transformer: XYZ
+          Queue Size: 1
+          Selectable: false
+          Size (Pixels): 3
+          Size (m): 0.009999999776482582
+          Style: Points
+          Topic Filter: true
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: true
+        - Alpha: 1
+          Class: rviz/RobotModel
+          Collision Enabled: false
+          Enabled: true
+          Links:
+            All Links Enabled: true
+            Expand Joint Details: false
+            Expand Link Details: false
+            Expand Tree: false
+            Link Tree Style: Links in Alphabetic Order
+            link_base:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            link_camera_rgbd:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+          Name: rbt_oa_audience_2_workspace
+          Robot Description: /wai_world/workspace_audience_2/robot_description
+          TF Prefix: workspace_audience_2
+          Update Interval: 0
+          Value: true
+          Visual Enabled: true
+        - Border Color: 25; 108; 149
+          Border Size: 0.004999999888241291
+          Class: rviz_plugin_wai_texture/RVizPluginWAITexture
+          Enabled: true
+          Image Alpha: 1
+          Image Topic: /wai_world/oa2/camera_rgb_out/usb_cam/image_raw
+          Image Transport Hint: compressed
+          Name: msh_oa_audience_2_camera_2d
+          Orientation:
+            W: 0.6830127239227295
+            X: 0.1830126941204071
+            Y: 0.1830126941204071
+            Z: 0.6830127239227295
+          Pixels To Meters: 0.0020000000949949026
+          Position:
+            X: 1
+            Y: 0
+            Z: 0.875
+          TF Frame: workspace_audience_2/link_base
+          Value: true
+        - Border Color: 25; 108; 149
+          Border Size: 0.004999999888241291
+          Class: rviz_plugin_wai_texture/RVizPluginWAITexture
+          Enabled: true
+          Image Alpha: 1
+          Image Topic: /wai_world/oa2/projector/image_raw
+          Image Transport Hint: compressed
+          Name: msh_oa_audience_2_whiteboard
+          Orientation:
+            W: 0.5
+            X: -0.5
+            Y: -0.5
+            Z: 0.5
+          Pixels To Meters: 0.001500000013038516
+          Position:
+            X: 0.44999998807907104
+            Y: 0
+            Z: 0.7509999871253967
+          TF Frame: workspace_audience_2/link_base
+          Value: true
+        - Class: rviz/MarkerArray
+          Enabled: true
+          Marker Topic: /wai_world/oa2/wai_oaa_trg_action
+          Name: mar_oa_audience_2
+          Namespaces:
+            {}
+          Queue Size: 0
+          Value: true
+        - Class: rviz/MarkerArray
+          Enabled: true
+          Marker Topic: /wai_world/oa2/wai_oa_rep_ooi_head
+          Name: mar_oa_audience_2_head
+          Namespaces:
+            {}
+          Queue Size: 0
+          Value: true
+        - Alpha: 1
+          Auto Size:
+            Auto Size Factor: 1
+            Value: false
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/DepthCloud
+          Color: 255; 255; 255
+          Color Image Topic: /wai_world/oa3/camera_rgbd_out3/rgb/image_raw
+          Color Transformer: RGB8
+          Color Transport Hint: compressed
+          Decay Time: 0.5
+          Depth Map Topic: /wai_world/oa3/camera_rgbd_out3/depth/image_raw
+          Depth Map Transport Hint: compressedDepth
+          Enabled: true
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Min Color: 0; 0; 0
+          Name: dpt_oa_audience_3
+          Occlusion Compensation:
+            Occlusion Time-Out: 30
+            Value: false
+          Position Transformer: XYZ
+          Queue Size: 1
+          Selectable: false
+          Size (Pixels): 3
+          Size (m): 0.009999999776482582
+          Style: Points
+          Topic Filter: true
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: true
+        - Alpha: 1
+          Class: rviz/RobotModel
+          Collision Enabled: false
+          Enabled: true
+          Links:
+            All Links Enabled: true
+            Expand Joint Details: false
+            Expand Link Details: false
+            Expand Tree: false
+            Link Tree Style: Links in Alphabetic Order
+            link_base:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            link_camera_rgbd:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+          Name: rbt_oa_audience_3_workspace
+          Robot Description: /wai_world/workspace_audience_3/robot_description
+          TF Prefix: workspace_audience_3
+          Update Interval: 0
+          Value: true
+          Visual Enabled: true
+        - Border Color: 25; 108; 149
+          Border Size: 0.004999999888241291
+          Class: rviz_plugin_wai_texture/RVizPluginWAITexture
+          Enabled: true
+          Image Alpha: 1
+          Image Topic: /wai_world/oa3/camera_rgb_out/usb_cam/image_raw
+          Image Transport Hint: compressed
+          Name: msh_oa_audience_3_camera_2d
+          Orientation:
+            W: 0.6830127239227295
+            X: 0.1830126941204071
+            Y: 0.1830126941204071
+            Z: 0.6830127239227295
+          Pixels To Meters: 0.0020000000949949026
+          Position:
+            X: 1
+            Y: 0
+            Z: 0.875
+          TF Frame: workspace_audience_3/link_base
+          Value: true
+        - Border Color: 25; 108; 149
+          Border Size: 0.004999999888241291
+          Class: rviz_plugin_wai_texture/RVizPluginWAITexture
+          Enabled: true
+          Image Alpha: 1
+          Image Topic: /wai_world/oa3/projector/image_raw
+          Image Transport Hint: compressed
+          Name: msh_oa_audience_3_whiteboard
+          Orientation:
+            W: 0.5
+            X: -0.5
+            Y: -0.5
+            Z: 0.5
+          Pixels To Meters: 0.001500000013038516
+          Position:
+            X: 0.44999998807907104
+            Y: 0
+            Z: 0.7509999871253967
+          TF Frame: workspace_audience_3/link_base
+          Value: true
+        - Class: rviz/MarkerArray
+          Enabled: true
+          Marker Topic: /wai_world/oa3/wai_oaa_trg_action
+          Name: mar_oa_audience_3
+          Namespaces:
+            {}
+          Queue Size: 0
+          Value: true
+        - Class: rviz/MarkerArray
+          Enabled: true
+          Marker Topic: /wai_world/oa3/wai_oa_rep_ooi_head
+          Name: mar_oa_audience_3_head
+          Namespaces:
+            {}
+          Queue Size: 0
+          Value: true
+      Enabled: true
+      Name: grp_oa_audience
+    - Class: rviz/Group
+      Displays:
+        - Alpha: 1
+          Class: rviz/RobotModel
+          Collision Enabled: false
+          Enabled: true
+          Links:
+            All Links Enabled: true
+            Expand Joint Details: false
+            Expand Link Details: false
+            Expand Tree: false
+            Link Tree Style: Links in Alphabetic Order
+            link_base:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+          Name: rbt_oa_sequencer_demo
+          Robot Description: /wai_world/sequencer_demo/robot_description
+          TF Prefix: sequencer_demo
+          Update Interval: 0
+          Value: true
+          Visual Enabled: true
+        - Alpha: 1
+          Angular Arrow Scale: 1
+          Angular Color: 196; 160; 0
+          Arrow Width: 0.5
+          Class: rviz/TwistStamped
+          Enabled: true
+          Hide Small Values: false
+          History Length: 1
+          Linear Arrow Scale: 1
+          Linear Color: 252; 233; 79
+          Name: twi_sequencer_demo_state
+          Queue Size: 0
+          Topic: /wai_world/sequencer_demo/state_twist_rviz
+          Unreliable: false
+          Value: true
+        - Alpha: 1
+          Angular Arrow Scale: 1
+          Angular Color: 206; 92; 0
+          Arrow Width: 0.5
+          Class: rviz/AccelStamped
+          Enabled: true
+          Hide Small Values: false
+          History Length: 1
+          Linear Arrow Scale: 1
+          Linear Color: 252; 175; 62
+          Name: acc_sequencer_demo_state
+          Queue Size: 0
+          Topic: /wai_world/sequencer_demo/state_acceleration_rviz
+          Unreliable: false
+          Value: true
+        - Alpha: 1
+          Arrow Width: 0.5
+          Class: rviz/WrenchStamped
+          Enabled: true
+          Force Arrow Scale: 1
+          Force Color: 239; 41; 41
+          Hide Small Values: false
+          History Length: 1
+          Name: wre_sequencer_demo_state
+          Queue Size: 0
+          Topic: /wai_world/sequencer_demo/state_wrench_rviz
+          Torque Arrow Scale: 1
+          Torque Color: 164; 0; 0
+          Unreliable: false
+          Value: true
+        - Class: rviz/Marker
+          Enabled: true
+          Marker Topic: /wai_world/sequencer_demo/state_info
+          Name: lbl_sequencer_demo_state
+          Namespaces:
+            {}
+          Queue Size: 0
+          Value: true
+      Enabled: true
+      Name: grp_oa_sequencer_demo
+    - Class: rviz/Group
+      Displays:
+        - Alpha: 1
+          Class: rviz/RobotModel
+          Collision Enabled: false
+          Enabled: true
+          Links:
+            All Links Enabled: true
+            Expand Joint Details: false
+            Expand Link Details: false
+            Expand Tree: false
+            Link Tree Style: Links in Alphabetic Order
+            link_base:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            link_camera_front:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            link_camera_front_optical_frame:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            link_marvin_body:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            link_marvin_hook_gripper:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            link_marvin_hook_pitch:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            link_marvin_hook_roll:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            link_marvin_rotor_front_left:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            link_marvin_rotor_front_right:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            link_marvin_rotor_rear_left:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            link_marvin_rotor_rear_right:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+          Name: rbt_marvin
+          Robot Description: /wai_world/marvin/robot_description
+          TF Prefix: marvin
+          Update Interval: 0
+          Value: true
+          Visual Enabled: true
+        - Class: rviz/MarkerArray
+          Enabled: true
+          Marker Topic: /wai_world/oa/wai_oa_rep_marvin_hologram
+          Name: ooi_marvin_hologram
+          Namespaces:
+            {}
+          Queue Size: 0
+          Value: true
+        - Alpha: 1
+          Angular Arrow Scale: 1
+          Angular Color: 196; 160; 0
+          Arrow Width: 0.10000000149011612
+          Class: rviz/TwistStamped
+          Enabled: true
+          Hide Small Values: false
+          History Length: 1
+          Linear Arrow Scale: 1
+          Linear Color: 252; 233; 79
+          Name: twi_marvin_state
+          Queue Size: 0
+          Topic: /wai_world/marvin/state_twist
+          Unreliable: false
+          Value: true
+        - Alpha: 1
+          Angular Arrow Scale: 0.0020000000949949026
+          Angular Color: 206; 92; 0
+          Arrow Width: 0.20000000298023224
+          Class: rviz/AccelStamped
+          Enabled: false
+          Hide Small Values: false
+          History Length: 1
+          Linear Arrow Scale: 0.0020000000949949026
+          Linear Color: 252; 175; 62
+          Name: acc_marvin_state
+          Queue Size: 0
+          Topic: /wai_world/marvin/state_accaleration
+          Unreliable: false
+          Value: false
+        - Alpha: 1
+          Arrow Width: 0.30000001192092896
+          Class: rviz/WrenchStamped
+          Enabled: false
+          Force Arrow Scale: 0.0020000000949949026
+          Force Color: 239; 41; 41
+          Hide Small Values: false
+          History Length: 1
+          Name: wre_marvin_state
+          Queue Size: 0
+          Topic: /wai_world/marvin/state_wrench
+          Torque Arrow Scale: 0.0020000000949949026
+          Torque Color: 164; 0; 0
+          Unreliable: false
+          Value: false
+        - Class: rviz/Marker
+          Enabled: false
+          Marker Topic: /wai_world/marvin/state_info
+          Name: lbl_marvin_state
+          Namespaces:
+            {}
+          Queue Size: 0
+          Value: false
+        - Class: rviz/Marker
+          Enabled: true
+          Marker Topic: /wai_world/marvin/mrk_mood
+          Name: sph_marvin_mood
+          Namespaces:
+            /wai_world/oa/wai_oa_control_center_node: true
+          Queue Size: 0
+          Value: true
+      Enabled: true
+      Name: grp_marvin
+    - Class: rviz/Group
+      Displays:
+        - Alpha: 1
+          Class: rviz/RobotModel
+          Collision Enabled: false
+          Enabled: true
+          Links:
+            All Links Enabled: true
+            Expand Joint Details: false
+            Expand Link Details: false
+            Expand Tree: false
+            Link Tree Style: Links in Alphabetic Order
+            link_base:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            link_ingenuity_body:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            link_ingenuity_camera_down:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            link_ingenuity_camera_front:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            link_ingenuity_camera_optical_down:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            link_ingenuity_camera_optical_front:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            link_ingenuity_rotor_middle:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            link_ingenuity_rotor_top:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            link_ingenuity_solar_panel:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+          Name: rbt_ingenuity
+          Robot Description: /wai_world/ingenuity/robot_description
+          TF Prefix: ingenuity
+          Update Interval: 0
+          Value: true
+          Visual Enabled: true
+      Enabled: true
+      Name: grp_ingenuity
+    - Class: rviz/Group
+      Displays:
+        - Ambient Color: 136; 138; 133
+          Attenuation:
+            X: 0.25
+            Y: 0
+            Z: 0
+          Class: rviz_plugin_wai_lights/RVizPluginWAILights
+          Diff./Spec. HSV:
+            X: 0
+            Y: 0
+            Z: 0
+          Diff./Spec. YCbCr:
+            X: 0
+            Y: 0
+            Z: 0
+          Diffuse Color: 136; 138; 133
+          Enabled: true
+          Falloff Cone Angles: 1
+          Inner Cone Angle: 1
+          Light Type: Sun
+          Markers Enabled: true
+          Name: lig_world
+          Orientation:
+            W: 1
+            X: 0
+            Y: 0
+            Z: 0
+          Outer Cone Angle: 3
+          Position:
+            X: 0
+            Y: 0
+            Z: 10
+          Range: 100
+          Reference Frame: <Fixed Frame>
+          Shadows Enabled: false
+          Specular Color: 136; 138; 133
+          Sunlight Distance: 30
+          Sunlight Sunrise Hour: 6
+          Value: true
+        - Class: rviz/Marker
+          Enabled: true
+          Marker Topic: /wai_world/world/mrk_light_1
+          Name: mrk_world
+          Namespaces:
+            light_1: true
+          Queue Size: 0
+          Value: true
+      Enabled: true
+      Name: grp_world
+  Enabled: true
+  Global Options:
+    Background Color: 48; 48; 48
+    Fixed Frame: world
+    Frame Rate: 20
+  Name: root
+  Tools:
+    - Class: rviz/Interact
+      Hide Inactive Objects: true
+    - Class: rviz/MoveCamera
+    - Class: rviz/Select
+    - Class: rviz/FocusCamera
+    - Class: rviz/Measure
+    - Class: rviz/SetInitialPose
+      Theta std deviation: 0.2617993950843811
+      Topic: /initialpose
+      X std deviation: 0.5
+      Y std deviation: 0.5
+    - Class: rviz/SetGoal
+      Topic: /move_base_simple/goal
+    - Class: rviz/PublishPoint
+      Single click: true
+      Topic: clicked_point
+  Value: true
+  Views:
+    Current:
+      Camera Finished Topic: /wai_world/oa/camera_rviz/transition_finished
+      Camera Liveview Topic: /wai_world/oa/camera_rviz/liveview
+      Camera Pause Topic: /wai_world/oa/camera_rviz/transition_pause
+      Camera Placement Topic: /wai_world/oa/camera_rviz/placement
+      Camera Pose Topic: /wai_world/oa/camera_rviz/pose
+      Camera Trajectory Topic: /wai_world/oa/camera_rviz/trajectory
+      Camera Transition Time: 3
+      Class: rviz_plugin_wai_virtual_camera/RVizPluginWAIVirtualCamera
+      Control Mode: Orbit
+      Distance: 2.9786834716796875
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.05999999865889549
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Eye:
+        X: -1.8312000036239624
+        Y: 1.4214999675750732
+        Z: 1.8032000064849854
+      Focus:
+        X: 0.9658899903297424
+        Y: 1.4215999841690063
+        Z: 0.7790700197219849
+      Invert Z Axis: false
+      Liveview Height: 30
+      Liveview Width: 100
+      Lock Up Axis: true
+      Mouse Control Enabled: true
+      Name: Current View
+      Near Clip Distance: 0.009999999776482582
+      Publish Camera Liveview: true
+      Publish Camera Pose: true
+      Target Frame: world
+      Up Axis:
+        X: 0
+        Y: 0
+        Z: 1
+    Saved: ~
+Window Geometry:
+  Displays:
+    collapsed: true
+  Height: 720
+  Help:
+    collapsed: true
+  Hide Left Dock: true
+  Hide Right Dock: true
+  QMainWindow State: 000000ff00000000fd00000004000000000000023b0000027efc0200000011fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000000000000000fb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afc000000160000027e0000000000fffffffa000000020100000009fb000000100044006900730070006c00610079007300000000000000023b0000015600fffffffb00000014005700410049004f004100500061006e0065006c0000000000ffffffff0000009100fffffffb000000180057004100490020004f0041002000500061006e0065006c0000000000ffffffff0000000000000000fb000000180057004100490020004f0041002000500061006e0065006c0000000000ffffffff0000000000000000fb000000180057004100490020004f0041002000500061006e0065006c0000000000ffffffff0000000000000000fb000000180057004100490020004f0041002000500061006e0065006c0000000000ffffffff0000000000000000fb00000028005200560069007a0050006c007500670069006e005700410049004f004100500061006e0065006c0100000000ffffffff0000000000000000fb0000000800480065006c00700000000000ffffffff0000005800fffffffb000000180057004100490020004f0041002000500061006e0065006c0000000000ffffffff0000000000000000fb000000180057004100490020004f0041002000500061006e0065006c00000000e5000000f60000000000000000fb0000000800480065006c007000000001e1000000730000000000000000fb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000001400410075006400690074006f007200690075006d00000001f2000000760000000000000000fb0000001400410075006400690074006f007200690075006d00000001fd000000760000000000000000fb0000002c0057004100490020004f0041002000500072006500730065006e007400650072002000500061006e0065006c0000000191000000d70000000000000000fb0000002c0057004100490020004f0041002000500072006500730065006e007400650072002000500061006e0065006c00000001f1000000770000000000000000fb000000100044006900730070006c0061007900730000000016000000c90000000000000000fb000000180057004100490020004f0041002000500061006e0065006c00000000e5000000fb0000000000000000fb0000000800480065006c007000000001e60000006e000000000000000000000001000002710000023efc0200000005fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000001c00630061006d005f00740065006c006c006f005f007200650061006c00000000160000011c0000000000000000fb0000000a0056006900650077007300000001380000011c000000a400fffffffb0000000a0056006900650077007300000000ab000001a90000000000000000fb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000007380000003efc0100000002fb0000000800540069006d00650000000000000007380000000000000000fb0000000800540069006d00650100000000000004500000000000000000000005000000027e00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730000000000ffffffff0000000000000000
+  Views:
+    collapsed: true
+  WAIOAPanel:
+    collapsed: true
+  Width: 1280
+  X: 72
+  Y: 27

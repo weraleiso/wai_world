@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+
+<robot name="sandbox">
+
+    <material name="white">
+        <color rgba="1.0 1.0 1.0 1.0"/>
+    </material>
+    <material name="red">
+        <color rgba="1.0 0.0 0.0 1.0"/>
+    </material>
+    <material name="green">
+        <color rgba="0.0 1.0 0.0 1.0"/>
+    </material>
+    <material name="blue_shiny">
+        <color rgba="0.0 0.0 1.0 0.5"/>
+    </material>
+
+    <link name="link_base">
+        <!-- Platform -->
+        <visual>
+            <geometry>
+                <cylinder length="0.1" radius="5.0"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.0 0.0 -0.1"/>
+            <material name="white"/>
+        </visual>
+
+
+        <!-- Test objects -->
+        <visual>
+            <geometry>
+                <cylinder length="0.8" radius="0.5"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="-0.5 -0.5 0.5"/>
+            <material name="white"/>
+        </visual>
+        <visual>
+            <geometry>
+                <sphere radius="0.5"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.5 -0.5 0.5"/>
+            <material name="white"/>
+        </visual>
+        <visual>
+            <geometry>
+                <box size="0.8 0.8 0.8"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.5 0.5 0.5"/>
+            <material name="white"/>
+        </visual>
+        <visual>
+            <geometry>
+                <sphere radius="0.5"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="-0.5 0.5 0.5"/>
+            <material name="white"/>
+        </visual>
+
+        <visual>
+            <geometry>
+                <sphere radius="0.5"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="-0.5 -0.5 1.5"/>
+            <material name="white"/>
+        </visual>
+        <visual>
+            <geometry>
+                <cylinder length="0.8" radius="0.5"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.5 -0.5 1.5"/>
+            <material name="red"/>
+        </visual>
+        <visual>
+            <geometry>
+                <sphere radius="0.5"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.5 0.5 1.5"/>
+            <material name="green"/>
+        </visual>
+        <visual>
+            <geometry>
+                <box size="0.8 0.8 0.8"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="-0.5 0.5 1.5"/>
+            <material name="blue_shiny"/>
+        </visual>
+
+
+        <!-- Fruits on a shelf -->
+        <visual>
+            <geometry>
+                <mesh filename="package://wai_oa_gazebo/resources/reps/shelf/shelf.dae"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="-2.5 0.0 0.0"/>
+        </visual>
+
+        <visual>
+            <geometry>
+                <mesh filename="package://wai_oa_gazebo/resources/reps/apple/apple.dae" scale="2.0 2.0 2.0"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="-2.5 -1.0 2.55"/>
+        </visual>
+        <visual>
+            <geometry>
+                <mesh filename="package://wai_oa_gazebo/resources/reps/banana/banana.dae" scale="2.0 2.0 2.0"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="-2.5 0.0 2.55"/>
+        </visual>
+        <visual>
+            <geometry>
+                <mesh filename="package://wai_oa_gazebo/resources/reps/melon/melon.dae" scale="2.0 2.0 2.0"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="-2.5 1.0 2.55"/>
+        </visual>
+    </link>
+</robot>

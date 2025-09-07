@@ -1,0 +1,7 @@
+Header header
+geometry_msgs/Point32 trackpad_position
+float32 trigger
+bool menu_pressed
+bool grip_pressed
+bool trackpad_pressed
+bool trackpad_touched

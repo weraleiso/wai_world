@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<launch> 
+
+    <arg name="namespace_global" default="wai_world"/>
+    <arg name="namespace_workspace_audience" default="workspace_audience"/>
+    <arg name="oa_controller_sample_frequency" default="10.0"/>
+    <arg name="oa_workspace_audience_model" default="audience"/>
+
+    <arg name="id" default="5"/>
+    <arg name="ids_per_row" default="6"/>
+    <arg name="namespace_workspace_audience_id" default="$(eval str(arg('namespace_workspace_audience')) + '_' + str(arg('id')))"/>
+    <arg name="workspace_audience_spawn_x" default="$(eval 0.0-2.5*(int(arg('id')/arg('ids_per_row'))))"/>
+    <arg name="workspace_audience_spawn_y" default="$(eval -2.25+(arg('id'))%arg('ids_per_row')*1.5)"/>
+    <arg name="workspace_audience_spawn_z" default="0.0"/>
+
+    <group ns="$(arg namespace_workspace_audience_id)">
+        <param name="tf_prefix" type="string" value="$(arg namespace_workspace_audience_id)" />
+        <param name="robot_description" command="$(find xacro)/xacro '$(find wai_oa_gazebo)/resources/descriptions/workspace_audience.xacro' prefix:=$(arg namespace_workspace_audience) workspace_audience_model:=$(arg oa_workspace_audience_model) id:=$(arg id)"/>
+        <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" output="screen" args="-x $(arg workspace_audience_spawn_x) -y $(arg workspace_audience_spawn_y) -z $(arg workspace_audience_spawn_z) -Y 3.141592654 -P 0.0 -R 0.0 -gazebo_namespace /$(arg namespace_global)/gazebo -urdf -param robot_description -model $(arg namespace_workspace_audience_id)"/>
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+            <param name="use_tf_static" value="false"/>
+            <param name="ignore_timestamp" value="true"/>
+            <param name="publish_frequency" value="$(arg oa_controller_sample_frequency)"/>
+        </node>
+    </group>
+
+    <!-- recursively start new node -->
+    <include file="$(find wai_oa_gazebo)/launch/wai_oa_workspace_audience.launch" if="$(eval arg('id') - 1 > -1)">
+        <arg name="id" value="$(eval arg('id') - 1)"/>
+        <arg name="ids_per_row" value="$(eval arg('ids_per_row'))"/> <!-- Parameters need to be provided recursively with eval, otherwise ignored! -->
+    </include>
+
+</launch>

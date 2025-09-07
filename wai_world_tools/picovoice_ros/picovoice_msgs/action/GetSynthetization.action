@@ -1,0 +1,7 @@
+string transcript # Transcript as result.
+bool male_or_female_voice # Synthesize with male (false) or female (true) voice.
+bool synthesize_to_wav # Enable writing to filestream (default).
+string synthesize_to_wav_path # Path for writing to filestream (default).
+---
+bool synthesized_success # Report if synthetizazion was successfull.
+---

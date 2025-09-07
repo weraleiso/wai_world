@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+
+<launch>
+
+	<arg name="namespace_global" default="wai_world"/>
+	<arg name="namespace_ingenuity" default="ingenuity"/>
+
+    <arg name="ingenuity_spawn_x" default="1.0"/>
+    <arg name="ingenuity_spawn_y" default="1.0"/>
+    <arg name="ingenuity_spawn_z" default="1.0"/>
+    <arg name="ingenuity_spawn_yaw" default="0.0"/>
+    <arg name="ingenuity_spawn_delay" default="5.0"/>
+    <arg name="ingenuity_node_start_delay" default="0.0"/>
+
+    <arg name="ingenuity_node_sample_frequency" default="25.0"/>
+    <arg name="ingenuity_sensor_sample_frequency" default="25.0"/>
+    <arg name="ingenuity_controller_sample_frequency" default="50.0"/>
+    <arg name="ingenuity_tf_pub_interval" default="40.0"/>
+
+
+	<group ns="$(arg namespace_ingenuity)">
+
+		<param name="tf_prefix" value="$(arg namespace_ingenuity)" />
+		<param name="robot_description" command="$(find xacro)/xacro $(find wai_ingenuity_gazebo)/description/ingenuity.xacro prefix:=$(arg namespace_ingenuity) sensor_update_rate:=$(arg ingenuity_sensor_sample_frequency) controller_update_rate:=$(arg ingenuity_controller_sample_frequency)"/>
+		<node name="spawn_model" pkg="gazebo_ros" type="spawn_model" launch-prefix="bash -c 'sleep $(arg ingenuity_spawn_delay); $0 $@' " output="screen" args="-x $(arg ingenuity_spawn_x) -y $(arg ingenuity_spawn_y) -z $(arg ingenuity_spawn_z) -R 0.0 -P 0.0 -Y $(arg ingenuity_spawn_yaw) -gazebo_namespace /$(arg namespace_global)/gazebo -urdf -param robot_description -model $(arg namespace_ingenuity)"/>
+
+		<node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" ns="/$(arg namespace_global)/$(arg namespace_ingenuity)" output="screen" args="joint_state_controller joint_ingenuity_rotor_middle_velocity_controller joint_ingenuity_rotor_top_velocity_controller joint_ingenuity_solar_panel_position_controller">
+            <rosparam command="load" ns="/$(arg namespace_global)/$(arg namespace_ingenuity)" subst_value="true">
+                joint_state_controller:
+                    type: joint_state_controller/JointStateController
+                    publish_rate: $(arg ingenuity_controller_sample_frequency)
+                joint_ingenuity_rotor_middle_velocity_controller:
+                    type: effort_controllers/JointVelocityController
+                    joint: joint_ingenuity_rotor_middle
+                    pid: {p: 1.0, i: 0.0, d: 0.0}
+                joint_ingenuity_rotor_top_velocity_controller:
+                    type: effort_controllers/JointVelocityController
+                    joint: joint_ingenuity_rotor_top
+                    pid: {p: 1.0, i: 0.0, d: 0.0}
+                joint_ingenuity_solar_panel_position_controller:
+                    type: effort_controllers/JointPositionController
+                    joint: joint_ingenuity_solar_panel
+                    pid: {p: 0.0, i: 0.0, d: 0.0}
+            </rosparam>
+		</node>
+
+		<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+			<param name="use_tf_static" value="false"/>
+			<param name="ignore_timestamp" value="true"/>
+            <param name="publish_frequency" value="$(arg ingenuity_controller_sample_frequency)"/>
+		</node>
+
+		<!-- AVOID USING joint_state_publisher HERE, COMBINE WITH quadrotor_groundtruth_sim plugin IN XACRO FILE INSTEAD: -->
+		<node name="ground_truth_to_tf" pkg="message_to_tf" type="message_to_tf" output="screen">
+			<param name="odometry_topic" value="odom"/>
+			<param name="frame_id" value="odom"/>
+			<param name="child_frame_id" value="link_base"/> <!-- TF prefix is now considered here! -->
+		</node>
+		<!-- WELL WORKING, DONT FORGET TO UPDATE PLUGIN IN XACRO! -->
+
+		<node pkg="tf" type="static_transform_publisher" name="tf_world_wrt_ingenuity_odom" args="0 0 0 0 0 0 world $(arg namespace_ingenuity)/odom $(arg ingenuity_tf_pub_interval)"/>
+
+		<!-- CONTROL CENTER -->
+		<node name="wai_ingenuity_control_center_node" pkg="wai_ingenuity_control_center" type="wai_ingenuity_control_center_node" required="true" launch-prefix="bash -c 'sleep $(arg ingenuity_node_start_delay); $0 $@' " output="screen">
+		    <rosparam command="load" subst_value="true">
+                F_NODE_SAMPLE_FREQUENCY: $(arg ingenuity_node_sample_frequency)
+                F_DEFAULT_SETPOINT_TRANSLATION_X: $(arg ingenuity_spawn_x)
+                F_DEFAULT_SETPOINT_TRANSLATION_Y: $(arg ingenuity_spawn_y)
+                F_DEFAULT_SETPOINT_TRANSLATION_Z: 2.0
+                F_DEFAULT_SETPOINT_ROTATION_W: 1.0
+                F_DEFAULT_SETPOINT_ROTATION_X: 0.0
+                F_DEFAULT_SETPOINT_ROTATION_Y: 0.0
+                F_DEFAULT_SETPOINT_ROTATION_Z: 0.0
+                F_CONTROLLER_TRANSLATION_X_SAT_MIN: -1.0
+                F_CONTROLLER_TRANSLATION_X_SAT_MAX: 1.0
+                F_CONTROLLER_TRANSLATION_Y_SAT_MIN: -1.0
+                F_CONTROLLER_TRANSLATION_Y_SAT_MAX: 1.0
+                F_CONTROLLER_TRANSLATION_Z_SAT_MIN: -1.0
+                F_CONTROLLER_TRANSLATION_Z_SAT_MAX: 1.0
+                F_CONTROLLER_ROTATION_Z_SAT_MIN: -1.0
+                F_CONTROLLER_ROTATION_Z_SAT_MAX: 1.0
+                F_CONTROLLER_TRANSLATION_X_P: 1.0
+                F_CONTROLLER_TRANSLATION_X_I: 0.0
+                F_CONTROLLER_TRANSLATION_X_D: 0.0
+                F_CONTROLLER_TRANSLATION_Y_P: 1.0
+                F_CONTROLLER_TRANSLATION_Y_I: 0.0
+                F_CONTROLLER_TRANSLATION_Y_D: 0.0
+                F_CONTROLLER_TRANSLATION_Z_P: 1.0
+                F_CONTROLLER_TRANSLATION_Z_I: 0.0
+                F_CONTROLLER_TRANSLATION_Z_D: 0.0
+                F_CONTROLLER_ROTATION_Z_P: 1.0
+                F_CONTROLLER_ROTATION_Z_I: 0.0
+                F_CONTROLLER_ROTATION_Z_D: 0.0
+            </rosparam>
+            <rosparam file="$(find wai_ingenuity_control_center)/config/details.yaml" command="load" ns="/$(arg namespace_global)/$(arg namespace_ingenuity)/details"/>
+	    </node>
+
+	</group>
+
+
+</launch>

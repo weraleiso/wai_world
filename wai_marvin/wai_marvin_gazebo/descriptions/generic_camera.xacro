@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  
+    <xacro:property name="M_PI" value="3.1415926535897931" />
+  
+
+    <xacro:macro name="generic_camera" params="name parent *origin update_rate res_x res_y image_format hfov">
+      
+		<link name="link_${name}">
+			<visual>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+				<box size="0.01 0.01 0.01" />
+				</geometry>
+				<material name="Black">
+				<color rgba="0.0 0.0 0.0 1.0"/>
+				</material>
+			</visual>
+			<inertial>
+			  <mass value="0.001" />
+			  <origin xyz="0 0 0" rpy="0 0 0" />
+			  <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001" />
+			</inertial>
+			<!--<collision>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<box size="0.01 0.01 0.01" />
+				</geometry>
+			</collision>-->
+		</link>
+		<link name="link_${name}_optical_frame">
+			<visual>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<geometry>
+					<box size="0.001 0.001 0.001" />
+				</geometry>
+			</visual>		  
+			<inertial>
+				<mass value="0.0" />
+				<origin xyz="0 0 0" />
+				<inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+			</inertial>
+			<!--<collision>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<geometry>
+					<box size="0.001 0.001 0.001"/>
+				</geometry>
+			</collision>-->
+		</link>
+
+		<joint name="joint_${name}" type="fixed">
+			<xacro:insert_block name="origin" />
+			<parent link="${parent}"/>
+			<child link="link_${name}"/>
+		</joint>
+		<joint name="joint_${name}_optical_frame" type="fixed">
+			<origin xyz="0 0 0" rpy="${-M_PI/2} 0.0 ${-M_PI/2}" />
+			<parent link="link_${name}" />
+			<child link="link_${name}_optical_frame"/>
+		</joint>
+    
+
+      
+		<gazebo reference="link_${name}">
+			<sensor type="camera" name="${name}cam">
+				<update_rate>${update_rate}</update_rate>
+				<camera>
+					<horizontal_fov>${hfov}</horizontal_fov>
+					<image>
+						<width>${res_x}</width>
+						<height>${res_y}</height>
+						<format>${image_format}</format>
+					</image>
+					<clip>
+						<near>0.01</near>
+						<far>100</far>
+					</clip>
+				</camera>
+				<plugin name="${name}_camera_controller" filename="libgazebo_ros_camera.so">
+					<cameraName>${name}</cameraName>
+					<alwaysOn>true</alwaysOn>
+					<updateRate>${update_rate}</updateRate>
+					<imageTopicName>image_raw</imageTopicName>
+					<cameraInfoTopicName>camera_info</cameraInfoTopicName>
+					<frameName>link_${name}_optical_frame</frameName>
+				</plugin>
+			</sensor>
+			<material>Gazebo/Black</material>
+		</gazebo>
+
+    </xacro:macro>
+
+
+</robot>

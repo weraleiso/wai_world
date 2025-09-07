@@ -1,0 +1,5 @@
+Header header
+float64 startSecondsFromNow
+float64 durationSeconds
+float64 frequency
+float64 amplitude

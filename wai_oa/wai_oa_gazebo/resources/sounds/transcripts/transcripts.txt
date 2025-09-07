@@ -1,0 +1,158 @@
+--- INTEL Transcripts ---
+oa_demo An individual has not started living until he can rise above the narrow confines of his individualistic concerns to the broader concerns of all humanity.
+IntelCoopPrepare Preparing cooperative learning mode.
+IntelError I am sorry. I am afraid I cant do that.
+IntelErrorMarvin I am sorry. This flying robot is not tied into my main processor.
+IntelErrorPoliteness Unfortunately, you forgot to say: Please.
+IntelErrorPresence However, you still have to re-enable human presence.
+IntelPlenPrepare Preparing plenum learning mode.
+IntelPlenumHandlingRequestAudienceAccept Accepted request from audience.
+IntelPlenumHandlingRequestAudienceReject Rejected request from audience.
+IntelPlenumIdlingCameraRviz Idling presenters camera.
+IntelPlenumLogAudienceIDExamination Logging examination.
+IntelPlenumLogAudienceIDParticipation Logging participation.
+IntelPlenumLogAudienceIDParticipationMinus Logging participation.
+IntelPlenumLogAudienceIDParticipationPlus Logging participation.
+IntelPlenumLogAudienceIDParticipationScore Logging participation.
+IntelPlenumLogAudienceIDParticipationTilde Logging participation.
+IntelPlenumSettingUp2D3DRespawn Respawning 2D to 3D.
+IntelPlenumSettingUpAudio Toggling audio.
+IntelPlenumSettingUpAvatar Toggling avatar.
+IntelPlenumSettingUpBodyInteraction Toggling body interaction.
+IntelPlenumSettingUpCameraRvizCycle Cycling through camera views.
+IntelPlenumSettingUpCameraRvizDefault Default camera view.
+IntelPlenumSettingUpCameraRvizEnforce Enforcing audience camera view to follow presenter.
+IntelPlenumSettingUpCameraRvizFollow Toggling camera follow.
+IntelPlenumSettingUpCameraRvizIdle Toggling camera idle.
+IntelPlenumSettingUpCameraRvizSelect Selecting camera view.
+IntelPlenumSettingUpEval Selecting evaluation graph.
+IntelPlenumSettingUpEvalBalance Toggling weight balance evaluation metaphore.
+IntelPlenumSettingUpEvalBowl Toggling bowl evaluation metaphore.
+IntelPlenumSettingUpEvalMarvin Toggling Marvin evaluation metaphore.
+IntelPlenumSettingUpEvalGraphInspect Inspecting evaluation graph.
+IntelPlenumSettingUpForceApply May the force be with you.
+IntelPlenumSettingUpForceInit Toggling force.
+IntelPlenumSettingUpForceVector Selecting force vector.
+IntelPlenumSettingUpIntroduction Toggling presenter introduction.
+IntelPlenumSettingUpLectern Toggling lectern.
+IntelPlenumSettingUpMarvin Triggering Marvin.
+IntelPlenumSettingUpPresenceMode Toggling presenter presence mode.
+IntelPlenumSettingUpPresenceModeDisabled So you dont like the humans, dont you?
+IntelPlenumSettingUpSceneNext Selecting next scene.
+IntelPlenumSettingUpScenePrev Selecting previous scene.
+IntelPlenumSettingUpSceneSelect Selecting scene from number.
+IntelPlenumSettingUpTable Toggling table.
+IntelPlenumSettingUpVoiceListen Triggering voice command.
+IntelPlenumSettingUpVoicePrompt Marvin is listening to your prompt.
+IntelPlenumSettingUpWIMAudienceDown Focusing ID.
+IntelPlenumSettingUpWIMAudienceUp Focusing ID.
+IntelPlenumSettingUpWIMAudienceLeft Focusing ID.
+IntelPlenumSettingUpWIMAudienceRight Focusing ID.
+IntelPlenumSettingUpWIMAudienceKick Kicked listener from audience.
+IntelPlenumSettingUpWIMAudienceMessage Sending message to audience.
+IntelPlenumSettingUpWIMAudienceNumber Focusing ID from number.
+IntelPlenumSettingUpWIMAudienceSelect Selecting ID from audience.
+IntelPlenumSettingUpWIMRepDetailNext Selecting detail.
+IntelPlenumSettingUpWIMRepSelect Selecting rep.
+IntelSessionManagerSessionEnds Attention! The session is about to end. You have approximately five minutes left.
+IntelSessionManagerSessionLoaded Attention! The session scheduler loaded a new session.
+IntelSetupRepFinished Attention! The rep sequencer finished a learning sequence.
+IntelSetupRepInitializing Attention! The rep sequencer is about to start a learning sequence.
+IntelShuttingDownWorkspace Attention! I am shutting down the workspace in three, two, one... Have a nice day!
+IntelTellAboutYourself Hi! My name is Intel. I am a purely virtual, omnipresent, artificially intelligent helper mainframe, created to support real natural human presenters.
+IntelWelcome Hello and welcome to double you ay i world.
+IntelWelcomeDone  My name is Intel, I am your artificially intelligent helper mainframe. Your workspace is ready.
+
+
+
+--- MARVIN Transcripts ---
+MarvinAge I was created in 2019, so my rotors are spinning for a quite a while now.
+MarvinDisengage Well ok, then I ll let gravity take over.
+MarvinDroppingObject Dropping object.
+MarvinError Sorry, Im afraid I cant do that.
+MarvinErrorPoliteness You could actually say please, could you?
+MarvinFlyToRepOrAudience Well alright, I ll check it.
+MarvinPickingUpObject Picking up object.
+MarvinSatisfaction In short: While the rest of the world in vein, worn by psychoanalysts and clung from comprehensible anguish, displaydrones like me feel perfectly fine.
+MarvinTaskAcknowledged On my way.
+MarvinTellAboutYourself Sure! Hi guys! My name is Marvin. I am a purely virtual, artificially intelligent display drone, created to support real natural human presenters. And, like Paul Milgram, Haruo Takemura, Akira Utsumi and Fumio Kishino, i like all kind of displays.
+MarvinWeight Man, I still feel too heavy. I guess I should tune my batteries.
+
+MarvinDropzone1 Alright, I ll fly to dropzone one.
+MarvinDropzone2 Alright, I ll fly to dropzone two.
+MarvinDropzone3 Alright, I ll fly to dropzone three.
+MarvinDropzone4 Alright, I ll fly to dropzone four.
+MarvinDropzone5 Alright, I ll fly to dropzone five.
+MarvinWaypoint1 Alright, I ll fly to waypoint one.
+MarvinWaypoint2 Alright, I ll fly to waypoint two.
+MarvinWaypoint3 Alright, I ll fly to waypoint three.
+MarvinWaypoint4 Alright, I ll fly to waypoint four.
+MarvinWaypoint5 Alright, I ll fly to waypoint five.
+
+MarvinEvalAcknowledge Alright, lets do this.
+MarvinEvalAcknowledgeMoodBad Why I have to do everything on my own?
+MarvinEvalComplete Well, now you can take some time to judge the flight altitude by yourself.
+MarvinEvalGainingHeight Now lets see what we have got here.
+MarvinEvalReachedHeightInsufficient Oh no, I think we are gonna crash!
+MarvinEvalReachedHeightSatisfactory Well, this looks like a satisfactory altitude to me.
+MarvinEvalReachedHeightGood Nice, I guess that altitude is definitely better than average.
+MarvinEvalReachedHeightVeryGood Congratulations Sir, you reached the top-level flight height. Onwards and upwards.
+MarvinEvalReachedHeightSufficient Whoa, this is going to be a close one.
+
+MarvinMoodBad Ah well, just mind your own business.
+MarvinMoodBadAcknowledge1 Nah, I dont want to. Sorry, but I did not sleep well last night!
+MarvinMoodBadAcknowledge2 No way, please do it yourself.
+MarvinMoodBadAcknowledge3 You are not talking to me? Are you?
+MarvinMoodBadAcknowledge4 Certainly not today, please find yourself another artificially intelligent display drone.
+MarvinMoodBadAcknowledge5 Negative! No, sir!
+MarvinMoodBadEngage I definitely would engage and I definitely would takeoff... Any other day!
+MarvinMoodBadTaskComplete1 You are not talking to me? Are you?
+MarvinMoodBadTaskComplete2 Why I have to do everything on my own?
+
+MarvinMoodBetterThanBad I feel like my battery is running empty, but I have got a highly efficient propulsion system. So i got that going for me, which I think is nice.
+MarvinMoodBetterThanBadAcknowledge1 Uhm, well... If you think so?
+MarvinMoodBetterThanBadAcknowledge2 I mean, I will do it if its important.
+MarvinMoodBetterThanBadAcknowledge3 Ok, I ll do it since it sounds important.
+MarvinMoodBetterThanBadAcknowledge4 Alright, but just because its you!
+MarvinMoodBetterThanBadAcknowledge5 Ok, if needs must!
+MarvinMoodBetterThanBadEngage Ok I ll lift off. However, did you increase gravity?
+MarvinMoodBetterThanBadTaskComplete1 Hm, I completed the task. I guess.
+MarvinMoodBetterThanBadTaskComplete2 Officially reporting on task completion.
+MarvinMoodBetterThanBadTaskComplete3 The task is complete. However, my satisfaction is not today.
+MarvinMoodBetterThanBadTaskComplete4 Its ready when its done.
+
+MarvinMoodOk Im quite fine. Thanks!
+MarvinMoodOkAcknowledge1 Alright, I ll do it.
+MarvinMoodOkAcknowledge2 Confirmed, I am onto it.
+MarvinMoodOkAcknowledge3 Ok, this will work.
+MarvinMoodOkAcknowledge4 Yes, why not.
+MarvinMoodOkAcknowledge5 Yeah, why not!
+MarvinMoodOkEngage Engaging, but I am not sure if its worth a takeoff today.
+MarvinMoodOkTaskComplete1 Task completed, but I feel like I need to recharge my batteries.
+MarvinMoodOkTaskComplete2 I am done, but do you think it helped after all?
+MarvinMoodOkTaskComplete3 Task completed, but my rotors hurt.
+
+MarvinMoodBetterThanOk Feeling better than usual today, but dont overdo it.
+MarvinMoodBetterThanOkAcknowledge1 Ok, sure. Tell me.
+MarvinMoodBetterThanOkAcknowledge2 Sure, I am listening.
+MarvinMoodBetterThanOkAcknowledge3 Yes, at your command.
+MarvinMoodBetterThanOkAcknowledge4 Ok ok, it will just take a while.
+MarvinMoodBetterThanOkAcknowledge5 Alright, I am pitching and rolling.
+MarvinMoodBetterThanOkEngage Preparing for takeoff.
+MarvinMoodBetterThanOkTaskComplete1 Task completed. Without any incidents.
+MarvinMoodBetterThanOkTaskComplete2 Task completed. It was even a bit pleasing today.
+MarvinMoodBetterThanOkTaskComplete3 I am done. And moreover, no drones got hurt during task completion.
+
+MarvinMoodFine Ah, today I feel like I could uproot trees.
+MarvinMoodFineAcknowledge1 Hell yes, consider it as done.
+MarvinMoodFineAcknowledge2 Awesome, more work for Marvin.
+MarvinMoodFineAcknowledge3 Yeah sure, I am onto it already.
+MarvinMoodFineAcknowledge4 Way cool, achieving things makes Marvin happy.
+MarvinMoodFineAcknowledge5 Confirmed, I am highly motivated today.
+MarvinMoodFineEngage Onwards and upwards.
+MarvinMoodFineTaskComplete1 Task completed, that was an easy one.
+MarvinMoodFineTaskComplete2 Task completed, no problem for Marvin.
+MarvinMoodFineTaskComplete3 Task completed, more tasks make Marvin happy.
+
+
+

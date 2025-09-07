@@ -1,0 +1,6 @@
+Edit Pulse audio config file:
+sudo gedit /etc/pulse/default.pa
+
+#-Comment out loading of the following modules:
+load-module module-switch-on-port-available
+load-module module-switch-on-connect

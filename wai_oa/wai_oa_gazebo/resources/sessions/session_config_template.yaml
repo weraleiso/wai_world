@@ -1,0 +1,36 @@
+setup_session_expertise:
+    session_expertise: 'oa_default'
+    session_expertise_level: '3'
+
+setup_session_defaults:
+    workspace_presenter:
+        default: 'default'
+    presenter:
+        default: [0.0,0.0,1.0,0.0]
+    projector:
+        default: 'slide'
+    projection:
+        default: [2.49,3.0,1.0,0.0]
+    camera:
+        break: [-4.7026,-12.244,9.9361, 1.352,-1.1921,-1.8079]
+        default: [-1.8312,1.4215,1.8032, 0.96589,1.4216,0.77907]
+        expand_projection: [0.5,3.0,1.05, 1.0,3.0,1.05]
+        graph_3d: [12.502,-2.0836,9.3688, 11.158,2.5593,3.2247]
+        graph_eval: [2.6221,-5.4203,20.995, 6.2576,8.8025,8.9597]
+        graph_stats: [2.5,-1.0,4.5, 5.0,-1.0,4.5]
+        overview: [-9.3404,-17.831,29.44, 3.0501,1.7788,3.1549]
+        presenter: [0.08393,0.47313,1.1179, 1.0389,0.23996,0.93473]
+        presenter_fpv: [2.3768,-0.040192,1.4326, -0.53616,0.34137,1.1204]
+        startup: [-250.0,-50.0,25.0, 0.0,0.0,0.0]
+        wim: [0.12969,0.5321,1.116, 0.69693,0.88327,0.89466]
+    reps:
+        rep_name: 'marvin'
+        rep_interaction: 'land'
+    reps_state:
+        lectern: [2.45,-2.0,0.0, 0.0]
+        table: [1.75,-2.0,0.0, 0.0]
+        vase: [2.0,4.5,0.5, 0.0]
+        wall_left: [3.0,1.0,0.0, 0.0]
+        wall_right: [3.0,-2.0,0.0, 0.0]
+        whiteboard: [2.5,3.0,0.0, 0.0]
+

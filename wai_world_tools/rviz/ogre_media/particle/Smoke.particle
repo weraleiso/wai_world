@@ -1,0 +1,16 @@
+particle_system Smoke
+{
+    material Smoke
+    particle_width 10
+    particle_height 10
+
+    quota 500
+    billboard_type point
+
+    emitter Point
+    {
+        emission_rate 3
+        direction 1 0 0
+        velocity 20
+    }
+}

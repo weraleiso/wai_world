@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<robot name="sphere">
+
+    <material name="Red">
+        <color rgba="1.0 0.0 0.0 1.0"/>
+    </material>
+
+    <gazebo reference="link_base">
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo>
+        <plugin name="gazebo_ros_template" filename="libgazebo_ros_template.so"/>
+        <plugin name="gazebo_ros_state" filename="libgazebo_ros_state.so">
+            <linkName>link_base</linkName>
+            <pubInterval>0.05</pubInterval>
+            <pubContinously>true</pubContinously>
+        </plugin>
+    </gazebo>
+
+    <link name="link_base">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry><sphere radius="0.075"/></geometry>
+            <material name="Red"/>
+        </visual>
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="1.0"/>
+            <inertia  ixx="0.00225" ixy="0.0"  ixz="0.0"  iyy="0.00225"  iyz="0.0"  izz="0.00225"/>
+        </inertial>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry><sphere radius="0.075"/></geometry>
+        </collision>
+    </link>
+
+</robot>

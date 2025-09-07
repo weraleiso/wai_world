@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+
+<robot name="pendulum" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:property name="pendulum_mass" value="1.0"/>
+    <xacro:property name="pendulum_length" value="1.0"/>
+
+    <material name="OA">
+        <color rgba="0.101960784 0.42745098 0.588235294 1.0"/>
+    </material>
+    <material name="OATransparent">
+        <color rgba="0.101960784 0.42745098 0.588235294 0.5"/>
+    </material>
+    <material name="Gray">
+        <color rgba="0.5 0.5 0.5 1.0"/>
+    </material>
+    <material name="Darkgray">
+        <color rgba="0.25 0.25 0.25 1.0"/>
+    </material>
+    <material name="Lightgray">
+        <color rgba="0.75 0.75 0.75 1.0"/>
+    </material>
+
+    <gazebo reference="link_base">
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo>
+        <plugin name="gazebo_ros_template" filename="libgazebo_ros_template.so"/>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+        </plugin>
+        <plugin name="gazebo_ros_state" filename="libgazebo_ros_state.so">
+            <linkName>link_pendulum_end</linkName>
+            <pubInterval>0.05</pubInterval>
+            <pubContinously>true</pubContinously>
+        </plugin>
+    </gazebo>
+
+    <link name="link_base">
+        <visual>
+            <origin xyz="0.0 0.0 0.0"/>
+            <geometry>
+                <sphere radius="0.1"/>
+            </geometry>
+            <material name="OA"/>
+        </visual>
+        <inertial>
+            <origin xyz="0.0 0.0 0.5" rpy="0.0 0.0 0.0"/>
+            <mass value="1000.0"/>
+            <inertia  ixx="166.666666" ixy="0.0"  ixz="0.0"  iyy="166.666666"  iyz="0.0"  izz="166.666666"/>
+        </inertial>
+        <collision>
+            <origin xyz="0.0 0.0 0.125"/>
+            <geometry>
+                <box size="2.0 1.0 0.25"/>
+            </geometry>
+        </collision>
+        <collision>
+            <origin xyz="0.0 -0.125 1.15"/>
+            <geometry>
+                <box size="1.5 0.25 1.8"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="link_pendulum_body"> <!-- if links in between do not have physical properties JSP does not publish properly! -->
+        <visual>
+            <origin xyz="0.0 0.0 0.125"/>
+            <geometry>
+                <box size="2.0 1.0 0.25"/>
+            </geometry>
+            <material name="Darkgray"/>
+        </visual>
+        <visual>
+            <origin xyz="0.0 -0.125 1.15"/>
+            <geometry>
+                <box size="1.5 0.25 1.8"/>
+            </geometry>
+            <material name="Lightgray"/>
+        </visual>
+    </link>
+    <link name="link_pendulum_suspension">
+        <visual>
+            <origin xyz="0.0 -0.2 0.0" rpy="-1.570796327 0.0 0.0"/>
+            <geometry>
+                <cylinder length="0.4" radius="0.075"/>
+            </geometry>
+            <material name="Gray"/>
+        </visual>
+        <visual>
+            <origin xyz="0.0 0.0 ${-1.0*pendulum_length/2.0}"/>
+            <geometry>
+                <cylinder length="${pendulum_length}" radius="0.025"/>
+            </geometry>
+            <material name="OATransparent"/>
+        </visual>
+        <inertial>
+            <origin xyz="0.0 0.0 -0.25" rpy="0.0 0.0 0.0"/>
+            <mass value="0.001"/>
+            <inertia  ixx="0.000020989" ixy="0.0"  ixz="0.0"  iyy="0.000020989"  iyz="0.0"  izz="0.000000312"/>
+        </inertial>
+        <collision>
+            <origin xyz="0.0 0.0 -0.25"/>
+            <geometry>
+                <cylinder length="0.5" radius="0.025"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="link_pendulum_end">
+        <visual>
+            <origin xyz="0.0 0.0 0.0"/>
+            <geometry>
+                <sphere radius="0.075"/>
+            </geometry>
+            <material name="OA"/>
+        </visual>
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="${pendulum_mass}"/>
+            <inertia  ixx="${0.00225*pendulum_mass}" ixy="0.0"  ixz="0.0"  iyy="${0.00225*pendulum_mass}"  iyz="0.0"  izz="${0.00225*pendulum_mass}"/>
+        </inertial>
+        <collision>
+            <origin xyz="0.0 0.0 0.0"/>
+            <geometry>
+                <sphere radius="0.075"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="joint_pendulum_body" type="fixed">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <parent link="link_base"/>
+        <child link="link_pendulum_body"/>
+    </joint>
+    <joint name="joint_pendulum_suspension" type="revolute">
+        <axis xyz="0 1 0" />
+        <origin xyz="0.0 0.25 1.5" rpy="0.0 0.0 0.0"/>
+        <parent link="link_base"/>
+        <child link="link_pendulum_suspension"/>
+        <limit lower="-3.0" upper="3.0" effort="1000000.0" velocity="1000000.0"/>
+        <dynamics damping="0.0" friction="0.0"/>
+    </joint>
+    <joint name="joint_pendulum_end" type="revolute">
+        <axis xyz="0 0 1" />
+        <origin xyz="0.0 0.0 ${-1.0*pendulum_length}" rpy="0.0 0.0 0.0"/>
+        <parent link="link_pendulum_suspension"/>
+        <child link="link_pendulum_end"/>
+        <limit lower="0.0" upper="0.0" effort="1000.0" velocity="1000.0"/>
+        <dynamics damping="0.0" friction="0.0"/>
+    </joint>
+
+    <transmission name="trans_pendulum_suspension">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_pendulum_suspension">
+          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="actuator_pendulum_suspension">
+          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+          <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="trans_pendulum_end">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_pendulum_end">
+          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="actuator_pendulum_end">
+          <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+          <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+</robot>

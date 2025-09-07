@@ -1,0 +1,4 @@
+string prompt  # Prompt request for LLM response
+---
+string llm_response  # Response from LLM
+---

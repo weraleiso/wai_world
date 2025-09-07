@@ -1,0 +1,14 @@
+mars_helicopter_base
+
+mars_helicopter_blades_middle
+
+mars_helicopter_blades_top
+
+mars_helicopter_solar_panel
+
+
+coords for downfacing cam and front cam??
+xyz 0.09 0.0 -0.065
+
+down:
+xyz 0.0 0.0 -0.14

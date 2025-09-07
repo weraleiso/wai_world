@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+
+<launch>
+
+	<!-- Define Namespaces -->
+	<arg name="namespace_global" default="wai_world"/>
+    <arg name="oa_audience_id" default="$(env WAI_OA_AUDIENCE_ID)"/>
+	<arg name="namespace_oa_audience" default="oa$(arg oa_audience_id)"/>
+
+	<!-- Define Parameters -->
+	<arg name="oa_audience_node_sample_frequency" default="20.0"/>
+	<arg name="oa_audience_tf_pub_interval" default="100.0"/>
+
+
+	<group ns="$(arg namespace_global)/$(arg namespace_oa_audience)">
+
+	    <node pkg="tf" type="static_transform_publisher" name="pub_tf_workspace_wrt_camera_in_link" args="0.0 0.0 0.0 0.0 0.0 0.0 workspace_audience_$(arg oa_audience_id)/link_camera_rgbd camera_rgbd_in$(arg oa_audience_id)_link $(arg oa_audience_tf_pub_interval)"/>
+
+		<node pkg="tf" type="static_transform_publisher" name="pub_tf_workspace_wrt_camera_out_link" args="0.0 0.0 0.0 0.0 0.0 0.0 workspace_audience_$(arg oa_audience_id)/link_camera_rgbd camera_rgbd_out$(arg oa_audience_id)_link $(arg oa_audience_tf_pub_interval)"/>
+		<node pkg="tf" type="static_transform_publisher" name="pub_tf_camera_audit_link_wrt_camera_audit_rgb_frame" args="0.0 -0.045 0.0 0.0 0.0 0.0 camera_rgbd_out$(arg oa_audience_id)_link camera_rgbd_out$(arg oa_audience_id)_rgb_frame $(arg oa_audience_tf_pub_interval)"/>
+		<node pkg="tf" type="static_transform_publisher" name="pub_tf_camera_audit_link_wrt_camera_audit_depth_frame" args="0.0 -0.02 0.0 0.0 0.0 0.0 camera_rgbd_out$(arg oa_audience_id)_link camera_rgbd_out$(arg oa_audience_id)_depth_frame $(arg oa_audience_tf_pub_interval)"/>
+		<node pkg="tf" type="static_transform_publisher" name="pub_tf_camera_audit_link_wrt_camera_audit_rgb_optical_frame" args="0.0 -0.045 0.0 -1.570796327 0.0 -1.570796327 camera_rgbd_out$(arg oa_audience_id)_rgb_frame camera_rgbd_out$(arg oa_audience_id)_rgb_optical_frame $(arg oa_audience_tf_pub_interval)"/>
+		<node pkg="tf" type="static_transform_publisher" name="pub_tf_camera_audit_link_wrt_camera_audit_depth_optical_frame" args="0.0 -0.02 0.0 -1.570796327 0.0 -1.570796327 camera_rgbd_out$(arg oa_audience_id)_depth_frame camera_rgbd_out$(arg oa_audience_id)_depth_optical_frame $(arg oa_audience_tf_pub_interval)"/>
+
+		<node pkg="tf" type="static_transform_publisher" name="pub_tf_workspace_wrt_camera_virtual_link" args="0.0 0.0 0.0 0.0 0.0 0.0 workspace_audience_$(arg oa_audience_id)/link_camera_rgbd camera_rgbd_in$(arg oa_audience_id)_virtual_link $(arg oa_audience_tf_pub_interval)"/>
+		<node pkg="tf" type="static_transform_publisher" name="pub_tf_camera_virtual_link_wrt_camera_virtual_rgb_frame" args="0.0 -0.045 0.0 0.0 0.0 0.0 camera_rgbd_in$(arg oa_audience_id)_virtual_link camera_rgbd_in$(arg oa_audience_id)_virtual_rgb_frame $(arg oa_audience_tf_pub_interval)"/>
+		<node pkg="tf" type="static_transform_publisher" name="pub_tf_camera_virtual_link_wrt_camera_virtual_depth_frame" args="0.0 -0.02 0.0 0.0 0.0 0.0 camera_rgbd_in$(arg oa_audience_id)_virtual_link camera_rgbd_in$(arg oa_audience_id)_virtual_depth_frame $(arg oa_audience_tf_pub_interval)"/>
+		<node pkg="tf" type="static_transform_publisher" name="pub_tf_camera_virtual_link_wrt_camera_virtual_rgb_optical_frame" args="0.0 -0.045 0.0 -1.570796327 0.0 -1.570796327 camera_rgbd_in$(arg oa_audience_id)_virtual_rgb_frame camera_rgbd_in$(arg oa_audience_id)_virtual_rgb_optical_frame $(arg oa_audience_tf_pub_interval)"/>
+		<node pkg="tf" type="static_transform_publisher" name="pub_tf_camera_virtual_link_wrt_camera_virtual_depth_optical_frame" args="0.0 -0.02 0.0 -1.570796327 0.0 -1.570796327 camera_rgbd_in$(arg oa_audience_id)_virtual_depth_frame camera_rgbd_in$(arg oa_audience_id)_virtual_depth_optical_frame $(arg oa_audience_tf_pub_interval)"/>
+
+		<!-- Launch OA node for Audience/Listeners -->
+		<node name="wai_oa_audience_listener_control_center_node" pkg="wai_oa_control_center" type="wai_oa_audience_listener_control_center_node" required="true" output="screen">
+            <rosparam command="load" subst_value="true">
+                F_NODE_SAMPLE_FREQUENCY: $(arg oa_audience_node_sample_frequency)
+                F_SCENE_TRANSITION_TIMEOUT: 3.0
+                F_SCENE_TRIGGER_TIMEOUT: 3.0
+                F_SCENE_TRIGGER_COLL_THRES: 0.15
+                F_CAMERA_RGBD_RESOLUTION_X: 320
+                F_CAMERA_RGBD_RESOLUTION_Y: 240
+                F_CAMERA_RGBD_RESOLUTION_SCALE: 1.0
+                F_CAMERA_RGBD_FX: 273.025041719
+                F_CAMERA_RGBD_FY: 272.874760407
+                F_CAMERA_RGBD_CX: 159.132717749
+                F_CAMERA_RGBD_CY: 117.765494388
+                F_CAMERA_RGBD_RANGE_MIN: 0.1
+                F_CAMERA_RGBD_RANGE_MAX: 1.5
+                F_CAMERA_RGBD_THRESHOLD_DIST: 0.1
+                F_CAMERA_RGBD_THRESHOLD_BOUNDS: 0.15
+                B_ENABLE_KALMAN: false
+                B_ENABLE_CAMERA_RVIZ_FLY_IN: true
+                B_ENABLE_CAMERA_RVIZ_PRESENTER_FOLLOW: true
+                B_ENABLE_ENFORCE_CAMERA_RVIZ_PRESENTER_FOLLOW: false
+                B_ENABLE_BODY_INTERACTION: false
+                B_ENABLE_AVATAR: false
+                B_ENABLE_3D_MODE: false
+            </rosparam>
+		</node>
+
+		<!-- Launch RViz -->
+		<node name="rviz_wai_oa_audience" pkg="rviz" type="rviz" required="true" args="-d $(find wai_world_bringup)/rviz/wai_world.rviz"/>
+
+		<!-- Launch Screensharing -->
+		<include file="$(find wai_screenshare)/launch/wai_screenshare.launch"></include>
+
+		<!-- Launch internal Webcam for 2D-Mode -->
+		<include file="$(find usb_cam)/launch/wai_oa_camera_rgb_audience.launch">
+			<arg name="oa_audience_id" value="$(arg oa_audience_id)"/>
+		</include>
+
+		<!-- Launch OpenNI2 -->
+		<include file="$(find openni2_launch)/launch/openni2.launch">
+			<arg name="oa_audience_id" value="$(arg oa_audience_id)"/>
+		</include>
+		
+		<!-- Launch sound play node for playing sound files -->
+		<include file="$(find sound_play)/soundplay_node.launch"></include>
+
+		<!-- Launch Audio Capture for AUDIO-COMMUNICATION -->
+		<include file="$(find audio_capture)/launch/capture.launch"></include>
+		
+		<!-- Launch Audio Play Client (Launched in namespace of world/presenter!) -->
+		<include file="$(find audio_play)/launch/play.launch">
+            <arg name="ns" value="/wai_world/world/audio_common"/>
+            <arg name="oa_audience_id" value="$(arg oa_audience_id)"/>
+        </include>
+
+		<!-- Launch Joypad as input device -->
+		<node name="joy_node" pkg="joy" type="joy_node"></node>
+
+	</group>
+
+</launch>

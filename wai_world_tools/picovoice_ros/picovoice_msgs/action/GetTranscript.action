@@ -1,0 +1,4 @@
+bool enable_automatic_punctuation # Auto add punctuation.
+---
+string transcript  # Transcript as result.
+---

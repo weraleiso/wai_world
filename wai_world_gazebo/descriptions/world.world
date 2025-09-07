@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+
+
+    <world name="world">
+
+        <scene>
+            <shadows>0</shadows>
+            <ambient>0.0 0.0 0.0 1.0</ambient>
+            <!--<sky>
+                <clouds>
+                <speed>12</speed>
+                </clouds>
+            </sky>-->
+        </scene>
+
+        <!-- A global light source -->
+        <include>
+            <uri>model://sun</uri>
+        </include>
+
+        <!-- A ground plane -->
+        <include>
+            <uri>model://ground_plane</uri>
+        </include>
+
+        <!-- Simulation solver settings -->
+        <physics type='ode'>
+            <!--<ode>
+                <solver><type>quick</type></solver>
+                <constraints>
+                    <contact_max_correcting_vel>0.1</contact_max_correcting_vel>
+                    <contact_surface_layer>0.0001</contact_surface_layer>
+                </constraints>
+            </ode>-->
+            <max_step_size>0.005</max_step_size>
+            <real_time_update_rate>200.0</real_time_update_rate>
+            <real_time_factor>1.0</real_time_factor>
+        </physics>
+
+        <!-- Set GUI camera to default pose -->
+        <gui fullscreen='0'>
+            <camera name='user_camera'>
+                <pose>0.0 0.0 2.0 0.0 0.5 0.0</pose>
+                <view_controller>orbit</view_controller>
+            </camera>
+        </gui>
+
+    </world>
+
+</sdf>

@@ -1,0 +1,458 @@
+<?xml version="1.0"?>
+
+<robot name="marvin" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- ========== -->
+    <!-- PROPERTIES -->
+    <!-- ========== -->
+
+    <xacro:property name="M_PI" value="3.1415926535897931"/>
+
+    <xacro:arg name="sensor_update_rate" default="25.0"/>
+    <xacro:arg name="controller_update_rate" default="50.0"/>
+	<xacro:property name="sensor_update_rate" value="$(arg sensor_update_rate)"/>
+	<xacro:property name="controller_update_rate" value="$(arg controller_update_rate)"/>
+
+
+
+    <!-- ========= -->
+    <!-- MATERIALS -->
+    <!-- ========= -->
+
+    <material name="DarkGrey">
+        <color rgba="0.25 0.25 0.25 1.0"/>
+    </material>
+    <material name="OA">
+        <color rgba="0.101960784 0.42745098 0.588235294 1.0"/>
+    </material>
+
+
+
+    <!-- ======= -->
+    <!-- PLUGINS -->
+    <!-- ======= -->
+
+	<!-- Cameras -->
+    <xacro:include filename="$(find wai_marvin_gazebo)/descriptions/generic_camera.xacro"/>
+    <xacro:generic_camera name="camera_front" parent="link_base" update_rate="${sensor_update_rate}" res_x="960" res_y="720" image_format="R8G8B8" hfov="${90*M_PI/180}">
+      <origin xyz="0.05 0.0 0.05" rpy="0.0 0.0 0.0"/>
+    </xacro:generic_camera><!-- P=0.261791667 Pitch with 15deg -->
+
+	<!-- Gazebo sensor plugins -->
+	<gazebo>
+		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+		</plugin>
+
+		<plugin name="quadrotor_imu_sim" filename="libhector_gazebo_ros_imu.so">
+		    <alwaysOn>true</alwaysOn>
+		    <updateRate>${sensor_update_rate}</updateRate>
+		    <bodyName>marvin::link_base</bodyName>
+		    <frameId>marvin/link_base</frameId>
+		    <topicName>imu</topicName>
+            <xyzOffset>0.0 0.0 0.0</xyzOffset>
+            <rpyOffset>0.0 0.0 0.0</rpyOffset>
+		    <gaussianNoise>0.05</gaussianNoise>
+		    <accelDrift>0.001 0.001 0.001</accelDrift>
+		</plugin>
+
+		<plugin name="quadrotor_groundtruth_sim" filename="libgazebo_ros_p3d.so">
+		    <!-- Takes a BODY NAME body::link and publishes an ODOM-Topic only, parent frame is world -->
+		    <!-- COMBINE WITH static_transform_publisher AND ground_truth_to_tf IN THE GAZEBO_SPAWN.launch FILE-->
+			<alwaysOn>true</alwaysOn>
+			<updateRate>${sensor_update_rate}</updateRate>
+			<bodyName>marvin::link_base</bodyName>
+			<topicName>odom</topicName>
+			<gaussianNoise>0.0</gaussianNoise>
+			<frameName>world</frameName>
+		</plugin>
+	</gazebo>
+
+	<!-- Gazebo controller plugins -->
+	<gazebo>
+        <plugin name="quadrotor_simple_controller" filename="libhector_gazebo_quadrotor_simple_controller.so">
+            <topicName>cmd_vel</topicName>
+            <imuTopic>imu</imuTopic>
+            <stateTopic>odom</stateTopic>
+            <landingtakeoffSpeed>0.125</landingtakeoffSpeed>
+            <landingtakeoffHeight>0.5</landingtakeoffHeight>
+            <maxForce>30.0</maxForce>
+            <bodyName>marvin::link_base</bodyName>
+            <rollpitchProportionalGain>10.0</rollpitchProportionalGain>
+            <rollpitchDifferentialGain>5.0</rollpitchDifferentialGain>
+            <rollpitchIntegralGain>0.0</rollpitchIntegralGain>
+            <rollpitchLimit>0.5</rollpitchLimit>
+            <yawProportionalGain>1.0</yawProportionalGain>
+            <yawDifferentialGain>1.0</yawDifferentialGain>
+            <yawIntegralGain>0.0</yawIntegralGain>
+            <yawLimit>3.1415</yawLimit>
+            <velocityXYProportionalGain>7.5</velocityXYProportionalGain>
+            <velocityXYDifferentialGain>2.0</velocityXYDifferentialGain>
+            <velocityXYIntegralGain>0.0</velocityXYIntegralGain>
+            <velocityXYLimit>2.0</velocityXYLimit>
+            <velocityZProportionalGain>5.0</velocityZProportionalGain>
+            <velocityZDifferentialGain>1.0</velocityZDifferentialGain>
+            <velocityZIntegralGain>0.0</velocityZIntegralGain>
+            <velocityZLimit>0.5</velocityZLimit>
+        </plugin>
+    </gazebo>
+
+
+    <!-- ============= -->
+	<!-- === LINKS === -->
+    <!-- ============= -->
+
+	<link name="link_base">
+        <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+		<visual>
+			<geometry>
+			<cylinder length="0.2" radius="0.015"/>
+			</geometry>
+			<origin xyz="0.0 0.0 0.1" rpy="0.0 0.0 0.0"/>
+            <material name="OA"/>
+		</visual>
+        <visual>
+			<geometry>
+			<cylinder length="0.825" radius="0.01"/>
+			</geometry>
+			<origin xyz="0.0 0.0 0.19" rpy="1.570796327 0.0 0.0"/>
+            <material name="OA"/>
+		</visual>
+        <visual>
+			<geometry>
+			<cylinder length="0.7" radius="0.01"/>
+			</geometry>
+			<origin xyz="0.0 0.42 0.53" rpy="0.0 0.0 0.0"/>
+            <material name="OA"/>
+		</visual>
+        <visual>
+			<geometry>
+			<cylinder length="0.7" radius="0.01"/>
+			</geometry>
+			<origin xyz="0.0 -0.42 0.53" rpy="0.0 0.0 0.0"/>
+            <material name="OA"/>
+		</visual>
+        <visual>
+			<geometry>
+			<cylinder length="0.85" radius="0.03"/>
+			</geometry>
+			<origin xyz="0.0 0.0 0.85" rpy="1.570796327 0.0 0.0"/>
+            <material name="DarkGrey"/>
+		</visual>
+		<inertial>
+			<mass value="0.5"/>
+			<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+			<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+		</inertial>
+	</link>
+    <!--<gazebo reference="link_base">  
+      <visual name="marvin_link_base_material">  
+        <material>  
+          <ambient>0.101960784 0.42745098 0.588235294 1.0</ambient>  
+          <diffuse>0.101960784 0.42745098 0.588235294 1.0</diffuse>  
+          <specular>0.101960784 0.42745098 0.588235294 1.0</specular>  
+          <emissive>0.0 0.0 0.0 0.0</emissive>
+        </material>
+      </visual>  
+    </gazebo>
+    <gazebo reference="link_base">
+        <material>Gazebo/Red</material>
+    </gazebo>-->
+
+    <link name="link_marvin_body">
+		<visual>
+			<origin xyz="0.0 0.0 -0.01" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://wai_marvin_gazebo/resources/marvin/link_marvin_body.dae"/>
+			</geometry>
+		</visual>
+		<inertial>
+			<mass value="0.5"/>
+			<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+			<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+		</inertial>
+		<collision>
+			<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+			<geometry>
+                <box size="0.25 0.25 0.1"/>
+			</geometry>
+		</collision>
+		<!--<collision>
+			<origin xyz="0.15 0.15 -0.025" rpy="0.0 0.0 0.0"/>
+			<geometry>
+                <cylinder length="0.05" radius="0.01"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0.15 -0.15 -0.025" rpy="0.0 0.0 0.0"/>
+			<geometry>
+                <cylinder length="0.05" radius="0.01"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="-0.15 0.15 -0.025" rpy="0.0 0.0 0.0"/>
+			<geometry>
+                <cylinder length="0.05" radius="0.01"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="-0.15 -0.15 -0.025" rpy="0.0 0.0 0.0"/>
+			<geometry>
+                <cylinder length="0.05" radius="0.01"/>
+			</geometry>
+		</collision>-->
+    </link>
+    <link name="link_marvin_hook_roll">
+		<inertial>
+			<mass value="0.001"/>
+			<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+			<inertia ixx="0.000001" ixy="0.0" ixz="0.0" iyy="0.000001" iyz="0.0" izz="0.000001"/>
+		</inertial>
+    </link>
+    <link name="link_marvin_hook_pitch">
+		<inertial>
+			<mass value="0.001"/>
+			<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+			<inertia ixx="0.000001" ixy="0.0" ixz="0.0" iyy="0.000001" iyz="0.0" izz="0.000001"/>
+		</inertial>
+    </link>
+    <link name="link_marvin_hook_gripper">
+		<visual>
+			<origin xyz="-0.25 0.0 0.0" rpy="0.0 1.570796327 0.0"/>
+			<geometry>
+				<cylinder length="0.5" radius="0.01"/>
+			</geometry>
+            <material name="DarkGrey"/>
+		</visual>
+		<visual>
+			<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<sphere radius="0.025"/>
+			</geometry>
+            <material name="OA"/>
+		</visual>
+		<inertial>
+			<mass value="0.01"/>
+			<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+			<inertia ixx="0.0000025" ixy="0.0" ixz="0.0" iyy="0.0000025" iyz="0.0" izz="0.0000025"/>
+		</inertial>
+		<!--<collision>
+			<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+			<geometry>
+                <sphere radius="0.025"/>
+			</geometry>
+		</collision>-->
+    </link>
+
+    <!-- FRONT -->
+    <link name="link_marvin_rotor_front_left">
+	    <inertial>
+	      <mass value="0.01"/>
+	      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+	      <inertia ixx="0.000025" ixy="0.0" ixz="0.0" iyx="0.0" iyy="0.000025" iyz="0.0" izx="0.0" izy="0.0" izz="0.00005"/>
+	    </inertial>
+	    <visual name="link_marvin_rotor_front_left_visual">
+	      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+	      <geometry>
+		    <mesh filename="package://wai_marvin_gazebo/resources/marvin/link_marvin_rotor_front_left.dae"/>
+	      </geometry>
+	    </visual>
+    </link>
+    <link name="link_marvin_rotor_front_right">
+	    <inertial>
+	      <mass value="0.01"/>
+	      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+	      <inertia ixx="0.000025" ixy="0.0" ixz="0.0" iyx="0.0" iyy="0.000025" iyz="0.0" izx="0.0" izy="0.0" izz="0.00005"/>
+	    </inertial>
+	    <visual name="link_marvin_rotor_front_right_visual">
+	      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+	      <geometry>
+		    <mesh filename="package://wai_marvin_gazebo/resources/marvin/link_marvin_rotor_front_right.dae"/>
+	      </geometry>
+	    </visual>
+    </link>
+
+    <!-- BACK -->
+    <link name="link_marvin_rotor_rear_left">
+	    <inertial>
+	      <mass value="0.01"/>
+	      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+	      <inertia ixx="0.000025" ixy="0.0" ixz="0.0" iyx="0.0" iyy="0.000025" iyz="0.0" izx="0.0" izy="0.0" izz="0.00005"/>
+	    </inertial>
+	    <visual name="link_marvin_rotor_rear_left_visual">
+	      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+	      <geometry>
+		    <mesh filename="package://wai_marvin_gazebo/resources/marvin/link_marvin_rotor_rear_left.dae"/>
+	      </geometry>
+	    </visual>
+    </link>
+
+    <link name="link_marvin_rotor_rear_right">
+	    <inertial>
+	      <mass value="0.01"/>
+	      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+	      <inertia ixx="0.000025" ixy="0.0" ixz="0.0" iyx="0.0" iyy="0.000025" iyz="0.0" izx="0.0" izy="0.0" izz="0.00005"/>
+	    </inertial>
+	    <visual name="link_marvin_rotor_rear_right_visual">
+	      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+	      <geometry>
+		    <mesh filename="package://wai_marvin_gazebo/resources/marvin/link_marvin_rotor_rear_right.dae"/>
+	      </geometry>
+	    </visual>
+    </link>
+
+
+
+    <!-- ============== -->
+	<!-- === JOINTS === -->
+    <!-- ============== -->
+
+	<joint name="joint_marvin_body" type="fixed">
+        <parent link="link_base"/>
+        <child link="link_marvin_body"/>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <axis xyz="0 0 1"/>
+	</joint>
+
+	<joint name="joint_marvin_hook_roll" type="revolute">
+        <parent link="link_marvin_body"/>
+        <child link="link_marvin_hook_roll"/>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <axis xyz="1 0 0"/>
+		<limit lower="-3.2" upper="3.2" effort="100" velocity="100"/>
+		<dynamics damping="0.0" friction="0.005"/>
+	</joint>
+	<joint name="joint_marvin_hook_pitch" type="revolute">
+        <parent link="link_marvin_hook_roll"/>
+        <child link="link_marvin_hook_pitch"/>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <axis xyz="0 1 0"/>
+		<limit lower="-3.2" upper="3.2" effort="100" velocity="100"/>
+		<dynamics damping="0.0" friction="0.005"/>
+	</joint>
+	<joint name="joint_marvin_hook_gripper" type="revolute">
+        <parent link="link_marvin_hook_pitch"/>
+        <child link="link_marvin_hook_gripper"/>
+        <origin xyz="0.5 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <axis xyz="0 0 1"/>
+		<limit lower="0.0" upper="0.0" effort="1000" velocity="1000"/>
+		<dynamics damping="0.0" friction="0.0"/>
+	</joint>
+
+
+	<joint name="joint_marvin_rotor_front_left" type="continuous">
+		<axis xyz="0 0 1" />
+		<origin xyz="0.0873 0.1115 0.0" rpy="0.0 0.0 0.0"/>
+		<parent link="link_marvin_body"/>
+		<child link="link_marvin_rotor_front_left"/>
+		<limit effort="100.0" velocity="100.0"/>
+		<dynamics damping="0.0" friction="0.0"/>
+	</joint>
+
+	<joint name="joint_marvin_rotor_front_right" type="continuous">
+		<axis xyz="0 0 1" />
+		<origin xyz="0.0873 -0.1115 0.0" rpy="0.0 0.0 0.0"/>
+		<parent link="link_marvin_body"/>
+		<child link="link_marvin_rotor_front_right"/>
+        <mimic joint="joint_marvin_rotor_front_left" multiplier="1.0" offset="0.0"/>
+	</joint>
+
+	<joint name="joint_marvin_rotor_rear_left" type="continuous">
+		<axis xyz="0 0 1" />
+		<origin xyz="-0.0873 0.1115 0.0" rpy="0.0 0.0 0.0"/>
+		<parent link="link_marvin_body"/>
+		<child link="link_marvin_rotor_rear_left"/>
+        <mimic joint="joint_marvin_rotor_front_left" multiplier="1.0" offset="0.0"/>
+	</joint>
+
+	<joint name="joint_marvin_rotor_rear_right" type="continuous">
+		<axis xyz="0 0 1" />
+		<origin xyz="-0.0873 -0.1115 0.0" rpy="0.0 0.0 0.0"/>
+		<parent link="link_marvin_body"/>
+		<child link="link_marvin_rotor_rear_right"/>
+        <mimic joint="joint_marvin_rotor_front_left" multiplier="1.0" offset="0.0"/>
+	</joint>
+
+
+
+    <!-- ================================ -->
+	<!-- === CONTROLLER TRANSMISSIONS === -->
+    <!-- ================================ -->
+
+	<transmission name="trans_marvin_rotor_front_left">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="joint_marvin_rotor_front_left">
+		  <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="motor_marvin_rotor_front_left">
+		  <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		  <mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+	<!--<transmission name="trans_marvin_rotor_front_right">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="joint_marvin_rotor_front_right">
+		  <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="motor_marvin_rotor_front_right">
+		  <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		  <mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+	<transmission name="trans_marvin_rotor_rear_left">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="joint_marvin_rotor_rear_left">
+		  <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="motor_marvin_rotor_rear_left">
+		  <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		  <mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+	<transmission name="trans_marvin_rotor_rear_right">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="joint_marvin_rotor_rear_right">
+		  <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="motor_marvin_rotor_rear_right">
+		  <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		  <mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>-->
+
+	<transmission name="trans_marvin_hook_roll">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="joint_marvin_hook_roll">
+		  <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="actuator_marvin_hook_roll">
+		  <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		  <mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+	<transmission name="trans_marvin_hook_pitch">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="joint_marvin_hook_pitch">
+		  <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="actuator_marvin_hook_pitch">
+		  <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		  <mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+	<transmission name="trans_marvin_hook_gripper">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="joint_marvin_hook_gripper">
+		  <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="actuator_marvin_hook_gripper">
+		  <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		  <mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+</robot>

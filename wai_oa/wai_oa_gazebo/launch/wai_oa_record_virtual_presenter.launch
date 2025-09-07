@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<launch>
+
+	<!-- Define Namespaces -->
+	<arg name="namespace_global" default="wai_world"/>
+	<arg name="namespace_world" default="world"/>
+
+	<!-- Launch OpenNI2 in root namespace -->
+	<include file="$(find openni2_launch)/launch/openni2.launch"/>
+
+	<!-- Launch in server namespace if necessary -->
+	<group ns="$(arg namespace_global)/$(arg namespace_world)">
+
+	    <!-- Launch Audio Capture -->
+	    <include file="$(find audio_capture)/launch/capture.launch"/>
+
+	    <!-- Actually start recording bag -->
+	    <node pkg="rosbag" type="record" name="rosbag_record_presenter"
+           args="record -o $(find wai_oa_gazebo)/resources/rosbags/oa_virtual_presenter.bag /wai_world/world/audio_common/audio /camera_rgbd_in/depth/image/compressedDepth /camera_rgbd_in/rgb/image_raw/compressed"/>
+	</group>
+
+</launch>

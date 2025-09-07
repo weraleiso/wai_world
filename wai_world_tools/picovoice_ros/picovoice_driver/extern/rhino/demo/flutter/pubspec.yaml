@@ -1,0 +1,35 @@
+name: rhino_demo
+description: Demonstrates how to use the rhino plugin.
+
+publish_to: 'none'
+
+version: 1.0.0
+
+environment:
+  sdk: ">=2.18.0 <4.0.0"
+  flutter: ">=3.3.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  rhino_flutter: ^3.0.3
+
+dev_dependencies:
+  integration_test:
+    sdk: flutter
+  flutter_test:
+    sdk: flutter
+  lints: ^1.0.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+    - assets/models/
+    - assets/contexts/android/
+    - assets/contexts/ios/
+    - assets/test_resources/
+    - assets/test_resources/audio_samples/
+    - assets/test_resources/context_files/
+    - assets/test_resources/model_files/

@@ -1,0 +1,21 @@
+link_base:
+    name: "Ingenuity (NASA)"
+    year: "2020"
+    specs: "m=1.0kg, P=350W"
+    description: "Ingenuity, created by NASA, is a small robotic helicopter operating on Mars as part of the Mars 2020 mission."
+    camera_rviz: [-2.0,3.0,3.0]
+link_ingenuity_rotor_middle:
+    name: "Rotor Middle"
+    year: "2020"
+    specs: "m=0.035kg"
+    description: "Made out of a very lightweight foam core, coated with carbon fiber material this rotor weighs 35g only."
+link_ingenuity_rotor_top:
+    name: "Rotor Top"
+    year: "2020"
+    specs: "m=0.035kg"
+    description: "The top rotor, together with the middle rotor, builds up a koaxial rotor system that is powerful and efficient if it comes to producing thrust."
+link_ingenuity_solar_panel:
+    name: "Solar Panel"
+    year: "2020"
+    specs: "m=0.5kg"
+    description: "The solar panel supplies the helicopter with power, while energy its a costly resouce on mars, dust is its worst enemy."
