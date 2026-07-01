@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Load the URDF into the ROS Parameter Server -->	
+    <param name="robot_description" textfile="$(find rviz_plugin_wai_lights)/resources/rviz_plugin_wai_lights_sandbox.xacro"/>
+
+    <node pkg="tf" type="static_transform_publisher" name="tf_pub_world_wrt_link_base" args="0.0 0.0 0.0 0.0 0.0 0.0 world link_base 100.0"/>
+
+    <!-- launch rviz with a config file -->
+    <node pkg="rviz" type="rviz" name="rviz" output="screen" args="-d $(find rviz_plugin_wai_lights)/rviz/rviz_plugin_wai_lights.rviz" />
+</launch>

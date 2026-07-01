@@ -1,0 +1,7 @@
+<library path="lib/librviz_plugin_wai_oa_panel">
+    <class name="rviz_plugin_wai_oa_panel/RVizPluginWAIOAPanel" type="rviz_plugin_wai_oa_panel::RVizPluginWAIOAPanel" base_class_type="rviz::Panel">
+        <description>
+            Adds a custom Open Auditorium (OA) panel to RViz.
+        </description>
+    </class>
+</library>

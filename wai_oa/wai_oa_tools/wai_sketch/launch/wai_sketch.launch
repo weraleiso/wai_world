@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<launch>
+
+    <arg name="sketch_node_sample_frequency" default="20.0"/>
+    <arg name="sketch_format" default="CUSTOM_720P"/>
+    <arg name="sketch_dpi" default="150"/>
+    <arg name="sketch_file_name" default=""/>
+
+    <node pkg="wai_sketch" type="wai_sketch_node" name="wai_sketch_node" output="screen" required="true">
+        <rosparam command="load" subst_value="true">
+            F_NODE_SAMPLE_FREQUENCY: $(arg sketch_node_sample_frequency)
+            S_SKETCH_FORMAT: '$(arg sketch_format)'
+            I_SKETCH_DPI: $(arg sketch_dpi)
+            S_SKETCH_FILE_NAME: '$(arg sketch_file_name)'
+        </rosparam>
+    </node>
+</launch>

@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/pv_recorder.h
+stdbool.h
+-
+stdint.h
+-
+
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/node/pv_recorder_napi.c
+assert.h
+-
+node_api.h
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/node/node_api.h
+pv_recorder.h
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/node/pv_recorder.h
+
+node/node_headers-prefix/src/node_headers/include/node/js_native_api.h
+stdbool.h
+-
+stddef.h
+-
+js_native_api_types.h
+node/node_headers-prefix/src/node_headers/include/node/js_native_api_types.h
+
+node/node_headers-prefix/src/node_headers/include/node/js_native_api_types.h
+stddef.h
+-
+stdint.h
+-
+
+node/node_headers-prefix/src/node_headers/include/node/node_api.h
+js_native_api.h
+node/node_headers-prefix/src/node_headers/include/node/js_native_api.h
+node_api_types.h
+node/node_headers-prefix/src/node_headers/include/node/node_api_types.h
+
+node/node_headers-prefix/src/node_headers/include/node/node_api_types.h
+js_native_api_types.h
+node/node_headers-prefix/src/node_headers/include/node/js_native_api_types.h
+

@@ -1,0 +1,6 @@
+link_base:
+    camera_rviz: [1.5,1.5,3.0]
+    name: "INTEL"
+    year: "2026"
+    specs: "Actor - AIS, Role - Supporting"
+    description: "1 instance, purely virtual, process ID 1234, localhost, AI-features include NLP and ethical model"

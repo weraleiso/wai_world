@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+    <asset>
+        <contributor>
+            <author>VCGLab</author>
+            <authoring_tool>VCGLib | MeshLab</authoring_tool>
+        </contributor>
+        <created>So Okt 8 05:37:06 2023 GMT</created>
+        <modified>So Okt 8 05:37:06 2023 GMT</modified>
+        <up_axis>Y_UP</up_axis>
+    </asset>
+    <library_images>
+        <image id="texture0" name="texture0">
+            <init_from>testlab/Wood_Floor_Light.jpg</init_from>
+        </image>
+        <image id="texture1" name="texture1">
+            <init_from>testlab/Wood_OSB.jpg</init_from>
+        </image>
+        <image id="texture2" name="texture2">
+            <init_from>testlab/grid_1m_new.png</init_from>
+        </image>
+        <image id="texture3" name="texture3">
+            <init_from>testlab/Wax_02.jpg</init_from>
+        </image>
+        <image id="texture4" name="texture4">
+            <init_from>testlab/Plastic_Red.jpg</init_from>
+        </image>
+        <image id="texture5" name="texture5">
+            <init_from>testlab/Metal_Rusted.jpg</init_from>
+        </image>
+        <image id="texture6" name="texture6">
+            <init_from>notexture.png</init_from>
+        </image>
+    </library_images>
+    <library_materials>
+        <material id="material0" name="material0">
+            <instance_effect url="#material0-fx"/>
+        </material>
+        <material id="material1" name="material1">
+            <instance_effect url="#material1-fx"/>
+        </material>
+        <material id="material2" name="material2">
+            <instance_effect url="#material2-fx"/>
+        </material>
+        <material id="material3" name="material3">
+            <instance_effect url="#material3-fx"/>
+        </material>
+        <material id="material4" name="material4">
+            <instance_effect url="#material4-fx"/>
+        </material>
+        <material id="material5" name="material5">
+            <instance_effect url="#material5-fx"/>
+        </material>
+        <material id="material6" name="material6">
+            <instance_effect url="#material6-fx"/>
+        </material>
+    </library_materials>
+    <library_effects>
+        <effect id="material0-fx">
+            <profile_COMMON>
+                <newparam sid="texture0-surface">
+                    <surface type="2D">
+                        <init_from>texture0</init_from>
+                        <format>R8G8B8</format>
+                    </surface>
+                </newparam>
+                <newparam sid="texture0-sampler">
+                    <sampler2D>
+                        <source>texture0-surface</source>
+                        <minfilter>LINEAR</minfilter>
+                        <magfilter>LINEAR</magfilter>
+                    </sampler2D>
+                </newparam>
+                <technique sid="common">
+                    <blinn>
+                        <diffuse>
+                            <texture texture="texture0-sampler" texcoord="UVSET0"/>
+                        </diffuse>
+                    </blinn>
+                </technique>
+            </profile_COMMON>
+        </effect>
+        <effect id="material1-fx">
+            <profile_COMMON>
+                <newparam sid="texture1-surface">
+                    <surface type="2D">
+                        <init_from>texture1</init_from>
+                        <format>R8G8B8</format>
+                    </surface>
+                </newparam>
+                <newparam sid="texture1-sampler">
+                    <sampler2D>
+                        <source>texture1-surface</source>
+                        <minfilter>LINEAR</minfilter>
+                        <magfilter>LINEAR</magfilter>
+                    </sampler2D>
+                </newparam>
+                <technique sid="common">
+                    <blinn>
+                        <diffuse>
+                            <texture texture="texture1-sampler" texcoord="UVSET0"/>
+                        </diffuse>
+                    </blinn>
+                </technique>
+            </profile_COMMON>
+        </effect>
+        <effect id="material2-fx">
+            <profile_COMMON>
+                <newparam sid="texture2-surface">
+                    <surface type="2D">
+                        <init_from>texture2</init_from>
+                        <format>A8R8G8B8</format>
+                    </surface>
+                </newparam>
+                <newparam sid="texture2-sampler">
+                    <sampler2D>
+                        <source>texture2-surface</source>
+                        <minfilter>LINEAR</minfilter>
+                        <magfilter>LINEAR</magfilter>
+                    </sampler2D>
+                </newparam>
+                <technique sid="common">
+                    <blinn>
+                        <diffuse>
+                            <texture texture="texture2-sampler" texcoord="UVSET0"/>
+                        </diffuse>
+                    </blinn>
+                </technique>
+            </profile_COMMON>
+        </effect>
+        <effect id="material3-fx">
+            <profile_COMMON>
+                <newparam sid="texture3-surface">
+                    <surface type="2D">
+                        <init_from>texture3</init_from>
+                        <format>R8G8B8</format>
+                    </surface>
+                </newparam>
+                <newparam sid="texture3-sampler">
+                    <sampler2D>
+                        <source>texture3-surface</source>
+                        <minfilter>LINEAR</minfilter>
+                        <magfilter>LINEAR</magfilter>
+                    </sampler2D>
+                </newparam>
+                <technique sid="common">
+                    <blinn>
+                        <diffuse>
+                            <texture texture="texture3-sampler" texcoord="UVSET0"/>
+                        </diffuse>
+                    </blinn>
+                </technique>
+            </profile_COMMON>
+        </effect>
+        <effect id="material4-fx">
+            <profile_COMMON>
+                <newparam sid="texture4-surface">
+                    <surface type="2D">
+                        <init_from>texture4</init_from>
+                        <format>R8G8B8</format>
+                    </surface>
+                </newparam>
+                <newparam sid="texture4-sampler">
+                    <sampler2D>
+                        <source>texture4-surface</source>
+                        <minfilter>LINEAR</minfilter>
+                        <magfilter>LINEAR</magfilter>
+                    </sampler2D>
+                </newparam>
+                <technique sid="common">
+                    <blinn>
+                        <diffuse>
+                            <texture texture="texture4-sampler" texcoord="UVSET0"/>
+                        </diffuse>
+                    </blinn>
+                </technique>
+            </profile_COMMON>
+        </effect>
+        <effect id="material5-fx">
+            <profile_COMMON>
+                <newparam sid="texture5-surface">
+                    <surface type="2D">
+                        <init_from>texture5</init_from>
+                        <format>R8G8B8</format>
+                    </surface>
+                </newparam>
+                <newparam sid="texture5-sampler">
+                    <sampler2D>
+                        <source>texture5-surface</source>
+                        <minfilter>LINEAR</minfilter>
+                        <magfilter>LINEAR</magfilter>
+                    </sampler2D>
+                </newparam>
+                <technique sid="common">
+                    <blinn>
+                        <diffuse>
+                            <texture texture="texture5-sampler" texcoord="UVSET0"/>
+                        </diffuse>
+                    </blinn>
+                </technique>
+            </profile_COMMON>
+        </effect>
+        <effect id="material6-fx">
+            <profile_COMMON>
+                <newparam sid="texture6-surface">
+                    <surface type="2D">
+                        <init_from>texture6</init_from>
+                        <format>R8G8B8</format>
+                    </surface>
+                </newparam>
+                <newparam sid="texture6-sampler">
+                    <sampler2D>
+                        <source>texture6-surface</source>
+                        <minfilter>LINEAR</minfilter>
+                        <magfilter>LINEAR</magfilter>
+                    </sampler2D>
+                </newparam>
+                <technique sid="common">
+                    <blinn>
+                        <diffuse>
+                            <texture texture="texture6-sampler" texcoord="UVSET0"/>
+                        </diffuse>
+                    </blinn>
+                </technique>
+            </profile_COMMON>
+        </effect>
+    </library_effects>
+    <library_geometries>
+        <geometry id="shape0-lib" name="shape0">
+            <mesh>
+                <source id="shape0-lib-positions" name="position">
+                    <float_array id="shape0-lib-positions-array" count="108">-251 -251 0 -250 -250 0 -251 251 0 251 -251 0 -251 -251 -1 251 -251 -1 -251 251 -1 251 251 0 251 251 -1 -250 250 0 -200 -200 0 250 -250 0 250 250 0 -200 200 0 -199.805 -199.719 0 200 -200 0 200 200 0 -199.72 199.79 0 -100 -100 0 199.699 -199.757 0 199.783 199.753 0 -100 100 0 -99.85 -99.85 0 100 -100 0 100 100 0 -99.85 99.85 0 -50 -50 0 99.85 -99.85 0 99.85 99.85 0 -50 50 0 -49.95 -49.95 0 50 -50 0 50 50 0 -49.95 49.95 0 49.95 -49.95 0 49.95 49.95 0</float_array>
+                    <technique_common>
+                        <accessor count="36" source="#shape0-lib-positions-array" stride="3">
+                            <param name="X" type="float"/>
+                            <param name="Y" type="float"/>
+                            <param name="Z" type="float"/>
+                        </accessor>
+                    </technique_common>
+                </source>
+                <source id="shape0-lib-normals" name="normal">
+                    <float_array id="shape0-lib-normals-array" count="204">0 0 1 0 0 1 0 -1 0 0 -1 0 -1 0 0 -1 0 0 0 1 0 0 1 0 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 1 0 0 1 0 0 0 0 -1 0 0 -1</float_array>
+                    <technique_common>
+                        <accessor count="68" source="#shape0-lib-normals-array" stride="3">
+                            <param name="X" type="float"/>
+                            <param name="Y" type="float"/>
+                            <param name="Z" type="float"/>
+                        </accessor>
+                    </technique_common>
+                </source>
+                <source id="shape0-lib-vcolor" name="vcolor">
+                    <float_array id="shape0-lib-vcolor-array" count="144">0.8 0.686275 0.494118 0 0.8 0.686275 0.494118 0 0.8 0.686275 0.494118 0 0.8 0.686275 0.494118 0 0.937255 0.764706 0.47451 0 0.937255 0.764706 0.47451 0 0.937255 0.764706 0.47451 0 1 1 1 0 1 1 1 0 0.8 0.686275 0.494118 0 0.701961 0.701961 0.701961 0 0.701961 0.701961 0.701961 0 0.8 0.686275 0.494118 0 0.701961 0.701961 0.701961 0 0.721569 0.458824 0.356863 0 0.721569 0.458824 0.356863 0 0.701961 0.701961 0.701961 0 0.721569 0.458824 0.356863 0 0.701961 0.701961 0.701961 0 0.701961 0.701961 0.701961 0 0.721569 0.458824 0.356863 0 0.701961 0.701961 0.701961 0 0.956863 0.494118 0.00392157 0 0.956863 0.494118 0.00392157 0 0.701961 0.701961 0.701961 0 0.956863 0.494118 0.00392157 0 0.701961 0.701961 0.701961 0 0.701961 0.701961 0.701961 0 0.956863 0.494118 0.00392157 0 0.701961 0.701961 0.701961 0 0.67451 0.8 0.639216 0 0.67451 0.8 0.639216 0 0.701961 0.701961 0.701961 0 0.67451 0.8 0.639216 0 0.701961 0.701961 0.701961 0 0.701961 0.701961 0.701961 0</float_array>
+                    <technique_common>
+                        <accessor count="36" source="#shape0-lib-vcolor-array" stride="4">
+                            <param name="R" type="float"/>
+                            <param name="G" type="float"/>
+                            <param name="B" type="float"/>
+                            <param name="A" type="float"/>
+                        </accessor>
+                    </technique_common>
+                </source>
+                <source id="shape0-lib-map" name="map">
+                    <float_array id="shape0-lib-map-array" count="408">-82.3491 -205.873 -82.021 -205.052 -82.3491 205.873 -82.021 -205.052 -82.3491 -205.873 82.3491 -205.873 823.491 0 -823.491 0 -823.491 -3.98055 823.491 0 -823.491 -3.98055 823.491 -3.98055 823.491 0 -823.491 0 -823.491 -3.98055 823.491 0 -823.491 -3.98055 823.491 -3.98055 9881.89 0 -9881.89 0 -9881.89 -39.3701 9881.89 0 -9881.89 -39.3701 9881.89 -39.3701 -82.3491 205.873 -82.021 205.052 82.3491 205.873 -82.021 205.052 -82.3491 205.873 -82.021 -205.052 -250 -250 -200 -200 -250 250 -200 -200 -250 -250 250 -250 -82.021 -205.052 82.3491 -205.873 82.021 -205.052 82.021 -205.052 82.3491 -205.873 82.021 205.052 82.3491 205.873 82.021 205.052 82.3491 -205.873 82.3491 205.873 -82.021 205.052 82.021 205.052 -250 250 -200 200 250 250 -200 200 -250 250 -200 -200 -437.445 -437.445 -437.018 -436.832 -437.445 437.445 -437.018 -436.832 -437.445 -437.445 437.445 -437.445 -200 -200 250 -250 200 -200 200 -200 250 -250 200 200 250 250 200 200 250 -250 250 250 -200 200 200 200 -437.445 437.445 -436.833 436.986 437.445 437.445 -436.833 436.986 -437.445 437.445 -437.018 -436.832 -199.805 -199.719 -100 -100 -199.72 199.79 -100 -100 -199.805 -199.719 199.699 -199.757 -437.018 -436.832 437.445 -437.445 436.787 -436.913 436.787 -436.913 437.445 -437.445 436.971 436.905 437.445 437.445 436.971 436.905 437.445 -437.445 437.445 437.445 -436.833 436.986 436.971 436.905 -199.72 199.79 -100 100 199.783 199.753 -100 100 -199.72 199.79 -100 -100 -361.439 -328.084 -360.897 -327.592 -361.439 328.084 -360.897 -327.592 -361.439 -328.084 361.439 -328.084 -100 -100 199.699 -199.757 100 -100 100 -100 199.699 -199.757 100 100 199.783 199.753 100 100 199.699 -199.757 199.783 199.753 -100 100 100 100 -361.439 328.084 -360.897 327.592 361.439 328.084 -360.897 327.592 -361.439 328.084 -360.897 -327.592 -99.85 -99.85 -50 -50 -99.85 99.85 -50 -50 -99.85 -99.85 99.85 -99.85 -360.897 -327.592 361.439 -328.084 360.897 -327.592 360.897 -327.592 361.439 -328.084 360.897 327.592 361.439 328.084 360.897 327.592 361.439 -328.084 361.439 328.084 -360.897 327.592 360.897 327.592 -99.85 99.85 -50 50 99.85 99.85 -50 50 -99.85 99.85 -50 -50 -54.6807 -54.6807 -54.626 -54.626 -54.6807 54.6807 -54.626 -54.626 -54.6807 -54.6807 54.6807 -54.6807 -50 -50 99.85 -99.85 50 -50 50 -50 99.85 -99.85 50 50 99.85 99.85 50 50 99.85 -99.85 99.85 99.85 -50 50 50 50 -54.6807 54.6807 -54.626 54.626 54.6807 54.6807 -54.626 54.626 -54.6807 54.6807 -54.626 -54.626 -49.95 49.95 -49.95 -49.95 49.95 -49.95 -49.95 49.95 49.95 -49.95 49.95 49.95 -54.626 -54.626 54.6807 -54.6807 54.626 -54.626 54.626 -54.626 54.6807 -54.6807 54.626 54.626 54.6807 54.6807 54.626 54.626 54.6807 -54.6807 54.6807 54.6807 -54.626 54.626 54.626 54.626 9881.89 0 -9881.89 0 -9881.89 -39.3701 9881.89 0 -9881.89 -39.3701 9881.89 -39.3701 823.491 -999.117 823.491 999.117 -823.491 999.117 823.491 -999.117 -823.491 999.117 -823.491 -999.117</float_array>
+                    <technique_common>
+                        <accessor count="204" source="#shape0-lib-map-array" stride="2">
+                            <param name="U" type="float"/>
+                            <param name="V" type="float"/>
+                        </accessor>
+                    </technique_common>
+                </source>
+                <vertices id="shape0-lib-vertices">
+                    <input semantic="POSITION" source="#shape0-lib-positions"/>
+                </vertices>
+                <triangles count="8" material="material0">
+                    <input offset="0" semantic="VERTEX" source="#shape0-lib-vertices"/>
+                    <input offset="1" semantic="COLOR" source="#shape0-lib-vcolor"/>
+                    <input offset="2" semantic="NORMAL" source="#shape0-lib-normals"/>
+                    <input offset="3" semantic="TEXCOORD" source="#shape0-lib-map"/>
+                    <p>0 0 0 0 1 1 0 1 2 2 0 2 1 1 1 3 0 0 1 4 3 3 1 5 2 2 8 24 9 9 8 25 7 7 8 26 9 9 9 27 2 2 9 28 1 1 9 29 1 1 12 36 3 3 12 37 11 11 12 38 11 11 13 39 3 3 13 40 12 12 13 41 7 7 14 42 12 12 14 43 3 3 14 44 7 7 15 45 9 9 15 46 12 12 15 47</p>
+                </triangles>
+                <triangles count="6" material="material1">
+                    <input offset="0" semantic="VERTEX" source="#shape0-lib-vertices"/>
+                    <input offset="1" semantic="COLOR" source="#shape0-lib-vcolor"/>
+                    <input offset="2" semantic="NORMAL" source="#shape0-lib-normals"/>
+                    <input offset="3" semantic="TEXCOORD" source="#shape0-lib-map"/>
+                    <p>3 3 2 6 0 0 2 7 4 4 2 8 3 3 3 9 4 4 3 10 5 5 3 11 0 0 4 12 2 2 4 13 6 6 4 14 0 0 5 15 6 6 5 16 4 4 5 17 4 4 66 198 6 6 66 199 8 8 66 200 4 4 67 201 8 8 67 202 5 5 67 203</p>
+                </triangles>
+                <triangles count="26" material="material2">
+                    <input offset="0" semantic="VERTEX" source="#shape0-lib-vertices"/>
+                    <input offset="1" semantic="COLOR" source="#shape0-lib-vcolor"/>
+                    <input offset="2" semantic="NORMAL" source="#shape0-lib-normals"/>
+                    <input offset="3" semantic="TEXCOORD" source="#shape0-lib-map"/>
+                    <p>1 1 10 30 10 10 10 31 9 9 10 32 10 10 11 33 1 1 11 34 11 11 11 35 9 9 16 48 13 13 16 49 12 12 16 50 13 13 17 51 9 9 17 52 10 10 17 53 10 10 20 60 11 11 20 61 15 15 20 62 15 15 21 63 11 11 21 64 16 16 21 65 12 12 22 66 16 16 22 67 11 11 22 68 12 12 23 69 13 13 23 70 16 16 23 71 14 14 26 78 18 18 26 79 17 17 26 80 18 18 27 81 14 14 27 82 19 19 27 83 17 17 32 96 21 21 32 97 20 20 32 98 21 21 33 99 17 17 33 100 18 18 33 101 18 18 36 108 19 19 36 109 23 23 36 110 23 23 37 111 19 19 37 112 24 24 37 113 20 20 38 114 24 24 38 115 19 19 38 116 20 20 39 117 21 21 39 118 24 24 39 119 22 22 42 126 26 26 42 127 25 25 42 128 26 26 43 129 22 22 43 130 27 27 43 131 25 25 48 144 29 29 48 145 28 28 48 146 29 29 49 147 25 25 49 148 26 26 49 149 26 26 52 156 27 27 52 157 31 31 52 158 31 31 53 159 27 27 53 160 32 32 53 161 28 28 54 162 32 32 54 163 27 27 54 164 28 28 55 165 29 29 55 166 32 32 55 167 33 33 58 174 30 30 58 175 34 34 58 176 33 33 59 177 34 34 59 178 35 35 59 179</p>
+                </triangles>
+                <triangles count="8" material="material3">
+                    <input offset="0" semantic="VERTEX" source="#shape0-lib-vertices"/>
+                    <input offset="1" semantic="COLOR" source="#shape0-lib-vcolor"/>
+                    <input offset="2" semantic="NORMAL" source="#shape0-lib-normals"/>
+                    <input offset="3" semantic="TEXCOORD" source="#shape0-lib-map"/>
+                    <p>26 26 50 150 30 30 50 151 29 29 50 152 30 30 51 153 26 26 51 154 31 31 51 155 29 29 56 168 33 33 56 169 32 32 56 170 33 33 57 171 29 29 57 172 30 30 57 173 30 30 60 180 31 31 60 181 34 34 60 182 34 34 61 183 31 31 61 184 35 35 61 185 32 32 62 186 35 35 62 187 31 31 62 188 32 32 63 189 33 33 63 190 35 35 63 191</p>
+                </triangles>
+                <triangles count="8" material="material4">
+                    <input offset="0" semantic="VERTEX" source="#shape0-lib-vertices"/>
+                    <input offset="1" semantic="COLOR" source="#shape0-lib-vcolor"/>
+                    <input offset="2" semantic="NORMAL" source="#shape0-lib-normals"/>
+                    <input offset="3" semantic="TEXCOORD" source="#shape0-lib-map"/>
+                    <p>18 18 34 102 22 22 34 103 21 21 34 104 22 22 35 105 18 18 35 106 23 23 35 107 21 21 40 120 25 25 40 121 24 24 40 122 25 25 41 123 21 21 41 124 22 22 41 125 22 22 44 132 23 23 44 133 27 27 44 134 27 27 45 135 23 23 45 136 28 28 45 137 24 24 46 138 28 28 46 139 23 23 46 140 24 24 47 141 25 25 47 142 28 28 47 143</p>
+                </triangles>
+                <triangles count="8" material="material5">
+                    <input offset="0" semantic="VERTEX" source="#shape0-lib-vertices"/>
+                    <input offset="1" semantic="COLOR" source="#shape0-lib-vcolor"/>
+                    <input offset="2" semantic="NORMAL" source="#shape0-lib-normals"/>
+                    <input offset="3" semantic="TEXCOORD" source="#shape0-lib-map"/>
+                    <p>10 10 18 54 14 14 18 55 13 13 18 56 14 14 19 57 10 10 19 58 15 15 19 59 13 13 24 72 17 17 24 73 16 16 24 74 17 17 25 75 13 13 25 76 14 14 25 77 14 14 28 84 15 15 28 85 19 19 28 86 19 19 29 87 15 15 29 88 20 20 29 89 16 16 30 90 20 20 30 91 15 15 30 92 16 16 31 93 17 17 31 94 20 20 31 95</p>
+                </triangles>
+                <triangles count="4" material="material6">
+                    <input offset="0" semantic="VERTEX" source="#shape0-lib-vertices"/>
+                    <input offset="1" semantic="COLOR" source="#shape0-lib-vcolor"/>
+                    <input offset="2" semantic="NORMAL" source="#shape0-lib-normals"/>
+                    <input offset="3" semantic="TEXCOORD" source="#shape0-lib-map"/>
+                    <p>2 2 6 18 7 7 6 19 8 8 6 20 2 2 7 21 8 8 7 22 6 6 7 23 7 7 64 192 3 3 64 193 5 5 64 194 7 7 65 195 5 5 65 196 8 8 65 197</p>
+                </triangles>
+            </mesh>
+        </geometry>
+    </library_geometries>
+    <library_visual_scenes>
+        <visual_scene id="VisualSceneNode" name="VisualScene">
+            <node id="node" name="node">
+                <instance_geometry url="#shape0-lib">
+                    <bind_material>
+                        <technique_common>
+                            <instance_material symbol="material0" target="#material0">
+                                <bind_vertex_input semantic="UVSET0" input_semantic="TEXCOORD"/>
+                            </instance_material>
+                            <instance_material symbol="material1" target="#material1">
+                                <bind_vertex_input semantic="UVSET0" input_semantic="TEXCOORD"/>
+                            </instance_material>
+                            <instance_material symbol="material2" target="#material2">
+                                <bind_vertex_input semantic="UVSET0" input_semantic="TEXCOORD"/>
+                            </instance_material>
+                            <instance_material symbol="material3" target="#material3">
+                                <bind_vertex_input semantic="UVSET0" input_semantic="TEXCOORD"/>
+                            </instance_material>
+                            <instance_material symbol="material4" target="#material4">
+                                <bind_vertex_input semantic="UVSET0" input_semantic="TEXCOORD"/>
+                            </instance_material>
+                            <instance_material symbol="material5" target="#material5">
+                                <bind_vertex_input semantic="UVSET0" input_semantic="TEXCOORD"/>
+                            </instance_material>
+                            <instance_material symbol="material6" target="#material6">
+                                <bind_vertex_input semantic="UVSET0" input_semantic="TEXCOORD"/>
+                            </instance_material>
+                        </technique_common>
+                    </bind_material>
+                </instance_geometry>
+            </node>
+        </visual_scene>
+    </library_visual_scenes>
+    <scene>
+        <instance_visual_scene url="#VisualSceneNode"/>
+    </scene>
+</COLLADA>

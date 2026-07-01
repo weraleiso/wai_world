@@ -1,0 +1,63 @@
+#
+## Alias OBJ Material File
+# Exported from SketchUp, (c) 2000-2012 Trimble Navigation Limited
+
+newmtl _auto_
+Ka 0.000000 0.000000 0.000000
+Kd 0.172549 0.172549 0.168627
+Ks 0.330000 0.330000 0.330000
+map_Kd auditorium/_auto_.jpg
+
+newmtl Aluminum
+Ka 0.000000 0.000000 0.000000
+Kd 0.701961 0.701961 0.701961
+Ks 0.330000 0.330000 0.330000
+map_Kd auditorium/Aluminum.jpg
+
+newmtl Formica_Laminate_Dark
+Ka 0.000000 0.000000 0.000000
+Kd 0.196078 0.207843 0.235294
+Ks 0.330000 0.330000 0.330000
+map_Kd auditorium/Formica_Laminate_Dark.jpg
+
+newmtl Quartz_Light_Grey
+Ka 0.000000 0.000000 0.000000
+Kd 0.984314 0.984314 0.988235
+Ks 0.330000 0.330000 0.330000
+map_Kd auditorium/Quartz_Light_Grey.jpg
+
+newmtl Blacktop_New
+Ka 0.000000 0.000000 0.000000
+Kd 0.117647 0.117647 0.117647
+Ks 0.330000 0.330000 0.330000
+map_Kd auditorium/Blacktop_New.jpg
+
+newmtl Terrazzo_Light_Blue
+Ka 0.000000 0.000000 0.000000
+Kd 0.768627 0.839216 0.890196
+Ks 0.330000 0.330000 0.330000
+map_Kd auditorium/Terrazzo_Light_Blue.jpg
+
+newmtl Concrete_Form_4x8
+Ka 0.000000 0.000000 0.000000
+Kd 0.654902 0.666667 0.658824
+Ks 0.330000 0.330000 0.330000
+map_Kd auditorium/Concrete_Form_4x8.jpg
+
+newmtl Color_H08
+Ka 0.000000 0.000000 0.000000
+Kd 0.101961 0.427451 0.588235
+Ks 0.330000 0.330000 0.330000
+map_Kd auditorium/Color_H08.png
+
+newmtl SKT_MCP_corti_a
+Ka 0.000000 0.000000 0.000000
+Kd 0.694118 0.509804 0.341176
+Ks 0.330000 0.330000 0.330000
+map_Kd auditorium/SKT_MCP_corti_a.jpg
+
+newmtl FrontColor
+Ka 0.000000 0.000000 0.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.330000 0.330000 0.330000
+

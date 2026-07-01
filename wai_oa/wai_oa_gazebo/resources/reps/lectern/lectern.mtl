@@ -1,0 +1,33 @@
+#
+## Alias OBJ Material File
+# Exported from SketchUp, (c) 2000-2012 Trimble Navigation Limited
+
+newmtl Wood_Bamboo
+Ka 0.000000 0.000000 0.000000
+Kd 0.694118 0.411765 0.168627
+Ks 0.330000 0.330000 0.330000
+map_Kd lectern/Wood_Bamboo.jpg
+
+newmtl Formica_Speckled_Grey
+Ka 0.000000 0.000000 0.000000
+Kd 0.368627 0.411765 0.435294
+Ks 0.330000 0.330000 0.330000
+map_Kd lectern/Formica_Speckled_Grey.jpg
+
+newmtl Granite_Light_Gray
+Ka 0.000000 0.000000 0.000000
+Kd 0.584314 0.580392 0.564706
+Ks 0.330000 0.330000 0.330000
+map_Kd lectern/Granite_Light_Gray.jpg
+
+newmtl FrontColor
+Ka 0.000000 0.000000 0.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.330000 0.330000 0.330000
+
+newmtl open_auditorium_logo_no_transparency
+Ka 0.000000 0.000000 0.000000
+Kd 0.501961 0.501961 0.501961
+Ks 0.000000 0.000000 0.000000
+map_Kd lectern/open_auditorium_logo_no_transparency.png
+

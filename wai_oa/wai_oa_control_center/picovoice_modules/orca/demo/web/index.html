@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script src="node_modules/@picovoice/orca-web/dist/iife/index.js"></script>
+    <script type="application/javascript" src="scripts/orca.js"></script>
+    <script>
+      const script = document.createElement('script');
+      script.src = 'models/orcaModel.js?t=' + Date.now();
+      document.head.appendChild(script);
+    </script>
+  </head>
+  <body>
+    <h1>Orca Web Demo</h1>
+    <p>This demo uses Orca for Web to:</p>
+    <ol>
+      <li>Create an instance of Orca with the model file provided.</li>
+      <li>Convert text into speech audio data.</li>
+    </ol>
+    After entering the AccessKey, click the "Start Orca" button.
+    <hr />
+    <label for="accessKey"
+      >AccessKey obtained from
+      <a href="https://console.picovoice.ai/">Picovoice Console</a>:</label
+    >
+    <input type="text" id="accessKey" name="accessKey" />
+    <input
+      id="start-orca"
+      type="button"
+      value="Start Orca"
+      onclick="startOrca(document.getElementById('accessKey').value)"
+    />
+    <hr />
+    <div id="choose-btns" style="display: none">
+      <label for="choose-stream-btn">Synthesize speech live as you type:</label>
+      <button id="choose-stream-btn">Streaming Synthesis</button>
+      <p><b>OR</b></p>
+      <label for="choose-single-btn">Synthesize speech in one call:</label>
+      <button id="choose-single-btn">Single Synthesize</button>
+      <br />
+      <hr />
+    </div>
+    <div id="single-synthesis" style="display: none">
+      <label for="text-to-synthesize">Text to synthesize</label>
+      <br />
+      <textarea id="text-to-synthesize" rows="5" cols="50"></textarea>
+      <div>
+        <span id="text-to-synthesize-num-chars">0</span>/<span
+          id="max-char-limit"
+        ></span>
+      </div>
+      <div id="text-to-synthesize-error">&nbsp;</div>
+      <label>
+        Speech Rate: <span id="speech-rate-display">1.0</span>
+        <input
+          id="speech-rate"
+          type="range"
+          min="0.7"
+          max="1.3"
+          value="1"
+          step="0.1"
+        />
+      </label>
+      <button id="synthesize-btn">Synthesize</button>
+      <br />
+      <hr />
+      <button id="control-btn" disabled>Play</button>
+      <button id="download-btn" onclick="downloadDumpAudio()" disabled>
+        Download Audio
+      </button>
+      <br />
+      <br />
+      <table
+        id="alignments-table"
+        style="
+          display: none;
+          max-height: 20rem;
+          overflow-y: auto;
+          width: fit-content;
+        "
+      >
+        <colgroup>
+          <col span="1" style="width: 20%" />
+          <col span="1" style="width: 20%" />
+          <col span="1" style="width: 20%" />
+          <col span="1" style="width: 40%" />
+        </colgroup>
+        <tr>
+          <th style="text-align: left">Word</th>
+          <th style="text-align: left">Start time (s)</th>
+          <th style="text-align: left">End time (s)</th>
+          <th style="text-align: left">Phonemes</th>
+        </tr>
+      </table>
+    </div>
+    <div id="stream-synthesis" style="display: none">
+      <label>
+        Speech Rate: <span id="stream-speech-rate-display">1.0</span>
+        <input
+          id="stream-speech-rate"
+          type="range"
+          min="0.7"
+          max="1.3"
+          value="1"
+          step="0.1"
+        />
+      </label>
+      <br />
+      <br />
+      <button id="stream-open-btn">Open Stream</button>
+      <br />
+      <br />
+      <label for="stream-text-to-synthesize" style="font-weight: bold"
+        >Text to stream to Orca</label
+      >
+      <br />
+      <textarea
+        id="stream-text-to-synthesize"
+        disabled
+        rows="15"
+        cols="80"
+      ></textarea>
+      <br />
+      <div id="stream-text-to-synthesize-error">&nbsp;</div>
+      <br />
+      <button id="stream-play-btn" disabled>Run Streaming Synthesis</button>
+      <button id="stream-close-btn" disabled>Reset</button>
+      <br />
+      <br />
+      <div style="font-weight: bold">Simulated text stream</div>
+      <div id="stream-text-display" style="white-space: pre-wrap"></div>
+      <br />
+      <br />
+      <div style="font-weight: bold">
+        Seconds of audio synthesized:
+        <span id="stream-seconds-display">0</span>s
+      </div>
+      <hr />
+    </div>
+    <br />
+    <div id="status" style="white-space: pre"></div>
+  </body>
+</html>

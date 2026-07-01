@@ -1,0 +1,6 @@
+link_base:
+    camera_rviz: [-0.5,-1.5,3.0]
+    name: "Newtons Cradle"
+    year: "Back in the days."
+    specs: "Length and Masses are equal to 1.0."
+    description: "Model of Newtons Pendulum with two masses."

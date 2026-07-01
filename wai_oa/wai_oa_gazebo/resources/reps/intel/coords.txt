@@ -1,0 +1,9 @@
+Coords:
+
+Display:
+Offset 0.25,0.0,1.3125
+Size ...,0.8,1.5
+
+State (Cuboid):
+Offset 0.125+0.625,0.0,2.125+0.11, ROLL 45deg
+Size 0.125,0.15,0.15

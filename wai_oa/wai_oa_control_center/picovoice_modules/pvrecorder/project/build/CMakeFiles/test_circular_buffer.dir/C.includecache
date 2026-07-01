@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/pv_circular_buffer.h
+stdbool.h
+-
+stdint.h
+-
+
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/src/pv_circular_buffer.c
+stdlib.h
+-
+string.h
+-
+pv_circular_buffer.h
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/src/pv_circular_buffer.h
+
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/test/test_helper.h
+stdarg.h
+-
+stdbool.h
+-
+stdio.h
+-
+stdlib.h
+-
+time.h
+-
+
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/test/test_pv_circular_buffer.c
+pv_circular_buffer.h
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/test/pv_circular_buffer.h
+test_helper.h
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/test/test_helper.h
+

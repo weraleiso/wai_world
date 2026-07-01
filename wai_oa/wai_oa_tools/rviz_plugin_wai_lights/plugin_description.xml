@@ -1,0 +1,7 @@
+<library path="lib/librviz_plugin_wai_lights">
+    <class name="rviz_plugin_wai_lights/RVizPluginWAILights" type="rviz_plugin_wai_lights::RVizPluginWAILights" base_class_type="rviz::Display">
+        <description>
+            Add light effects to RViz.
+        </description>
+    </class>
+</library>

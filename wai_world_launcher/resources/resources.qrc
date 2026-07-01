@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/logo.png</file>
+        <file>icons/camera_presenter.png</file>
+    </qresource>
+</RCC>

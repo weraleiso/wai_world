@@ -1,0 +1,492 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		02A11949268D39A700A2AC99 /* OrcaDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A11948268D39A700A2AC99 /* OrcaDemoApp.swift */; };
+		02A1194B268D39A700A2AC99 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A1194A268D39A700A2AC99 /* ContentView.swift */; };
+		02A1194D268D39AB00A2AC99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02A1194C268D39AB00A2AC99 /* Assets.xcassets */; };
+		02A1195F268D3FD600A2AC99 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A1195E268D3FD600A2AC99 /* ViewModel.swift */; };
+		02B588C72DF397A5007E7026 /* Orca in Frameworks */ = {isa = PBXBuildFile; productRef = 02B588C62DF397A5007E7026 /* Orca */; };
+		02B588CC2DFBA7AD007E7026 /* Orca in Frameworks */ = {isa = PBXBuildFile; productRef = 02B588CB2DFBA7AD007E7026 /* Orca */; };
+		0751D6642D6D46AA001EB29D /* Orca in Frameworks */ = {isa = PBXBuildFile; productRef = 0751D6632D6D46AA001EB29D /* Orca */; };
+		07F723592D6D594B0002D88F /* Orca in Frameworks */ = {isa = PBXBuildFile; productRef = 07F723582D6D594B0002D88F /* Orca */; };
+		1E001B682B76FFE700D8E72D /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E001B672B76FFE700D8E72D /* AudioPlayer.swift */; };
+		1E001B6A2B7D451200D8E72D /* orca_params_en_female.pv in Resources */ = {isa = PBXBuildFile; fileRef = 1E001B692B7D451200D8E72D /* orca_params_en_female.pv */; };
+		1E7C0A422D84DA0700A5350A /* Orca in Frameworks */ = {isa = PBXBuildFile; productRef = 1E7C0A412D84DA0700A5350A /* Orca */; };
+		E109D1A32CFE4F380014F5AA /* Orca in Frameworks */ = {isa = PBXBuildFile; productRef = E109D1A22CFE4F380014F5AA /* Orca */; };
+		E125E1892BE99DCA008B6D56 /* AtomicBool.swift in Sources */ = {isa = PBXBuildFile; fileRef = E125E1882BE99DCA008B6D56 /* AtomicBool.swift */; };
+		E18C9CB92DB07180000157A3 /* orca_params_de_female.pv in Resources */ = {isa = PBXBuildFile; fileRef = E18C9CB82DB07180000157A3 /* orca_params_de_female.pv */; };
+		E18C9CC72DB071CA000157A3 /* orca_params_fr_female.pv in Resources */ = {isa = PBXBuildFile; fileRef = E18C9CBA2DB071CA000157A3 /* orca_params_fr_female.pv */; };
+		E18C9CC82DB071CA000157A3 /* orca_params_en_male.pv in Resources */ = {isa = PBXBuildFile; fileRef = E18C9CBB2DB071CA000157A3 /* orca_params_en_male.pv */; };
+		E18C9CC92DB071CA000157A3 /* orca_params_de_male.pv in Resources */ = {isa = PBXBuildFile; fileRef = E18C9CBC2DB071CA000157A3 /* orca_params_de_male.pv */; };
+		E18C9CCA2DB071CA000157A3 /* orca_params_it_female.pv in Resources */ = {isa = PBXBuildFile; fileRef = E18C9CBD2DB071CA000157A3 /* orca_params_it_female.pv */; };
+		E18C9CCB2DB071CA000157A3 /* orca_params_pt_female.pv in Resources */ = {isa = PBXBuildFile; fileRef = E18C9CBE2DB071CA000157A3 /* orca_params_pt_female.pv */; };
+		E18C9CCC2DB071CA000157A3 /* orca_params_ja_male.pv in Resources */ = {isa = PBXBuildFile; fileRef = E18C9CBF2DB071CA000157A3 /* orca_params_ja_male.pv */; };
+		E18C9CCD2DB071CA000157A3 /* orca_params_es_male.pv in Resources */ = {isa = PBXBuildFile; fileRef = E18C9CC02DB071CA000157A3 /* orca_params_es_male.pv */; };
+		E18C9CCE2DB071CA000157A3 /* orca_params_ja_female.pv in Resources */ = {isa = PBXBuildFile; fileRef = E18C9CC12DB071CA000157A3 /* orca_params_ja_female.pv */; };
+		E18C9CCF2DB071CA000157A3 /* orca_params_it_male.pv in Resources */ = {isa = PBXBuildFile; fileRef = E18C9CC22DB071CA000157A3 /* orca_params_it_male.pv */; };
+		E18C9CD02DB071CA000157A3 /* orca_params_ko_female.pv in Resources */ = {isa = PBXBuildFile; fileRef = E18C9CC32DB071CA000157A3 /* orca_params_ko_female.pv */; };
+		E18C9CD12DB071CA000157A3 /* orca_params_pt_male.pv in Resources */ = {isa = PBXBuildFile; fileRef = E18C9CC42DB071CA000157A3 /* orca_params_pt_male.pv */; };
+		E18C9CD22DB071CA000157A3 /* orca_params_es_female.pv in Resources */ = {isa = PBXBuildFile; fileRef = E18C9CC52DB071CA000157A3 /* orca_params_es_female.pv */; };
+		E18C9CD32DB071CA000157A3 /* orca_params_fr_male.pv in Resources */ = {isa = PBXBuildFile; fileRef = E18C9CC62DB071CA000157A3 /* orca_params_fr_male.pv */; };
+		E1C5A45F2BE587A2002C0C40 /* AudioPlayerStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C5A45E2BE587A2002C0C40 /* AudioPlayerStream.swift */; };
+		E1DDE9B12DB9BFB50068F88C /* pre-build.sh in Resources */ = {isa = PBXBuildFile; fileRef = E1DDE9B02DB9BFB50068F88C /* pre-build.sh */; };
+		E1F1202C2DBACE5800E1F112 /* ValidateTextHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1202B2DBACE5800E1F112 /* ValidateTextHelper.swift */; };
+		E1F353002D00ED5C0069B0E6 /* Orca in Frameworks */ = {isa = PBXBuildFile; productRef = E1F352FF2D00ED5C0069B0E6 /* Orca */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		02A11945268D39A700A2AC99 /* OrcaDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrcaDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		02A11948268D39A700A2AC99 /* OrcaDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrcaDemoApp.swift; sourceTree = "<group>"; };
+		02A1194A268D39A700A2AC99 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		02A1194C268D39AB00A2AC99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		02A11951268D39AB00A2AC99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02A1195E268D3FD600A2AC99 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		1E001B672B76FFE700D8E72D /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		1E001B692B7D451200D8E72D /* orca_params_en_female.pv */ = {isa = PBXFileReference; lastKnownFileType = file; name = orca_params_en_female.pv; path = ../../../../../lib/common/orca_params_en_female.pv; sourceTree = "<group>"; };
+		E125E1882BE99DCA008B6D56 /* AtomicBool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicBool.swift; sourceTree = "<group>"; };
+		E18C9CB82DB07180000157A3 /* orca_params_de_female.pv */ = {isa = PBXFileReference; lastKnownFileType = file; name = orca_params_de_female.pv; path = ../../../../../lib/common/orca_params_de_female.pv; sourceTree = "<group>"; };
+		E18C9CBA2DB071CA000157A3 /* orca_params_fr_female.pv */ = {isa = PBXFileReference; lastKnownFileType = file; name = orca_params_fr_female.pv; path = ../../../../../lib/common/orca_params_fr_female.pv; sourceTree = "<group>"; };
+		E18C9CBB2DB071CA000157A3 /* orca_params_en_male.pv */ = {isa = PBXFileReference; lastKnownFileType = file; name = orca_params_en_male.pv; path = ../../../../../lib/common/orca_params_en_male.pv; sourceTree = "<group>"; };
+		E18C9CBC2DB071CA000157A3 /* orca_params_de_male.pv */ = {isa = PBXFileReference; lastKnownFileType = file; name = orca_params_de_male.pv; path = ../../../../../lib/common/orca_params_de_male.pv; sourceTree = "<group>"; };
+		E18C9CBD2DB071CA000157A3 /* orca_params_it_female.pv */ = {isa = PBXFileReference; lastKnownFileType = file; name = orca_params_it_female.pv; path = ../../../../../lib/common/orca_params_it_female.pv; sourceTree = "<group>"; };
+		E18C9CBE2DB071CA000157A3 /* orca_params_pt_female.pv */ = {isa = PBXFileReference; lastKnownFileType = file; name = orca_params_pt_female.pv; path = ../../../../../lib/common/orca_params_pt_female.pv; sourceTree = "<group>"; };
+		E18C9CBF2DB071CA000157A3 /* orca_params_ja_male.pv */ = {isa = PBXFileReference; lastKnownFileType = file; name = orca_params_ja_male.pv; path = ../../../../../lib/common/orca_params_ja_male.pv; sourceTree = "<group>"; };
+		E18C9CC02DB071CA000157A3 /* orca_params_es_male.pv */ = {isa = PBXFileReference; lastKnownFileType = file; name = orca_params_es_male.pv; path = ../../../../../lib/common/orca_params_es_male.pv; sourceTree = "<group>"; };
+		E18C9CC12DB071CA000157A3 /* orca_params_ja_female.pv */ = {isa = PBXFileReference; lastKnownFileType = file; name = orca_params_ja_female.pv; path = ../../../../../lib/common/orca_params_ja_female.pv; sourceTree = "<group>"; };
+		E18C9CC22DB071CA000157A3 /* orca_params_it_male.pv */ = {isa = PBXFileReference; lastKnownFileType = file; name = orca_params_it_male.pv; path = ../../../../../lib/common/orca_params_it_male.pv; sourceTree = "<group>"; };
+		E18C9CC32DB071CA000157A3 /* orca_params_ko_female.pv */ = {isa = PBXFileReference; lastKnownFileType = file; name = orca_params_ko_female.pv; path = ../../../../../lib/common/orca_params_ko_female.pv; sourceTree = "<group>"; };
+		E18C9CC42DB071CA000157A3 /* orca_params_pt_male.pv */ = {isa = PBXFileReference; lastKnownFileType = file; name = orca_params_pt_male.pv; path = ../../../../../lib/common/orca_params_pt_male.pv; sourceTree = "<group>"; };
+		E18C9CC52DB071CA000157A3 /* orca_params_es_female.pv */ = {isa = PBXFileReference; lastKnownFileType = file; name = orca_params_es_female.pv; path = ../../../../../lib/common/orca_params_es_female.pv; sourceTree = "<group>"; };
+		E18C9CC62DB071CA000157A3 /* orca_params_fr_male.pv */ = {isa = PBXFileReference; lastKnownFileType = file; name = orca_params_fr_male.pv; path = ../../../../../lib/common/orca_params_fr_male.pv; sourceTree = "<group>"; };
+		E1C5A45E2BE587A2002C0C40 /* AudioPlayerStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerStream.swift; sourceTree = "<group>"; };
+		E1DDE9B02DB9BFB50068F88C /* pre-build.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "pre-build.sh"; sourceTree = "<group>"; };
+		E1F1202B2DBACE5800E1F112 /* ValidateTextHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateTextHelper.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		02A11942268D39A700A2AC99 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0751D6642D6D46AA001EB29D /* Orca in Frameworks */,
+				1E7C0A422D84DA0700A5350A /* Orca in Frameworks */,
+				07F723592D6D594B0002D88F /* Orca in Frameworks */,
+				02B588C72DF397A5007E7026 /* Orca in Frameworks */,
+				E109D1A32CFE4F380014F5AA /* Orca in Frameworks */,
+				E1F353002D00ED5C0069B0E6 /* Orca in Frameworks */,
+				02B588CC2DFBA7AD007E7026 /* Orca in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		02A1193C268D39A700A2AC99 = {
+			isa = PBXGroup;
+			children = (
+				02A11947268D39A700A2AC99 /* OrcaDemo */,
+				02A11946268D39A700A2AC99 /* Products */,
+				E1DDE9B02DB9BFB50068F88C /* pre-build.sh */,
+			);
+			sourceTree = "<group>";
+		};
+		02A11946268D39A700A2AC99 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				02A11945268D39A700A2AC99 /* OrcaDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		02A11947268D39A700A2AC99 /* OrcaDemo */ = {
+			isa = PBXGroup;
+			children = (
+				E18C9CD42DB071E2000157A3 /* models */,
+				02A11948268D39A700A2AC99 /* OrcaDemoApp.swift */,
+				E1F1202B2DBACE5800E1F112 /* ValidateTextHelper.swift */,
+				02A1194A268D39A700A2AC99 /* ContentView.swift */,
+				02A1194C268D39AB00A2AC99 /* Assets.xcassets */,
+				02A11951268D39AB00A2AC99 /* Info.plist */,
+				02A1195E268D3FD600A2AC99 /* ViewModel.swift */,
+				1E001B672B76FFE700D8E72D /* AudioPlayer.swift */,
+				E1C5A45E2BE587A2002C0C40 /* AudioPlayerStream.swift */,
+				E125E1882BE99DCA008B6D56 /* AtomicBool.swift */,
+			);
+			path = OrcaDemo;
+			sourceTree = "<group>";
+		};
+		E18C9CD42DB071E2000157A3 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				E18C9CB82DB07180000157A3 /* orca_params_de_female.pv */,
+				E18C9CBC2DB071CA000157A3 /* orca_params_de_male.pv */,
+				1E001B692B7D451200D8E72D /* orca_params_en_female.pv */,
+				E18C9CBB2DB071CA000157A3 /* orca_params_en_male.pv */,
+				E18C9CC52DB071CA000157A3 /* orca_params_es_female.pv */,
+				E18C9CC02DB071CA000157A3 /* orca_params_es_male.pv */,
+				E18C9CBA2DB071CA000157A3 /* orca_params_fr_female.pv */,
+				E18C9CC62DB071CA000157A3 /* orca_params_fr_male.pv */,
+				E18C9CBD2DB071CA000157A3 /* orca_params_it_female.pv */,
+				E18C9CC22DB071CA000157A3 /* orca_params_it_male.pv */,
+				E18C9CC12DB071CA000157A3 /* orca_params_ja_female.pv */,
+				E18C9CBF2DB071CA000157A3 /* orca_params_ja_male.pv */,
+				E18C9CC32DB071CA000157A3 /* orca_params_ko_female.pv */,
+				E18C9CBE2DB071CA000157A3 /* orca_params_pt_female.pv */,
+				E18C9CC42DB071CA000157A3 /* orca_params_pt_male.pv */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		02A11944268D39A700A2AC99 /* OrcaDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 02A11954268D39AB00A2AC99 /* Build configuration list for PBXNativeTarget "OrcaDemo" */;
+			buildPhases = (
+				02A11941268D39A700A2AC99 /* Sources */,
+				02A11942268D39A700A2AC99 /* Frameworks */,
+				02A11943268D39A700A2AC99 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OrcaDemo;
+			productName = OrcaDemo;
+			productReference = 02A11945268D39A700A2AC99 /* OrcaDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		02A1193D268D39A700A2AC99 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					02A11944268D39A700A2AC99 = {
+						CreatedOnToolsVersion = 12.5;
+					};
+				};
+			};
+			buildConfigurationList = 02A11940268D39A700A2AC99 /* Build configuration list for PBXProject "OrcaDemo" */;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 02A1193C268D39A700A2AC99;
+			packageReferences = (
+				02B588CA2DFBA7AD007E7026 /* XCRemoteSwiftPackageReference "orca" */,
+			);
+			productRefGroup = 02A11946268D39A700A2AC99 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				02A11944268D39A700A2AC99 /* OrcaDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		02A11943268D39A700A2AC99 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1DDE9B12DB9BFB50068F88C /* pre-build.sh in Resources */,
+				E18C9CC72DB071CA000157A3 /* orca_params_fr_female.pv in Resources */,
+				E18C9CC82DB071CA000157A3 /* orca_params_en_male.pv in Resources */,
+				E18C9CC92DB071CA000157A3 /* orca_params_de_male.pv in Resources */,
+				E18C9CCA2DB071CA000157A3 /* orca_params_it_female.pv in Resources */,
+				E18C9CCB2DB071CA000157A3 /* orca_params_pt_female.pv in Resources */,
+				E18C9CCC2DB071CA000157A3 /* orca_params_ja_male.pv in Resources */,
+				E18C9CCD2DB071CA000157A3 /* orca_params_es_male.pv in Resources */,
+				E18C9CCE2DB071CA000157A3 /* orca_params_ja_female.pv in Resources */,
+				E18C9CCF2DB071CA000157A3 /* orca_params_it_male.pv in Resources */,
+				E18C9CD02DB071CA000157A3 /* orca_params_ko_female.pv in Resources */,
+				E18C9CD12DB071CA000157A3 /* orca_params_pt_male.pv in Resources */,
+				E18C9CD22DB071CA000157A3 /* orca_params_es_female.pv in Resources */,
+				E18C9CD32DB071CA000157A3 /* orca_params_fr_male.pv in Resources */,
+				E18C9CB92DB07180000157A3 /* orca_params_de_female.pv in Resources */,
+				1E001B6A2B7D451200D8E72D /* orca_params_en_female.pv in Resources */,
+				02A1194D268D39AB00A2AC99 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		02A11941268D39A700A2AC99 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E125E1892BE99DCA008B6D56 /* AtomicBool.swift in Sources */,
+				E1C5A45F2BE587A2002C0C40 /* AudioPlayerStream.swift in Sources */,
+				02A1194B268D39A700A2AC99 /* ContentView.swift in Sources */,
+				02A1195F268D3FD600A2AC99 /* ViewModel.swift in Sources */,
+				02A11949268D39A700A2AC99 /* OrcaDemoApp.swift in Sources */,
+				1E001B682B76FFE700D8E72D /* AudioPlayer.swift in Sources */,
+				E1F1202C2DBACE5800E1F112 /* ValidateTextHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		02A11952268D39AB00A2AC99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		02A11953268D39AB00A2AC99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		02A11955268D39AB00A2AC99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 65723695GD;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = OrcaDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ai.picovoice.OrcaDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		02A11956268D39AB00A2AC99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 65723695GD;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = OrcaDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ai.picovoice.OrcaDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		02A11940268D39A700A2AC99 /* Build configuration list for PBXProject "OrcaDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02A11952268D39AB00A2AC99 /* Debug */,
+				02A11953268D39AB00A2AC99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		02A11954268D39AB00A2AC99 /* Build configuration list for PBXNativeTarget "OrcaDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02A11955268D39AB00A2AC99 /* Debug */,
+				02A11956268D39AB00A2AC99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		02B588CA2DFBA7AD007E7026 /* XCRemoteSwiftPackageReference "orca" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Picovoice/orca";
+			requirement = {
+				kind = exactVersion;
+				version = 1.2.0;
+			};
+		};
+		07F723572D6D594B0002D88F /* XCRemoteSwiftPackageReference "orca" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Picovoice/orca";
+			requirement = {
+				kind = exactVersion;
+				version = 1.1.2;
+			};
+		};
+		E1F352FE2D00ED5C0069B0E6 /* XCRemoteSwiftPackageReference "orca" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Picovoice/orca";
+			requirement = {
+				kind = exactVersion;
+				version = 1.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		02B588C62DF397A5007E7026 /* Orca */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Orca;
+		};
+		02B588CB2DFBA7AD007E7026 /* Orca */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02B588CA2DFBA7AD007E7026 /* XCRemoteSwiftPackageReference "orca" */;
+			productName = Orca;
+		};
+		0751D6632D6D46AA001EB29D /* Orca */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Orca;
+		};
+		07F723582D6D594B0002D88F /* Orca */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 07F723572D6D594B0002D88F /* XCRemoteSwiftPackageReference "orca" */;
+			productName = Orca;
+		};
+		1E7C0A412D84DA0700A5350A /* Orca */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 07F723572D6D594B0002D88F /* XCRemoteSwiftPackageReference "orca" */;
+			productName = Orca;
+		};
+		E109D1A22CFE4F380014F5AA /* Orca */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Orca;
+		};
+		E1F352FF2D00ED5C0069B0E6 /* Orca */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1F352FE2D00ED5C0069B0E6 /* XCRemoteSwiftPackageReference "orca" */;
+			productName = Orca;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 02A1193D268D39A700A2AC99 /* Project object */;
+}

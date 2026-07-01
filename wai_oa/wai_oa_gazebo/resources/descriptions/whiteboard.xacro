@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<robot name="whiteboard">
+
+    <material name="OA">
+        <color rgba="0.101960784 0.42745098 0.588235294 0.333"/>
+    </material>
+
+    <gazebo reference="link_base">
+        <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+    <gazebo>
+        <plugin name="gazebo_ros_template" filename="libgazebo_ros_template.so"/>
+    </gazebo>
+
+    <link name="link_base">
+        <visual>
+            <origin xyz="0.0 0.0 0.0"/>
+            <geometry>
+                <sphere radius="0.1"/>
+            </geometry>
+            <material name="OA"/>
+        </visual>
+        <visual>
+            <origin xyz="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://wai_oa_gazebo/resources/reps/whiteboard/whiteboard.dae"/>
+            </geometry>
+        </visual>
+        <inertial>
+            <origin xyz="0.1 0.0 1.0"/>
+            <mass value="10.0"/>
+            <inertia ixx="10.0" ixy="0.0" ixz="0.0" iyy="10.0" iyz="0.0" izz="10.0"/>
+        </inertial>
+    </link>
+
+</robot>

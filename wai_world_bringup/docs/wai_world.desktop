@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Exec=bash -i -c 'source /home/ias/.bashrc && roslaunch wai_world_bringup wai_world_bringup.launch oa_session_filename:=%F'
+Icon=/home/ias/catkin_ws/src/wai_world/wai_world_launcher/resources/icons/world_launcher_icon.png
+Terminal=true
+Type=Application
+Name=WAI World
+Comment=WAI World
+Name[en_US]=WAI World
+Comment[en_US]=WAI World

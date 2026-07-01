@@ -1,0 +1,28 @@
+#
+## Alias OBJ Material File
+# Exported from SketchUp, (c) 2000-2012 Trimble Navigation Limited
+
+newmtl Stone_Brushed_Khaki
+Ka 0.000000 0.000000 0.000000
+Kd 0.886275 0.772549 0.521569
+Ks 0.330000 0.330000 0.330000
+map_Kd link_ingenuity_solar_panel/Stone_Brushed_Khaki.jpg
+
+newmtl Blacktop_Old_01
+Ka 0.000000 0.000000 0.000000
+Kd 0.517647 0.533333 0.545098
+Ks 0.330000 0.330000 0.330000
+map_Kd link_ingenuity_solar_panel/Blacktop_Old_01.jpg
+
+newmtl Metal_Corrugated_Shiny
+Ka 0.000000 0.000000 0.000000
+Kd 0.756863 0.756863 0.756863
+Ks 0.330000 0.330000 0.330000
+map_Kd link_ingenuity_solar_panel/Metal_Corrugated_Shiny.jpg
+
+newmtl solalar_panel_top
+Ka 0.000000 0.000000 0.000000
+Kd 0.207843 0.164706 0.133333
+Ks 0.330000 0.330000 0.330000
+map_Kd link_ingenuity_solar_panel/solalar_panel_top.png
+

@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/pv_recorder.h
+stdbool.h
+-
+stdint.h
+-
+
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/test/test_helper.h
+stdarg.h
+-
+stdbool.h
+-
+stdio.h
+-
+stdlib.h
+-
+time.h
+-
+
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/test/test_pv_recorder.c
+string.h
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/test/string.h
+pv_recorder.h
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/test/pv_recorder.h
+test_helper.h
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/test/test_helper.h
+

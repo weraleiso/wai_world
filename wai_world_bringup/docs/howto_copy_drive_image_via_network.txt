@@ -1,0 +1,11 @@
+-----------------------------------------------------
+Howto copy a full drive image to a remote workstation
+-----------------------------------------------------
+
+1) Using netcat on your host, run (ipaddr/10.0.0.10 is the one of your remote workstation):
+cat /dev/sda | nc -n 10.0.0.10 10000
+
+On the remote workstation run:
+nc -l 10000 >/dev/sdc
+
+All commands are to be run as root. OpenBSD netcat is assumed to be your nc version there (can be found in LibreSSL), but others should work too.

@@ -1,0 +1,49 @@
+#include<wai_oa_image_processor.h>
+
+
+
+/////////////////////////////////////////////////
+/// Set new strategy when instatiating object
+/////////////////////////////////////////////////
+WAIOAImageProcessor::WAIOAImageProcessor(WAIOAImageProcessingStrategy* proc)
+{
+    m_processor = proc;
+}
+
+
+
+/////////////////////////////////////////////////
+/// Delete image pointer
+/////////////////////////////////////////////////
+WAIOAImageProcessor::~WAIOAImageProcessor()
+{
+    // Delete any istances
+}
+
+
+
+/////////////////////////////////////////////////
+/// Set Mat image to process
+/////////////////////////////////////////////////
+void WAIOAImageProcessor::SetProcessedImage(cv::Mat mat_img_to_process)
+{
+    m_mat_img=mat_img_to_process;
+}
+
+
+
+//////////////////////////////////////////////////////
+/// Actually process the image with selected strategy
+//////////////////////////////////////////////////////
+tf::Matrix3x3 WAIOAImageProcessor::Process()
+{
+     return m_processor->process(m_mat_img);
+}
+
+/////////////////////////////////////////////////
+/// Set processing strategy
+/////////////////////////////////////////////////
+void WAIOAImageProcessor::ChangeProcessingStrategy(WAIOAImageProcessingStrategy* strat)
+{
+     m_processor = strat;
+}

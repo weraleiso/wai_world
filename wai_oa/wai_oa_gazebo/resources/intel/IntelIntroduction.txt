@@ -1,0 +1,8 @@
+NAME: "Intel"
+ACTOR: AIS
+ROLE: Supporting
+MULTIPLICITY: 1
+VIS.REP.: Purely Virtual
+LOCATION: localhost
+PROCESS: 1 process (PID 1234)
+AI-FEATURES: NLP, Ethical Model

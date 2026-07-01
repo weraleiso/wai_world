@@ -1,0 +1,6 @@
+link_base:
+    camera_rviz: [-0.5,-1.5,3.0]
+    name: "Pendulum"
+    year: "Ancient Device"
+    specs: "Material: Wood and metal."
+    description: "Model of a simple physical pendulum."

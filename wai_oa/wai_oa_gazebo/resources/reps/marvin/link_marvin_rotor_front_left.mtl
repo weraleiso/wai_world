@@ -1,0 +1,10 @@
+#
+## Alias OBJ Material File
+# Exported from SketchUp, (c) 2000-2012 Trimble Navigation Limited
+
+newmtl Formica_Blue
+Ka 0.000000 0.000000 0.000000
+Kd 0.101961 0.427451 0.588235
+Ks 0.330000 0.330000 0.330000
+map_Kd link_marvin_rotor_front_left/Formica_Blue.png
+

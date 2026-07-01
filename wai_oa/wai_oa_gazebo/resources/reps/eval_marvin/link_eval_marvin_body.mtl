@@ -1,0 +1,58 @@
+#
+## Alias OBJ Material File
+# Exported from SketchUp, (c) 2000-2012 Trimble Navigation Limited
+
+newmtl Formica_Speckled_Grey
+Ka 0.000000 0.000000 0.000000
+Kd 0.368627 0.411765 0.435294
+Ks 0.330000 0.330000 0.330000
+map_Kd link_eval_marvin_body/Formica_Speckled_Grey.jpg
+
+newmtl Formica_Laminate_Light
+Ka 0.000000 0.000000 0.000000
+Kd 0.835294 0.741176 0.643137
+Ks 0.330000 0.330000 0.330000
+map_Kd link_eval_marvin_body/Formica_Laminate_Light.jpg
+
+newmtl Terrazzo_Light_Blue
+Ka 0.000000 0.000000 0.000000
+Kd 0.768627 0.839216 0.890196
+Ks 0.330000 0.330000 0.330000
+map_Kd link_eval_marvin_body/Terrazzo_Light_Blue.jpg
+
+newmtl Metal_Rusted
+Ka 0.000000 0.000000 0.000000
+Kd 1.000000 0.000000 0.000000
+Ks 0.330000 0.330000 0.330000
+map_Kd link_eval_marvin_body/Metal_Rusted.png
+
+newmtl Metal_Seamed
+Ka 0.000000 0.000000 0.000000
+Kd 1.000000 0.498039 0.000000
+Ks 0.330000 0.330000 0.330000
+map_Kd link_eval_marvin_body/Metal_Seamed.png
+
+newmtl Metal_Silver
+Ka 0.000000 0.000000 0.000000
+Kd 1.000000 1.000000 0.000000
+Ks 0.330000 0.330000 0.330000
+map_Kd link_eval_marvin_body/Metal_Silver.png
+
+newmtl Metal_Steel_Textured
+Ka 0.000000 0.000000 0.000000
+Kd 0.988235 0.996078 0.800000
+Ks 0.330000 0.330000 0.330000
+map_Kd link_eval_marvin_body/Metal_Steel_Textured.png
+
+newmtl Metal_Steel_Textured_White
+Ka 0.000000 0.000000 0.000000
+Kd 0.000000 1.000000 0.000000
+Ks 0.330000 0.330000 0.330000
+map_Kd link_eval_marvin_body/Metal_Steel_Textured_White.png
+
+newmtl logo
+Ka 0.000000 0.000000 0.000000
+Kd 0.501961 0.501961 0.501961
+Ks 0.000000 0.000000 0.000000
+map_Kd link_eval_marvin_body/logo.png
+

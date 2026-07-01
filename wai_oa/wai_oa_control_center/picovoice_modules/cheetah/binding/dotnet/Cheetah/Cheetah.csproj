@@ -1,0 +1,126 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFrameworks>net8.0;net6.0;netcoreapp3.0;netstandard2.0;</TargetFrameworks>
+        <Version>2.3.0</Version>
+        <Authors>Picovoice</Authors>
+        <Company />
+        <Product>Cheetah Speech-to-Text Engine</Product>
+        <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/Picovoice/cheetah</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/Picovoice/cheetah.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>Speech-to-Text, Speech Recognition, Voice Recognition, ASR</PackageTags>
+        <PackageReleaseNotes>See https://github.com/Picovoice/cheetah/ </PackageReleaseNotes>
+        <Copyright>Picovoice 2022-2025</Copyright>
+        <Description>
+            Cheetah is an on-device speech-to-text engine. Cheetah is:
+
+            - Private; All voice processing runs locally.
+            - Accurate
+            - Compact and Computationally-Efficient
+            - Cross-Platform: Linux (x86_64), macOS (x86_64, arm64), Windows (x86_64, arm64), Raspberry Pi (3, 4, 5)
+        </Description>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <PackageIcon>pv_circle_512.png</PackageIcon>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageId>$(Authors).$(AssemblyName)</PackageId>
+    </PropertyGroup>
+    <ItemGroup>
+        <Content Include="Picovoice.Cheetah.netstandard2.0.targets">
+            <PackagePath>
+                buildTransitive/netstandard2.0/Picovoice.Cheetah.targets;
+            </PackagePath>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Include="Picovoice.Cheetah.targets">
+            <PackagePath>
+                buildTransitive/netcoreapp3.0;
+                buildTransitive/net6.0;
+                buildTransitive/net8.0;
+            </PackagePath>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Include="..\..\..\lib\common\cheetah_params.pv">
+            <PackagePath>
+                buildTransitive/common/cheetah_params.pv;
+            </PackagePath>
+            <Link>lib\common\cheetah_params.pv</Link>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Include="..\..\..\lib\windows\amd64\libpv_cheetah.dll">
+            <PackagePath>
+                buildTransitive/netstandard2.0/libpv_cheetah.dll;
+                buildTransitive/netcoreapp3.0/lib/windows/amd64/libpv_cheetah.dll;
+                buildTransitive/net6.0/lib/windows/amd64/libpv_cheetah.dll;
+                buildTransitive/net8.0/lib/windows/amd64/libpv_cheetah.dll;
+            </PackagePath>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <Link>lib\windows\amd64\libpv_cheetah.dll</Link>
+            <Visible>false</Visible>
+        </Content>
+        <Content Include="..\..\..\lib\windows\arm64\libpv_cheetah.dll">
+            <PackagePath>
+                buildTransitive/net6.0/lib/windows/arm64/libpv_cheetah.dll;
+                buildTransitive/net8.0/lib/windows/arm64/libpv_cheetah.dll;
+            </PackagePath>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <Link>lib\windows\arm64\libpv_cheetah.dll</Link>
+            <Visible>false</Visible>
+        </Content>
+        <Content Include="..\..\..\lib\linux\x86_64\libpv_cheetah.so">
+            <PackagePath>
+                buildTransitive/net6.0/lib/linux/x86_64/libpv_cheetah.so;
+                buildTransitive/net8.0/lib/linux/x86_64/libpv_cheetah.so;
+            </PackagePath>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <Link>lib\linux\x86_64\libpv_cheetah.so</Link>
+            <Visible>false</Visible>
+        </Content>
+        <Content Include="..\..\..\lib\mac\x86_64\libpv_cheetah.dylib">
+            <PackagePath>
+                buildTransitive/netstandard2.0/libpv_cheetah.dylib;
+                buildTransitive/netcoreapp3.0/lib/mac/x86_64/libpv_cheetah.dylib;
+                buildTransitive/net6.0/lib/mac/x86_64/libpv_cheetah.dylib;
+                buildTransitive/net8.0/lib/mac/x86_64/libpv_cheetah.dylib;
+            </PackagePath>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <Link>lib\mac\x86_64\libpv_cheetah.dylib</Link>
+            <Visible>false</Visible>
+        </Content>
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="..\..\..\lib\raspberry-pi\**\*">
+            <PackagePath>
+                buildTransitive/net6.0/lib/raspberry-pi;
+                buildTransitive/net8.0/lib/raspberry-pi;
+            </PackagePath>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <Link>lib\raspberry-pi\%(RecursiveDir)%(Filename)%(Extension)</Link>
+            <Visible>false</Visible>
+        </Content>
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="..\..\..\lib\mac\arm64\libpv_cheetah.dylib">
+            <PackagePath>
+                buildTransitive/net6.0/lib/mac/arm64/libpv_cheetah.dylib;
+                buildTransitive/net8.0/lib/mac/arm64/libpv_cheetah.dylib;
+            </PackagePath>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <Link>lib\mac\arm64\libpv_cheetah.dylib</Link>
+            <Visible>false</Visible>
+        </Content>
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="Content\" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="Content\pv_circle_512.png">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
+        <None Include="..\README.md">
+            <Pack>True</Pack>
+            <PackagePath>README.md</PackagePath>
+        </None>
+    </ItemGroup>
+</Project>

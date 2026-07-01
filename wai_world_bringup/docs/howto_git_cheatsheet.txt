@@ -1,0 +1,14 @@
+ssh-keygen -t rsa -b 4096 -C "isop.alexander@gmail.com"
+gedit /home/ias/.ssh/id_rsa.pub
+--> Register SSH key on Github!
+
+
+git config --global user.email "isop.alexander@gmail.com"
+git config --global user.name "weraleiso"
+
+git init
+git remote add origin git@github.com:weraleiso/wai_world.git
+git add .
+git commit -m "Initial commit."
+git branch -m noetic
+git push --force --set-upstream origin noetic

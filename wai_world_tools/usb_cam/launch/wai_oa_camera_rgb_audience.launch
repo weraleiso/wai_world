@@ -1,0 +1,11 @@
+<launch>
+
+	<arg name="oa_audience_id" default="0"/>
+
+	<group ns="camera_rgb_in">
+        <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen">
+            <param name="camera_frame_id" value="workspace_audience_$(arg oa_audience_id)/link_camera_rgb"/>
+            <rosparam command="load" file="$(find usb_cam)/config/wai_oa_camera_rgb_audience.yaml"/>
+        </node>
+    </group>
+</launch>

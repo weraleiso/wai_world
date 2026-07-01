@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=wai_world_launcher.desktop
+Comment=WAI World Launcher
+Exec=bash -i -c 'source /home/ias/.bashrc && roslaunch wai_world_launcher wai_world_launcher.launch'
+Icon=/home/ias/catkin_ws/src/wai_world/wai_world_launcher/resources/icons/world_launcher_icon.png
+Terminal=true
+Type=Application
+Name[en_US]=wai_world_launcher.desktop
+Comment[en_US]=WAI World Launcher

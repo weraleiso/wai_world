@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Exec=bash -i -c 'source /home/ias/.bashrc && roslaunch wai_tello_driver wai_tello_driver.launch'
+Icon=/home/ias/catkin_ws/src/wai_world/wai_world_launcher/resources/icons/world_launcher_icon.png
+Terminal=true
+Type=Application
+Name=WAI Tello
+Comment=WAI Tello
+Name[en_US]=WAI Tello
+Comment[en_US]=WAI Tello

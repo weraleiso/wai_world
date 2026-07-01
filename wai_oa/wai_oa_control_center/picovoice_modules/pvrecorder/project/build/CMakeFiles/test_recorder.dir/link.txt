@@ -1,0 +1,1 @@
+/usr/bin/cc  -fvisibility=hidden -O3 -DNDEBUG   CMakeFiles/test_recorder.dir/test/test_pv_recorder.c.o  -o test_recorder  -Wl,-rpath,/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/build libpv_recorder.so 

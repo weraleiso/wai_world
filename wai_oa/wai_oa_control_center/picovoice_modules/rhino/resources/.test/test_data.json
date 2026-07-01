@@ -1,0 +1,137 @@
+{
+  "tests": {
+    "within_context": [
+      {
+        "language": "de",
+        "context_name": "beleuchtung",
+        "inference": {
+          "intent": "changeState",
+          "slots": {
+            "state": "aus"
+          }
+        }
+      },
+      {
+        "language": "en",
+        "context_name": "coffee_maker",
+        "inference": {
+          "intent": "orderBeverage",
+          "slots": {
+            "beverage": "americano",
+            "numberOfShots": "double shot",
+            "size": "medium"
+          }
+        }
+      },
+      {
+        "language": "es",
+        "context_name": "iluminación_inteligente",
+        "inference": {
+          "intent": "changeColor",
+          "slots": {
+            "location": "habitación",
+            "color": "rosado"
+          }
+        }
+      },
+      {
+        "language": "fr",
+        "context_name": "éclairage_intelligent",
+        "inference": {
+          "intent": "changeColor",
+          "slots": {
+            "color": "violet"
+          }
+        }
+      },
+      {
+        "language": "it",
+        "context_name": "illuminazione",
+        "inference": {
+          "intent": "spegnereLuce",
+          "slots": {
+            "luogo": "bagno"
+          }
+        }
+      },
+      {
+        "language": "ja",
+        "context_name": "sumāto_shōmei",
+        "inference": {
+          "intent": "ライト状態オフ",
+          "slots": {
+            "場所": "廊下"
+          }
+        }
+      },
+      {
+        "language": "ko",
+        "context_name": "seumateu_jomyeong",
+        "inference": {
+          "intent": "changeColor",
+          "slots": {
+            "color": "파란색"
+          }
+        }
+      },
+      {
+        "language": "pt",
+        "context_name": "luz_inteligente",
+        "inference": {
+          "intent": "ligueLuz",
+          "slots": {
+            "lugar": "cozinha"
+          }
+        }
+      },
+      {
+        "language": "zh",
+        "context_name": "simple_context_zh",
+        "inference": {
+          "intent": "shopping",
+          "slots": {
+            "vrucht": "香 蕉"
+          }
+        }
+      }
+    ],
+    "out_of_context": [
+      {
+        "language": "de",
+        "context_name": "beleuchtung"
+      },
+      {
+        "language": "en",
+        "context_name": "coffee_maker"
+      },
+      {
+        "language": "es",
+        "context_name": "iluminación_inteligente"
+      },
+      {
+        "language": "fr",
+        "context_name": "éclairage_intelligent"
+      },
+      {
+        "language": "it",
+        "context_name": "illuminazione"
+      },
+      {
+        "language": "ja",
+        "context_name": "sumāto_shōmei"
+      },
+      {
+        "language": "ko",
+        "context_name": "seumateu_jomyeong"
+      },
+      {
+        "language": "pt",
+        "context_name": "luz_inteligente"
+      },
+      {
+        "language": "zh",
+        "context_name": "simple_context_zh"
+      }
+    ]
+  }
+}

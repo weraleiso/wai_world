@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>rviz_vive_plugin_msgs</name>
+  <version>0.0.0</version>
+  <description>The rviz_vive_plugin_msgs package</description>
+  <maintainer email="denys.kotelovych@gmail.com">Denys Kotelovych</maintainer>
+  <license>TODO</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>message_generation</depend>
+  <depend>message_runtime</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+</package>

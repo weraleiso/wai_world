@@ -1,0 +1,45 @@
+#
+## Alias OBJ Material File
+# Exported from SketchUp, (c) 2000-2012 Trimble Navigation Limited
+
+newmtl Wood_Floor_Light
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.690196 0.498039
+Ks 0.330000 0.330000 0.330000
+map_Kd testlab/Wood_Floor_Light.jpg
+
+newmtl Wood_OSB
+Ka 0.000000 0.000000 0.000000
+Kd 0.941176 0.764706 0.478431
+Ks 0.330000 0.330000 0.330000
+map_Kd testlab/Wood_OSB.jpg
+
+newmtl FrontColor
+Ka 0.000000 0.000000 0.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.330000 0.330000 0.330000
+
+newmtl grid_1m_new
+Ka 0.000000 0.000000 0.000000
+Kd 0.701961 0.701961 0.701961
+Ks 0.330000 0.330000 0.330000
+map_Kd testlab/grid_1m_new.png
+
+newmtl Wax_02
+Ka 0.000000 0.000000 0.000000
+Kd 0.678431 0.800000 0.639216
+Ks 0.330000 0.330000 0.330000
+map_Kd testlab/Wax_02.jpg
+
+newmtl Plastic_Red
+Ka 0.000000 0.000000 0.000000
+Kd 0.960784 0.494118 0.003922
+Ks 0.330000 0.330000 0.330000
+map_Kd testlab/Plastic_Red.jpg
+
+newmtl Metal_Rusted
+Ka 0.000000 0.000000 0.000000
+Kd 0.721569 0.458824 0.356863
+Ks 0.330000 0.330000 0.330000
+map_Kd testlab/Metal_Rusted.jpg
+

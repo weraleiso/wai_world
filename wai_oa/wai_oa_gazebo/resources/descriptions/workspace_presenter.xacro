@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+
+<robot name="workspace_presenter" xmlns:xacro="https://www.ros.org/wiki/xacro">
+
+    <xacro:arg name="workspace_presenter_model" default="workspace_presenter"/>
+    <xacro:property name="workspace_presenter_model" value="$(arg workspace_presenter_model)"/>
+
+    <material name="OA">
+        <color rgba="0.101960784 0.42745098 0.588235294 0.333"/>
+    </material>
+
+    <gazebo reference="link_base">
+        <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+    <gazebo>
+        <plugin name="gazebo_ros_template" filename="libgazebo_ros_template.so">
+            <TFpubInterval>0.1</TFpubInterval> <!-- But uses way more bandwidth due to TF! -->
+        </plugin>
+    </gazebo>
+
+    <link name="link_base">
+        <visual>
+            <origin xyz="0.0 0.0 0.0"/>
+            <geometry>
+                <sphere radius="0.1"/>
+            </geometry>
+            <material name="OA"/>
+        </visual>
+        <visual>
+            <origin xyz="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://wai_oa_gazebo/resources/reps/${workspace_presenter_model}/${workspace_presenter_model}.dae"/>
+            </geometry>
+        </visual>
+        <inertial>
+            <origin xyz="0.0 0.0 0.0"/>
+            <mass value="1.0"/>
+            <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0"/>
+        </inertial>
+    </link>
+
+</robot>

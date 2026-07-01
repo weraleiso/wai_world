@@ -1,0 +1,10 @@
+#
+## Alias OBJ Material File
+# Exported from SketchUp, (c) 2000-2012 Trimble Navigation Limited
+
+newmtl B_JK_12_M_111_b1_copy1
+Ka 0.000000 0.000000 0.000000
+Kd 0.839216 0.686275 0.454902
+Ks 0.330000 0.330000 0.330000
+map_Kd vase/B_JK_12_M_111_b1_copy1.jpg
+

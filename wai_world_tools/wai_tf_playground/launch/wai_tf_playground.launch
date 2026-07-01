@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+	<node pkg="wai_tf_playground" type="wai_tf_playground_node" name="wai_tf_playground_node" output="screen">
+		<rosparam file="$(find wai_tf_playground)/config/wai_tf_playground.yaml" command="load" />
+	</node>
+</launch>

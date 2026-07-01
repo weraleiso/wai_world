@@ -1,0 +1,11 @@
+y --> -2.25
+x --> per row -2.5
+from table midpoint to table midpoint 1.5
+table LxWxH 1.0 x 0.75 0.75
+from projector to listener 1.0m
+
+larger zone: 9, 3.75, 0
+d=6
+
+smaller zone: 6, -2.25, 0
+d=3

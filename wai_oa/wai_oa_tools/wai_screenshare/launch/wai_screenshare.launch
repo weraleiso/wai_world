@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+	<node pkg="wai_screenshare" type="wai_screenshare_node" name="wai_screenshare_node" output="screen">
+		<rosparam file="$(find wai_screenshare)/config/wai_screenshare.yaml" command="load" />
+	</node>
+</launch>

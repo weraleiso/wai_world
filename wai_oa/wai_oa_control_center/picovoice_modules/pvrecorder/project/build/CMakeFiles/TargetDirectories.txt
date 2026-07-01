@@ -1,0 +1,12 @@
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/build/CMakeFiles/rebuild_cache.dir
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/build/CMakeFiles/test_recorder.dir
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/build/CMakeFiles/edit_cache.dir
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/build/CMakeFiles/test.dir
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/build/CMakeFiles/pv_recorder.dir
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/build/CMakeFiles/test_circular_buffer.dir
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/build/CMakeFiles/pv_recorder_object.dir
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/build/node/CMakeFiles/rebuild_cache.dir
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/build/node/CMakeFiles/edit_cache.dir
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/build/node/CMakeFiles/test.dir
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/build/node/CMakeFiles/pv_recorder_napi.dir
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/build/node/CMakeFiles/node_headers.dir

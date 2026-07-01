@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+
+<robot name="intel" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- ========== -->
+    <!-- PROPERTIES -->
+    <!-- ========== -->
+
+    <xacro:property name="M_PI" value="3.1415926535897931"/>
+
+    <xacro:arg name="sensor_update_rate" default="25.0"/>
+    <xacro:arg name="controller_update_rate" default="50.0"/>
+	<xacro:property name="sensor_update_rate" value="$(arg sensor_update_rate)"/>
+	<xacro:property name="controller_update_rate" value="$(arg controller_update_rate)"/>
+
+
+
+    <!-- ========= -->
+    <!-- MATERIALS -->
+    <!-- ========= -->
+
+    <material name="OA">
+        <color rgba="0.101960784 0.42745098 0.588235294 0.333"/>
+    </material>
+
+
+
+    <!-- ======= -->
+    <!-- PLUGINS -->
+    <!-- ======= -->
+
+	<gazebo>
+		<plugin name="gazebo_ros_template" filename="libgazebo_ros_template.so"/>
+	</gazebo>
+
+
+
+    <!-- ============= -->
+	<!-- === LINKS === -->
+    <!-- ============= -->
+
+	<link name="link_base">
+        <visual>
+            <origin xyz="0.0 0.0 0.0"/>
+            <geometry>
+                <sphere radius="0.1"/>
+            </geometry>
+            <material name="OA"/>
+        </visual>
+	</link>
+
+    <link name="link_intel_body">
+		<inertial>
+			<origin xyz="0.125 0.0 1.0" rpy="0.0 0.0 0.0"/>
+			<mass value="1.0"/>
+			<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+		</inertial>
+		<collision>
+			<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+			<geometry>
+                <mesh filename="package://wai_oa_gazebo/resources/reps/intel/link_intel_body.dae"/>
+			</geometry>
+		</collision>
+		<visual>
+			<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://wai_oa_gazebo/resources/reps/intel/link_intel_body.dae"/>
+			</geometry>
+		</visual>
+    </link>
+
+    <link name="link_intel_display">
+    </link>
+
+
+    <!-- ============== -->
+	<!-- === JOINTS === -->
+    <!-- ============== -->
+
+	<joint name="joint_intel_body" type="fixed">
+        <parent link="link_base"/>
+        <child link="link_intel_body"/>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <axis xyz="0 0 1"/>
+	</joint>
+
+	<joint name="joint_intel_display" type="fixed">
+        <parent link="link_base"/>
+        <child link="link_intel_display"/>
+        <origin xyz="0.255 0.0 1.3125" rpy="1.570796327 0.0 1.570796327"/>
+	</joint>
+
+</robot>

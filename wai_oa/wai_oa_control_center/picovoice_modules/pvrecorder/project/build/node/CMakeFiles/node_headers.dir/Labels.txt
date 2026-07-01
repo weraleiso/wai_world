@@ -1,0 +1,13 @@
+# Target labels
+ node_headers
+# Source files and their labels
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/build/node/CMakeFiles/node_headers
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/build/node/CMakeFiles/node_headers.rule
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/build/node/CMakeFiles/node_headers-complete.rule
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/build/node/node_headers-prefix/src/node_headers-stamp/node_headers-install.rule
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/build/node/node_headers-prefix/src/node_headers-stamp/node_headers-mkdir.rule
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/build/node/node_headers-prefix/src/node_headers-stamp/node_headers-download.rule
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/build/node/node_headers-prefix/src/node_headers-stamp/node_headers-update.rule
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/build/node/node_headers-prefix/src/node_headers-stamp/node_headers-patch.rule
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/build/node/node_headers-prefix/src/node_headers-stamp/node_headers-configure.rule
+/home/ias/picovoice_ws/src/wai_picovoice/picovoice_modules/pvrecorder_new/project/build/node/node_headers-prefix/src/node_headers-stamp/node_headers-build.rule

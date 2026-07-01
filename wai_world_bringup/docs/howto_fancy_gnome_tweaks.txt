@@ -1,0 +1,11 @@
+# Show battery percentage
+gsettings set org.gnome.desktop.interface show-battery-percentage true
+
+# Disable sleep when inactive
+gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'nothing'
+gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-timeout 0
+gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type 'nothing'
+gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-timeout 0
+
+# Disable sleep and hybernation
+sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target

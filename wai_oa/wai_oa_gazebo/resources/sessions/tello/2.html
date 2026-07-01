@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>Open Auditorium</title>
+        <meta charset="UTF-8"/>
+        <meta name="description" content="HTML-Presentation"/>
+        <meta name="keywords" content="HTML, CSS, Presentation, Slide"/>
+        <meta name="author" content="W. A. Isop"/>
+        <meta http-equiv="refresh" content="3"/>
+        <link rel="stylesheet" href="css/style.css"/>
+    </head>
+
+    <body onload="UpdateSlideNumber();UpdateDate()">
+
+        <div class="frame">
+
+            <header id="js_header">DJI Ryze Tello</header>
+
+            <nav>
+                <button id="btn_slide_number" onClick="GotoSlideNumber()">#</button>
+                <button id="btn_previous" onClick="GotoPrevious()">&#8612; Previous</button>
+                <button id="btn_next" onClick="GotoNext()">Next &#8614;</button>
+                <button id="btn_title" onClick="GotoTitle()"><b>Title</b></button>
+                <button id="btn_overview" onClick="GotoOverview()"><b>Overview</b></button>
+                <button id="btn_references" onClick="GotoBibliography()"><b>Bibliography</b></button>
+                Date:<button id="btn_date" onClick="GotoCalendar()">Current Date</button>
+            </nav>
+
+            <main id="js_main">
+                <div class="layout_content_one_column">
+                    <div class="layout_content_header"><h2>ÜBERBLICK</h2></div>
+                    <section>
+                        <ol type="1">
+                            <li>ENGAGE - Was macht die Ryze Tello Drohne aus?</li>
+                            <li>EXPLORE - Was hat sie für EIGENSCHAFTEN und VERHALTEN?</li>
+                            <li>EXPLAIN - Wie kann man sie programmieren?</li>
+                            <li>ELABORATE - Wie kann man sie fliegen?</li>
+                        </ol>
+                    </section>
+                </div>
+            </main>
+
+            <footer>
+                <img id="img_logo_footer" src="images/logo.png" alt="Ah, snap! This image is not available..." height="75%"/>
+                |Slide:<input type="text" id="txt_filename" size="1"/>| Presented with OA ■ Created 2019, by W. A. Isop
+            </footer>
+        </div>
+
+        <script src="javascript/script.js"></script>
+
+        <notes hidden="true">
+            camera: [-0.17591,-0.45107,1.3054, 0.94926,0.11487,0.8]
+            camera_link: world
+            teleprompter: 'Hallo und herzlich willkommen in der Abteilung Elektronik. Mein Name ist Professor Isop und ich unterrichte gemeinsam mit zwei Kollegen den schulautonomen Schwerpunkt Robotik. Elektronik ist heutzutage wichtiger denn je weil alles was an Software irgendwie laufen muss braucht auch entsprechende Hardware. Sprich Elektronik ist eigentlich die Grundlage dafuer um ueberhaupt etwas zu programmieren. Unter anderem natuerlich auch Roboter und KI. Und um euch dazu etwas zu zeigen haben wir fuer euch zwei Roboter vorbereitet. Einmal einen fliegenden Roboter und einmal einen fahrenden Roboter. Beim fliegenden Roboter geht es um den kleinen aber feinen Ryze Tello Quadcopter. Dieser ist klein, leicht, einfach zu fliegen und kostet nur etwa 150eur. Beim fahrenden Roboter geht es um das Elegoo Smart Robot Car 40. Dieser ist ebenfalls sehr guenstig mit Kosten um die 75eur. Mehr technische Details werden euch dann noch die Schueler erklaeren die uns heute lobenswerterweise unterstuezten. Und damit geht es mit dem Tutorial weiter wo ihr schrittweise lernt wie man den Quadcopter programmieren und steuern kann.'
+            virtual_presenter: tello_introduction
+            table: true
+        </notes>
+
+    </body>
+
+</html>
